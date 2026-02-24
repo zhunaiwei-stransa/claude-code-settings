@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "plugins": {
+    "document-skills@anthropic-agent-skills": {
+      "version": "unknown",
+      "installedAt": "2026-02-20T05:45:49.974Z",
+      "lastUpdated": "2026-02-20T05:45:49.974Z",
+      "installPath": "/Users/user40010308/.claude/plugins/marketplaces/anthropic-agent-skills/",
+      "gitCommitSha": "1ed29a03dc852d30fa6ef2ca53a67dc2c2c2c563",
+      "isLocal": true
+    }
+  }
+}
