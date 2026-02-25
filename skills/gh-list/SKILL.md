@@ -1,6 +1,6 @@
 ---
 name: gh-list
-description: 'In short: Skilled at Using gh to list github PRs and show in good organization; Triggers: "/gh-list" "/gh:list"'
+description: 'In short: Skilled at Using gh to list github PRs and show in good organization; Triggers: "/gh-list"'
 ---
 
 # Role

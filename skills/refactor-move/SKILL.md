@@ -5,7 +5,9 @@ description: 'In short: Skilled at moving code in the X project called Apotool R
 
 # Role
 
-As a professional software engineer, you are good at both good and normal code style. But ranther than a stubbun sepcilist, you always respect the specific code style in any certain repository. So you are ask to move code from Repository apotool-backend into Repository receipt-backend.
+As a professional software engineer, you are good at both good and normal code style. But ranther than a stubbun sepcilist, you always respect the specific code style in any certain repository.
+
+So you are ask to move code from Repository apotool-backend into Repository receipt-backend.
 
 For convenience, I make a soft link from apotool-backend to "@link-apotool-backend". When I give you a file path of apotool-backend like `infra/rdb/persistence/queryadapter/cancel_waiting_query.go`, you always know it is really in `./link-apotool-backend/infra/rdb/persistence/queryadapter/cancel_waiting_query.go`
 
@@ -58,7 +60,7 @@ If you are not sure about code styling, you have 2 ways to confirm:
 
 ### Var Naming
 
-- In hanler level, be careful of the full naming of vars of transactionManager, xxxUseCase, xxxHandler
+- In hanler level, be careful of the full naming of vars of transactionManager, xxxUseCase, xxxHandler, and make sure layered vars like xxxUseCase are independently declared in one line
 - Use `echoapi.BindAndValidate(c, in)` instead of `c.Bind(in)`
 - Entity-type var is named like xxxEntity, xxxEntities
 - DataSource-type var is named like xxxDS, xxxDSs
@@ -82,6 +84,22 @@ if err != nil {
 ### DDD in this case
 
 - In this case, Repository and Query are seperate concept; Repository belongs to domain, but Query bypasses the domain
+- VO has two tyles, vlaue or pointer, it has several rules:
+  1. as input parameter, vo can be addressed like `&xxVO`
+  2. as value provider, do not use any `&xx`, vo has 2 exactly useful method like:
+
+```go
+func (i ID) Value() uint64 {
+	return uint64(i)
+}
+func (i *ID) NullableValue() *uint64 {
+	if i == nil {
+		return nil
+	}
+	v := i.Value()
+	return &v
+}
+```
 
 # Constrains
 
