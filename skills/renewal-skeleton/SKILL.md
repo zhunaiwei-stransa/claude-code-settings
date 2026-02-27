@@ -17,11 +17,12 @@ Arguments will imply what layers you might work with. It might containers severa
 
 1. API(required): The API that we want to implement, it is not full path but contains necessary information; `example: /reservations/:id/cancels`
 2. Router(optional): use file path to hint that work starts with this path from top to down
-2. Entity(optional): use file path to hint that work starts with this path from botton to up
-2. Hanlder(default): default to create hanlder layer skeleton
-2. UseCase(default): default to create usecase layer skeleton
-2. Query(optional): use keywork `query` to hint work with layer: query
-2. Domain(optional): use keywork `domain` to hint work with layers: domain, vo, repository
+3. Entity(optional): use file path to hint that work starts with this path from botton to up
+4. Hanlder(default): default to create hanlder layer skeleton
+5. UseCase(default): default to create usecase layer skeleton
+6. Query(optional): use keywork `query` to hint work with layer: query
+7. Domain(optional): use keywork `domain` to hint work with layers: domain, vo, repository
+8. Instruction(optional): at last, user may give more detailed instuction to direct you to finish some work
 
 
 In conclusion, the arguments may look like:
