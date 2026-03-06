@@ -11,6 +11,7 @@ package psproducthandler
 
 type fetchPsSuggestionForPrintHandler struct {
 	fetchPsSuggestionForPrintUseCase psproductusecase.FetchPsSuggestionForPrintUseCase
+	fetchPsSuggestionForPrintUseCase psproductusecase.FetchPsSuggestionForPrintUseCase
 }
 
 func NewFetchPsSuggestionForPrintHandler(
@@ -49,14 +50,16 @@ func (h *fetchPsSuggestionForPrintHandler) FetchPsSuggestionForPrint(c *echo.Con
 ### code 2: input
 
 ```go
-// apps/calendar/internal/usecase/psproductusecase/psproductinput/fetch_ps_suggestion_for_print.go
+// apps/calendar/internal/usecase/timelineusecase/timelineinput/fetch_daily.go
 
-package psproductinput
+package timelineinput
 
-type FetchPsSuggestionForPrintInput struct {
-	OfficeID  uint64
-	PatientID uint64 `query:"patient-id" validate:"required"`
-	Date      string `query:"date"       validate:"timeDate"`
+type FetchDailyInput struct {
+	OfficeID uint64
+	Date     string                  `query:"date" validate:"required,timeDate"`
+	RawIDs   string                  `query:"ids"`
+
+	IDs []uint64
 }
 ```
 
@@ -70,7 +73,7 @@ package psproductoutput
 import "github.com/stransa-co-ltd/receipt-backend/apps/calendar/internal/query/psproductquery"
 
 type FetchPsSuggestionsOutput struct {
-	PsSuggestion      *FetchPsSuggestionsItem      `json:"psSuggestion,omitempty"`
+	PsSuggestion      *FetchPsSuggestionsItem      `json:"psSuggestion"`
 	PsSuggestionLines []FetchPsSuggestionsLineItem `json:"psSuggestionLines"`
 }
 
@@ -81,7 +84,7 @@ type FetchPsSuggestionsItem struct {
 
 type FetchPsSuggestionsLineItem struct {
 	ID          uint64 `json:"id"`
-	PsProductID uint64 `json:"psProductID"`
+	PsProductID uint64 `json:"psProductId"`
 }
 ```
 
@@ -91,3 +94,6 @@ type FetchPsSuggestionsLineItem struct {
 2. handle function process: officeID, in, echoapi.BindAndValidate, out, c.JSON
 3. input defined in input pkg
 4. output defined in output pkg
+5. Id in json tag name is always Id, not ID, while for go lint, Go naming sholud be like ID
+6. For input object, value type must have validate:"required"; But bool value no need, for example: PrivateExpense bool `json:"privateExpense"``
+7. For input object, some params need second time pared, they are in the below area of input struct. And most importantly, they are all pared in the handler layer and asigned to in var, and return httperror if parsed failed

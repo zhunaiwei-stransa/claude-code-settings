@@ -1,0 +1,98 @@
+    // MedicalBoxNote契約かつ未定未登録の場合は予約依頼情報取得
+            if(!empty($this->viewVars['my_contract']['subkarte_valid'])) {
+                $unhandledRequest = $this->ReservationRequest->findUnhandledDetailOfTodayForPatient($office_id, $patient_id);
+                if(!empty($unhandledRequest)) {
+                    $recall_result['Recall']['staff_id'] = $unhandledRequest['staff_id'];
+                    $recall_result['Recall']['reservation_start_date'] = $unhandledRequest['next_reservation_date'];
+                }
+            }
+    
+    public function findUnhandledDetailOfTodayForPatient($officeId, $patientId) {
+        $today = date(MYSQL_DATE);
+
+        $detail = $this->find(
+            'first',
+            [
+                'fields' => [
+                    'ReservationRequestDetail.staff_id',
+                    'ReservationRequestDetail.next_reserv_value',
+                    'ReservationRequestDetail.next_reserv_unit',
+                    'ReservationRequestDetail.created_at',
+                ],
+                'conditions' => [
+                    'ReservationRequest.office_id' => $officeId,
+                    'ReservationRequest.patient_id' => $patientId,
+                    'ReservationRequest.request_date' => $today,
+                    'ReservationRequest.deleted_at' => null,
+                ],
+                'joins' => [
+                    [
+                        'type' => 'INNER',
+                        'table' => 'reservation_request_details',
+                        'alias' => 'ReservationRequestDetail',
+                        'conditions' => [
+                            'ReservationRequestDetail.reservation_request_id = ReservationRequest.id',
+                            'ReservationRequestDetail.office_id = ReservationRequest.office_id',
+                            'ReservationRequestDetail.deleted_at' => null,
+                        ]
+                    ],
+                ],
+            ]
+        );
+
+        if(!empty($detail)) {
+            $detail = $detail['ReservationRequestDetail'];
+
+            $handledId = ClassRegistry::init('Reservation')->field(
+                'id',
+                [
+                    'office_id' => $officeId,
+                    'patient_id' => $patientId,
+                    'starts_at >' => $detail['created_at'],
+                    'created_at >' => $detail['created_at'],
+                    'block' => 0,
+                ]
+            );
+
+            if(empty($handledId)) {
+                $handledId = ClassRegistry::init('SuspendedReservation')->field(
+                    'id',
+                    [
+                        'office_id' => $officeId,
+                        'patient_id' => $patientId,
+                        'created_at >' => $detail['created_at'],
+                        'deleted_at' => null,
+                    ]
+                );
+            }
+    
+            if(empty($handledId)) {
+                $handledId = ClassRegistry::init('Recall')->field(
+                    'id',
+                    [
+                        'office_id' => $officeId,
+                        'patient_id' => $patientId,
+                        'created_at >' => $detail['created_at'],
+                        'deleted_at' => null,
+                    ]
+                );
+            }
+
+            if(empty($handledId)) {
+                $nextResvDate = null;
+                $nextResvDtObj = DateTime::createFromFormat(MYSQL_DATETIME, $detail['created_at'], new DateTimeZone('UTC'));
+                if($nextResvDtObj) {
+                    $nextResvDtObj->setTimezone(new DateTimeZone('Asia/Tokyo'));
+                    $nextResvDtObj->modify('+' . $detail['next_reserv_value'] . $detail['next_reserv_unit']);
+                    $nextResvDate = $nextResvDtObj->format(MYSQL_DATE);
+                }
+
+                return [
+                    'staff_id' => $detail['staff_id'],
+                    'next_reservation_date' => $nextResvDate,
+                ];
+            }
+        }
+
+        return null;
+    }

@@ -62,4 +62,7 @@ func (i *ID) NullableValue() *uint64 {
 1. vo is a wrapper of underlying type in datasource field
 2. New$Voname always return (vo, error)
 3. NewNullable$Voname always return (*vo, error)
-4. Value() and NullableValue() to get underlying value
+4. New retuned err is a errors.New var like example
+5. Value() and NullableValue() to get underlying value
+6. If this vo is used in entity in pointer, you must generate NewNullable$Voname function
+7. When you want to create a *vo, you may confused that use New and get address or use NewNullable, there is a preference that if you do not need vo value outside, use NewNullable directly to make code simple

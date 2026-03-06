@@ -15,7 +15,13 @@ Now add json tag for Go struct, obeying the constrains.
 
 struct location of file path: $ARGUMENTS
 
-### Step 2: Do tagging
+### Step 2: Knowledge in need
+
+### Knowledge 2.2: Focus on DDD level: Hander
+
+- Read references if needed: `references/handler.md`
+
+### Step 3: Do tagging
 
 In the file, the root struct usally names endding with `Output`. Tag all the structs rooting from this struct. The json tag name is exactly inferenced from the field name, thanks to the Go snake naming convention.
 
@@ -27,5 +33,7 @@ There are some other things you can help when doing:
 # Constrains
 
 - No matter whether type is pointer, do not use omitempty tag 
+- Must make sure json tag is lowerCamelCase like `psProductID`.
 - Human reading frindly output in markdown format
+- Do your best effort to make sure code can be compiled succfully
 - Language: English!

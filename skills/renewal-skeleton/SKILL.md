@@ -15,7 +15,7 @@ Now according to the arguments, do job in initializing pkgs and files skeleton, 
 
 Arguments will imply what layers you might work with. It might containers several hints:
 
-1. API(required): The API that we want to implement, it is not full path but contains necessary information; `example: /reservations/:id/cancels`
+1. API(optional): The API that we want to implement, it is not full path but contains necessary information; `example: /reservations/:id/cancels`
 2. Router(optional): use file path to hint that work starts with this path from top to down
 3. Entity(optional): use file path to hint that work starts with this path from botton to up
 4. Hanlder(default): default to create hanlder layer skeleton
@@ -23,7 +23,7 @@ Arguments will imply what layers you might work with. It might containers severa
 6. Query(optional): use keywork `query` to hint work with layer: query
 7. Domain(optional): use keywork `domain` to hint work with layers: domain, vo, repository
 8. Instruction(optional): at last, user may give more detailed instuction to direct you to finish some work
-
+9. Service(optional): use keywork `service` to hint work with layer: service, service co-operate with usecase
 
 In conclusion, the arguments may look like:
 
@@ -52,16 +52,21 @@ code references index:
 - `references/datasource.md`
 - `references/repository.md`
 - `references/query.md`
+- `references/service.md`
 
 There are some special rules for some layers:
 
 - Layer Repository: 
-1. Skeleton Never generate real code to implemenet DAL interface, instead it use panic("TODO") to tell engineer to write code themselves.
+1. Skeleton Never generate real code to implemenet Repository interface, instead it use `panic("TODO")` to tell engineer to write code themselves.
 
 - Layer Query:
-1. Skeleton Never generate real code to implemenet DAL interface, instead it use panic("TODO") to tell engineer to write code themselves.
+1. Skeleton Never generate real code to implemenet Query interface, instead it use `panic("TODO")` to tell engineer to write code themselves.
+
+- Layer UseCase:
+1. `panic("TODO")` sholud be never used in this kind of "business logic" layer, do all your best in usecase later.
 
 # Constrains
 
 - Human reading frindly output in markdown format
+- Do your best effort to make sure code can be compiled succfully
 - Language: English!

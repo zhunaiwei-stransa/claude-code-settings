@@ -184,9 +184,13 @@ func GenPsSuggestionForCreate(
 
 ## Points and pitfalls
 
-1. one entity one file
+1. one entity one file, every filed of entity must be a vo
 2. new$Entityname is the only way to initial a entity, params are vo
-3. getter's name is the Captitaled field name
+3. getter's name is the Captitaled field name, they should be well formated in Go normal way, should not be compacted into one line.
 4. Reconstruct$Entityname is the way to use underlying type instead of vo to call new$Entityname
 5. Create API use Gen$EntitynameForCreate to create entity in memory
 6. In entity, a filed is a value or pointer is strongly consistent with the datasource filed
+
+## Constrains
+
+1. Never change updatedAt in memory, it will be done in Repository

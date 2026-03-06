@@ -58,4 +58,5 @@ Current git log:
 - No need to think about testing
 - Be precise and accurate on reporting, avoding cliche and long teaching
 - Human reading frindly output in markdown format
+- Do your best effort to make sure code can be compiled succfully
 - Language: English!

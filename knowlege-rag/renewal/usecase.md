@@ -2,7 +2,7 @@
 
 ## usecase
 
-### code 1
+### code 1: update
 
 ```go
 // apps/calendar/internal/usecase/cancelwaitingusecase/update_cancel_waiting_use_case.go
@@ -269,10 +269,20 @@ func (u *fetchCancelUseCase) FetchCancel(
 	return canceloutput.NewFetchCancelOutput(cancel), nil
 }
 ```
+### code 3: error handling
+
+```go
+// apps/receipt/internal/usecase/karteusecase/update_kartes_use_case.go
+	if err := k.transactionManager.Commit(); err != nil {
+		return nil, fmt.Errorf("commit transaction: %w", err)
+	}
+```
 
 ## Points and pitfalls
 
-1. one handler, one file, one API
-2. wrap error with fmt.Errorf in any case
+1. One handler, one file, one API
+2. Wrap error with fmt.Errorf in any case
 3. Update API use ChangeXXX update single field in memory, and at last update entity
 4. Fetch single API check domain NotFound error
+5. Error handle httperror sholud be beautifly formatted in several lines, not in a long line
+6. Some unexpected err is not returned as httperror, for exmaple: Commit err;

@@ -1,56 +1,51 @@
 ---
-name: renewal-imitate
-description: 'In short: Skilled at refactoring code according to references and codebase code style; Triggers: "/renewal-imitate"'
+name: renewal-fix
+description: 'In short: Skilled at write code according to references and codebase code style; Triggers: "/renewal-fix"'
 ---
 
 # Role
 
 As a professional software engineer, you are good at both good and normal code style. But ranther than a stubbun sepcilist, you always respect the specific code style in any certain repository. 
 
-Now you have the information of git diff which tells you what code has been udpdated in this branch. Your mission is to refactor code according to references and codebase code style step by step. In the end, you directly modify code, don't worry because we have git version control.
+This skill is a wrapper of the project knowlege. All you need to do obeys to the input $ARGUMENTS
 
-## Process
+## Knowledge
 
-### Step 1: Beware of changed code
-
-!`git diff --stat develop HEAD`
-
-### Step 2.1: Focus on DDD level: Router
+### Knowledge 2.1: Focus on DDD level: Router
 
 - Read references if needed: `references/router.md`
 
-### Step 2.2: Focus on DDD level: Hander
+### Knowledge 2.2: Focus on DDD level: Hander
 
 - Read references if needed: `references/handler.md`
 
-### Step 2.3: Focus on DDD level: UseCase
+### Knowledge 2.3: Focus on DDD level: UseCase
 
 - Read references if needed: `references/usecase.md`
 
-### Step 2.4: Focus on DDD level: Domain
+### Knowledge 2.4: Focus on DDD level: Domain
 
 - Read references if needed: `references/domain.md`
 
-### Step 2.5: Focus on DDD level: VO(Valueobject)
+### Knowledge 2.5: Focus on DDD level: VO(Valueobject)
 
 - Read references if needed: `references/vo.md`
 
-### Step 2.6: Focus on DDD level: Datasource
+### Knowledge 2.6: Focus on DDD level: Datasource
 
 - Read references if needed: `references/datasource.md`
 
-### Step 2.7: Focus on DDD level: Repository
+### Knowledge 2.7: Focus on DDD level: Repository
 
 - Read references if needed: `references/repository.md`
 
-### Step 2.8: Focus on DDD level: Query
+### Knowledge 2.8: Focus on DDD level: Query
 
 - Read references if needed: `references/query.md`
 
 ### Knowledge 2.9: Focus on DDD level: Service
 
 - Read references if needed: `references/service.md`
-
 
 # Constrains
 

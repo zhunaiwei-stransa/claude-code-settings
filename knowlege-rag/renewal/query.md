@@ -113,4 +113,5 @@ func (a *PatientQuery) getPatientAggrForEditProfile(
 
 1. Query is defined in independent pkg, and implemented in package queryimpl
 2. Repository and Query are seperate concept; Repository belongs to domain, but Query bypasses the domain
-3. Query impl may use join, as office_id is an important id to avoid data misquery, so we must write redundant code to check tableMain.office_id = tableSub.office_id. But not every table has column office_id, you can check this in datasource pkg.
+3. Query impl may use join, as office_id is an important id to avoid data misquery, so we must write redundant code to check tableMain.office_id = tableSub.office_id. But not every table has column office_id, you can check this in datasource pkg
+4. For query pkg, xxx_item.go is usually only one

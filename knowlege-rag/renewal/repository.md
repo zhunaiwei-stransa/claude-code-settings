@@ -112,7 +112,7 @@ func (r *cancelWaitingRepository) UpdateCancelWaiting(
 		Where("office_id = ?", cancelWaitingDS.OfficeID).
 		Where("id = ?", cancelWaitingDS.ID).
 		Set(clause.Assignments(map[string]any{
-			"updated_at":    cancelWaitingDS.UpdatedAt,
+			"updated_at":    time.Now().UTC(),
 			"date_from":     cancelWaitingDS.DateFrom,
 			"date_to":       cancelWaitingDS.DateTo,
 			"time_from":     cancelWaitingDS.TimeFrom,
@@ -147,7 +147,7 @@ func (r *cancelWaitingRepository) UpdateCancelWaiting(
 ```go
 // apps/calendar/internal/infrastructure/rdb/persistence/cancel_waiting_repository_impl.go
 
-func (r *cancelWaitingRepository) DeleteCancelWaiting(
+func (r *cancelWaitingRepository) HardDeleteCancelWaiting(
 	ctx context.Context,
 	officeID officevo.ID,
 	id cancelwaitingvo.ID,
@@ -164,9 +164,42 @@ func (r *cancelWaitingRepository) DeleteCancelWaiting(
 }
 ```
 
+```go
+// apps/receipt/internal/infrastructure/rdb/persistence/file_repository_impl.go
+
+func (r *fileRepository) SoftDeleteMediaByIDs(
+	ctx context.Context,
+	officeIDVO officevo.ID,
+	mediaIDVOs []filevo.MediaID,
+) (int, error) {
+	if len(mediaIDVOs) == 0 {
+		return 0, nil
+	}
+
+	rowsAffected, err := gorm.G[*datasource.Media](r.tm.Do()).
+		Where("id IN ?", mediaIDVOs).
+		Where("office_id = ?", officeIDVO.Value()).
+		Where("deleted_at IS NULL").
+		Set(
+			clause.Assignments(map[string]any{
+				"updated_at": gorm.Expr("updated_at"),
+				"deleted_at": sharedvo.NewAuditTimeNow().Value(),
+			}),
+		).
+		Update(ctx)
+	if err != nil {
+		return 0, fmt.Errorf("soft delete media: %w", err)
+	}
+
+	return rowsAffected, nil
+}
+```
+
 ## Points and pitfalls
 
 1. Repository is defined in domain, and implemented in package persistence
 2. Fetch, Create, Update, Delete have standardized writing style, check the code snippets
 3. Fetch elements: db, query, First, NotFound, Reconstruct
 4. Update(only one update method to entire update anyway, don't forget updated_at) elements: xxxDS, clause.Assignments
+5. updated_at use live generate time.Now, not the memory one
+6. Delete method is explicitly naming as SoftDelete using Update or HardDelete using Delete
