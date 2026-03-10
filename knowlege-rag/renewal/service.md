@@ -2,41 +2,95 @@
 
 ## service
 
-### code 1
+### code 1: types.go
 
 ```go
-// apps/calendar/internal/service/visitingstatusservice/types.go
+// apps/receipt/internal/service/outcomeservice/types.go
 
 type Service interface {
-	ChangeVisitingStatus(ctx context.Context, params ChangeVisitingStatusParams) (reservationdm.VisitingStatus, error)
+	CreateOutcomesByKarte(ctx context.Context, input *CreateByKarteInput) error
+	RemoveOldOutcomesByKarte(ctx context.Context, input *RemoveOldOutcomesByKarteInput) error
+	FindStartAndEndKartesByBlocks(
+		ctx context.Context,
+		input *FindStartAndEndKartesByBlocksInput,
+	) (*FindStartAndEndKartesByBlocksOutput, error)
+	FetchOutcomesByBlocks(ctx context.Context, input *FetchOutcomesByBlocksInput) (*FetchOutcomesByBlocksOutput, error)
+	RemoveOutcomesByBlocks(ctx context.Context, input *RemoveOutcomesByBlockInput) error
+	CreateOutcomeByBlockItem(ctx context.Context, input *CreateOutcomeByBlockItemInput) error
+	UpdateOutcomeByBlockItem(ctx context.Context, input *UpdateOutcomeByBlockItemInput) error
+	RemoveOutcomesByBlockItems(ctx context.Context, input *RemoveOutcomesByBlockItemInput) error
+	HandleOutcomesByKarteChanges(ctx context.Context, input *HandleOutcomeChangesByKarteInput) error
 }
 
 type service struct {
-	reservationRepository reservationdm.Repository
-	patientRepository     patientdm.Repository
-	officeRepository      officedm.Repository
-	oncallRepository      oncalldm.Repository
-	oncallQuery           oncallreservationquery.Query
+	karteRepository            kartedm.Repository
+	receiptPatientRepository   receiptpatientdm.Repository
+	monthlyOperationRepository monthlyoperationdm.Repository
+	medicalDataClient          masteridclientdm.Service
+
+	// For better reuse per request
+	onceCured                  sync.Once
+	curedReferenceIDsError     error
+	curedTreatmentReferenceIDs []kartevo.ItemReferenceID
+	curedCommentReferenceIDs   []kartevo.ItemReferenceID
+
+	// Track which year months have been marked as changed (to avoid duplicate updates)
+	markedYearMonths map[sharedvo.YearMonth]struct{}
+}
+```
+
+### code 2: method
+
+```go
+// apps/receipt/internal/service/outcomeservice/fetch_outcomes_by_blocks.go
+
+type FetchOutcomesByBlocksInput struct {
+	OfficeID  officevo.ID
+	PatientID patientvo.ID
+	Blocks    []*kartedm.Block
 }
 
-func NewService(
-	reservationRepository reservationdm.Repository,
-	patientRepository patientdm.Repository,
-	officeRepository officedm.Repository,
-	oncallRepository oncalldm.Repository,
-	oncallQuery oncallreservationquery.Query,
-) Service {
-	return &service{
-		reservationRepository: reservationRepository,
-		patientRepository:     patientRepository,
-		officeRepository:      officeRepository,
-		oncallRepository:      oncallRepository,
-		oncallQuery:           oncallQuery,
-	}
+type FetchOutcomesByBlocksOutput struct {
+	Outcomes map[kartevo.BlockID]kartevo.Outcome
 }
+
+func (s *service) FetchOutcomesByBlocks(
+	ctx context.Context,
+	input *FetchOutcomesByBlocksInput,
+) (*FetchOutcomesByBlocksOutput, error)
+```
+
+### code 3: usage
+
+```go
+// apps/receipt/internal/infrastructure/router/karteoutcome.go
+	outcomeRouter.POST("", func(c *echo.Context) error {
+		transactionManager := rdb.NewTransactionManager(c.Request().Context(), s.dbs.ReceiptDB)
+		karteRepository := persistence.NewKarteRepository(transactionManager)
+		receiptPatientRepository := persistence.NewReceiptPatientRepository(transactionManager)
+		monthlyOperationRepository := persistence.NewMonthlyOperationRepository(transactionManager)
+
+		outcomeService := outcomeservice.NewService(
+			karteRepository,
+			receiptPatientRepository,
+			monthlyOperationRepository,
+			s.medicalDataClient,
+		)
+		updateKarteOutcomeUseCase := karteusecase.NewUpdateKarteOutcomeUseCase(
+			transactionManager,
+			karteRepository,
+			receiptPatientRepository,
+			outcomeService,
+		)
+		updateKarteOutcomeHandler := kartehandler.NewUpdateKarteOutcomeHandler(updateKarteOutcomeUseCase)
+
+		return updateKarteOutcomeHandler.UpdateKarteOutcome(c)
+	})
 ```
 
 ## Points and pitfalls
 
 1. service is newed and called by usecase to share code between usecases
 2. similar to usecase, each service have independant package
+3. Service interface and name is only Service/service that are in `types.go`, which is kind of special
+4. Service method implement and input and output are in one seperate file.

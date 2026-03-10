@@ -286,3 +286,7 @@ func (u *fetchCancelUseCase) FetchCancel(
 4. Fetch single API check domain NotFound error
 5. Error handle httperror sholud be beautifly formatted in several lines, not in a long line
 6. Some unexpected err is not returned as httperror, for exmaple: Commit err;
+
+## Constrains
+
+1. Usecase never parsed params into other type, this is all done in handler layer

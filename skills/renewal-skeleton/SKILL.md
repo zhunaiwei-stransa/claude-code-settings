@@ -30,9 +30,7 @@ In conclusion, the arguments may look like:
 1. GET /reservations/:id/cancels apps/calendar/internal/infrastructure/router/reservation.go query 
 2. POST /bulletin-board apps/calendar/internal/domain/commentdm/entity.go domain
 
-Current Arguments:
-
-$ARGUMENTS
+Current Arguments: $ARGUMENTS
 
 ### Step 2: Know the heading code I have git committed
 
@@ -57,7 +55,8 @@ code references index:
 There are some special rules for some layers:
 
 - Layer Repository: 
-1. Skeleton Never generate real code to implemenet Repository interface, instead it use `panic("TODO")` to tell engineer to write code themselves.
+1. Skeleton Never generate business code, instead it only write cliche helper code, such as `db := `, `.Model()` and finnaly use `panic("TODO")` to tell engineer to write the left code themselves.
+2. Do not generate unrelated code even though example is a whole view. For example, when generate skeleton for Create API, no need to generate Repository Update method.
 
 - Layer Query:
 1. Skeleton Never generate real code to implemenet Query interface, instead it use `panic("TODO")` to tell engineer to write code themselves.
@@ -67,6 +66,7 @@ There are some special rules for some layers:
 
 # Constrains
 
+- Normally, appended code into the end of the file
 - Human reading frindly output in markdown format
 - Do your best effort to make sure code can be compiled succfully
 - Language: English!

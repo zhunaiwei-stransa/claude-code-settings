@@ -198,8 +198,13 @@ func (r *fileRepository) SoftDeleteMediaByIDs(
 ## Points and pitfalls
 
 1. Repository is defined in domain, and implemented in package persistence
-2. Fetch, Create, Update, Delete have standardized writing style, check the code snippets
+2. Fetch(not Get or List), Create, Update, Delete have standardized writing style, check the code snippets
 3. Fetch elements: db, query, First, NotFound, Reconstruct
 4. Update(only one update method to entire update anyway, don't forget updated_at) elements: xxxDS, clause.Assignments
 5. updated_at use live generate time.Now, not the memory one
 6. Delete method is explicitly naming as SoftDelete using Update or HardDelete using Delete
+
+## Constrains
+
+1. For most tables, especially small and middle table, only have one update method to update from a entire entity
+2. When generate Update method, only generate specific fields update for the api you are working. That means you don't need to generate Update method when the api do not need update method.

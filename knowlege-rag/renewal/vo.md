@@ -60,9 +60,14 @@ func (i *ID) NullableValue() *uint64 {
 ## Points and pitfalls
 
 1. vo is a wrapper of underlying type in datasource field
-2. New$Voname always return (vo, error)
-3. NewNullable$Voname always return (*vo, error)
+2. New$Voname always return (vo, error), no matter if error is nesessary
+3. NewNullable$Voname always return (*vo, error), no matter if error is nesessary
 4. New retuned err is a errors.New var like example
 5. Value() and NullableValue() to get underlying value
 6. If this vo is used in entity in pointer, you must generate NewNullable$Voname function
-7. When you want to create a *vo, you may confused that use New and get address or use NewNullable, there is a preference that if you do not need vo value outside, use NewNullable directly to make code simple
+7. When you want to create a *vo, you may confused that use New and get address or use NewNullable, it usually depends on the input filed is pointer or value
+
+## Constrains
+
+1. Never swallow error when new a vo
+2. For some legacy reason, domain field name may diff from table name, which means some field name is an alias for table. But vo should always use table name. Known alias(left name sholud never exist in vo): staff = resource;

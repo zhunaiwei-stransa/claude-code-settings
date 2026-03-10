@@ -67,7 +67,17 @@ func (m *PsSuggestion) ReconstructPsSuggestionEntity() (*psproductdm.PsSuggestio
 }
 ```
 
+### code 2: utils
+
+```go
+// apps/calendar/internal/infrastructure/rdb/persistence/datasource/helper.go
+func NullableTimeFromDeletedAt(deletedAt gorm.DeletedAt) *time.Time
+
+func DeletedAtFromNullableTime(t *time.Time) gorm.DeletedAt
+```
+
 ### Points and pitfalls:
 1. datasource is the database model
 2. New$Datasource create a datasource from domain entity
 3. func (m *Datasource) Reconstruct${Datasource}Entity() use domain Recontruct to create entity
+4. When you want to new datasource from enity, you can use .Value() or .NullableValue(), no need to get address

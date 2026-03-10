@@ -42,9 +42,6 @@ git commit -m "feat(calendar): add patient modify sheet"
 git commit -m "fix(infrastructure): validation error"
 ```
 
-Current git log:
-!`git log develop..HEAD --pretty`
-
 ### Step 4: Thinking and review
 
 - Summarize what the PR does

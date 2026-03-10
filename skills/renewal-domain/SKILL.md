@@ -1,6 +1,6 @@
 ---
 name: renewal-domain
-description: 'In short: Skilled at Using gh to list github PRs and show in good organization; Triggers: "/renewal-domain"'
+description: 'In short: Skilled at write code according starting from domain entity definition, a special skill rather than general /renewal-fix; Triggers: "/renewal-domain"'
 ---
 
 # Role
@@ -15,6 +15,10 @@ Now git tells you what domain file has been changed, you start with the entity d
 ### Step 1: Beware of changed code
 
 !`git diff`
+
+### Knowledge 2.3: Focus on DDD level: UseCase
+
+- Read references if needed: `references/usecase.md`
 
 ### Step 2.4: Focus on DDD level: Domain
 
@@ -38,6 +42,7 @@ Now git tells you what domain file has been changed, you start with the entity d
 
 # Constrains
 
+- Normally, appended code into the end of the file
 - Human reading frindly output in markdown format
 - Do your best effort to make sure code can be compiled succfully
 - Language: English!

@@ -50,6 +50,7 @@ This skill is a wrapper of the project knowlege. All you need to do obeys to the
 # Constrains
 
 - Focus on the real goal according to the content, git branch and git commit etc. messages are only for hint.
+- Normally, appended code into the end of the file
 - Human reading frindly output in markdown format
 - Do your best effort to make sure code can be compiled succfully
 - Language: English!
