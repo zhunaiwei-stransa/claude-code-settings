@@ -48,7 +48,7 @@ Always overwrite if the file already exists. Create the module subdirectory if i
 
 ## Blog Templates
 
-Read `references/blog-templates.md` for the exact MDX frontmatter templates and content section checklists to use when writing blog posts.
+Read `/Users/user40010308/.claude/skills/dig-apotool/references/blog-templates.md` for the exact MDX frontmatter templates and content section checklists to use when writing blog posts.
 
 ---
 
@@ -90,6 +90,7 @@ Apply the path resolution rules above. Verify the file exists. If not found in e
 - Derive `<module>` and `<slug>` using the rules in the Output Location section above
 - Construct full output path
 - Create the `<module>` subdirectory if it does not exist
+- List all existing `.mdx` files in the `<module>` subdirectory now (for use in the Related Reading section)
 
 ### Step 6 — Write MDX blog post
 
