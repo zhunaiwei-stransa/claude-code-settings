@@ -6,7 +6,7 @@
 ---
 title: '<ClassName>: <functionName> — Deep Dive'
 date: '<YYYY-MM-DD>'         # use today's actual date
-tags: ['<module>', '<kebab-function-name>', 'business-logic', 'cakephp']
+tags: ['<module>']
 draft: false
 summary: '<2-sentence plain-English summary of what this code does and why it matters>'
 ---
@@ -18,7 +18,7 @@ summary: '<2-sentence plain-English summary of what this code does and why it ma
 ---
 title: '<ClassName> — Model Overview'
 date: '<YYYY-MM-DD>'         # use today's actual date
-tags: ['<module>', 'model-overview', 'business-logic', 'cakephp']
+tags: ['<module>']
 draft: false
 summary: '<2-sentence plain-English summary of what this model represents and its role in the system>'
 ---

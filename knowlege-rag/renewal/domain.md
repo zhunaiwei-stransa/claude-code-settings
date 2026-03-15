@@ -203,7 +203,9 @@ func NewAuditTimeNow() AuditTime {
 5. Create API use Gen$EntitynameForCreate to create entity in memory, returns (*E, error)
 6. In entity, a filed is a value or pointer is strongly consistent with the datasource filed
 7. createdAt/updatedAt are usually sharedvo.AuditTime, deletedAt is usaually *sharedvo.AuditTime
+8. ChangeXXX method is always in demand, you only generate the Change method you need 
 
 ## Constrains
 
 1. Never change updatedAt in memory, it will be done in Repository
+2. For a specific kind of entity, there is always only one entity struct, factory.go only generate coresponding entity

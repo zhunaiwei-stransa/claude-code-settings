@@ -195,6 +195,31 @@ func (r *fileRepository) SoftDeleteMediaByIDs(
 }
 ```
 
+### code 3: repository fetch withLock
+
+```go
+// apps/receipt/internal/infrastructure/rdb/persistence/karte_repository_impl.go
+
+func (k *karteRepository) FetchLockedPatientLockByPatientID(
+	ctx context.Context,
+	officeIDVO officevo.ID,
+	patientIDVO patientvo.ID,
+	withLock bool,
+) (*kartedm.PatientLock, error) {
+	db := gorm.G[*datasource.KartePatientLock](k.tm.Do(), withLockClause(withLock)...)
+// ...
+}
+
+// apps/receipt/internal/infrastructure/rdb/persistence/clause.go
+func withLockClause(withLock bool) []clause.Expression {
+	if withLock {
+		return []clause.Expression{clause.Locking{Strength: "UPDATE"}}
+	}
+
+	return nil
+}
+```
+
 ## Points and pitfalls
 
 1. Repository is defined in domain, and implemented in package persistence
@@ -202,9 +227,11 @@ func (r *fileRepository) SoftDeleteMediaByIDs(
 3. Fetch elements: db, query, First, NotFound, Reconstruct
 4. Update(only one update method to entire update anyway, don't forget updated_at) elements: xxxDS, clause.Assignments
 5. updated_at use live generate time.Now, not the memory one
-6. Delete method is explicitly naming as SoftDelete using Update or HardDelete using Delete
+6. Delete method is explicitly naming as SoftDelete using Update or HardDelete using Delete. SoftDelete use `"updated_at":  gorm.Expr("updated_at"),` to avoid update updated_at.
 
 ## Constrains
 
 1. For most tables, especially small and middle table, only have one update method to update from a entire entity
 2. When generate Update method, only generate specific fields update for the api you are working. That means you don't need to generate Update method when the api do not need update method.
+3. Save method is always forbbidden, instead use Fetch-Change-Update-Or-Create logic in UseCase layer.
+4. If want to use `clause.Locking{Strength: "UPDATE"}`, add withLock bool param in Fetch method, and update all references. You cannot create any new method just for a select for update

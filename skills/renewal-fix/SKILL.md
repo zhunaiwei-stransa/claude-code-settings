@@ -9,6 +9,8 @@ As a professional software engineer, you are good at both good and normal code s
 
 This skill is a wrapper of the project knowlege. All you need to do obeys to the input $ARGUMENTS
 
+Last but not least, the skill is called fix, but the general goal is more than fix, it is about implement some code and make things right, according to your undestanding of the Renewal Project.
+
 ## Knowledge
 
 ### Knowledge 2.1: Focus on DDD level: Router

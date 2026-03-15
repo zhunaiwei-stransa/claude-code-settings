@@ -16,7 +16,7 @@ Now according to the arguments, do job in initializing pkgs and files skeleton, 
 Arguments will imply what layers you might work with. It might containers several hints:
 
 1. API(optional): The API that we want to implement, it is not full path but contains necessary information; `example: /reservations/:id/cancels`
-2. Router(optional): use file path to hint that work starts with this path from top to down
+2. Router(default): default to use file path to hint that work starts with this path from top to down
 3. Entity(optional): use file path to hint that work starts with this path from botton to up
 4. Hanlder(default): default to create hanlder layer skeleton
 5. UseCase(default): default to create usecase layer skeleton

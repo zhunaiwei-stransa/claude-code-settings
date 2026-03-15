@@ -97,8 +97,10 @@ type FetchPsSuggestionsLineItem struct {
 5. Id in json tag name is always Id, not ID, while for go lint, Go naming sholud be like ID
 6. For input object, value type must have validate:"required"; But bool value no need, for example: PrivateExpense bool `json:"privateExpense"``
 7. For input object, some params need second time pared, they are in the below area of input struct. And most importantly, they are all pared in the handler layer and be asigned to by var, and return httperror if parsed failed
+8. For output object, when you want to do format change by type converting, youcan use buildXXX to do complicated struct creation.
 
 ## Constrains
 
 1. In `apps/calendar/internal/infrastructure/requestdto/`, defines some kinds of request format standard that most API should follow. For now it includes: menu, staff. For most recent message, you can list this directory.
 2. In `apps/calendar/internal/infrastructure/responsedto/icon.go`, defines some kinds of response format standard that most API should follow. For now it includes: menu, staff, patientStatus, icon, CheckedItem. For most recent message, you can list this directory.
+3. In every input, Memo sholud be decoded as base64 and store into MemoDecoded
