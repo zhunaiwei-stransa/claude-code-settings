@@ -5,8 +5,6 @@
 ### code 1
 
 ```go
-// apps/calendar/internal/infrastructure/router/psproduct.go
-
 func (s *Server) routerForPsProduct(group *echo.Group) {
 	group = group.Group("/ps-products")
 	group.GET("/summary", func(c *echo.Context) error {

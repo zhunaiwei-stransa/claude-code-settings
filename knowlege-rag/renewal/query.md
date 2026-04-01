@@ -5,7 +5,6 @@
 ### code 1: query interface
 
 ```go
-// apps/calendar/internal/query/pssuggestionquery/ps_suggestion_query.go
 package pssuggestionquery
 
 import (
@@ -39,8 +38,6 @@ type Query interface {
 ### code 2: query impl
 
 ```go
-// apps/calendar/internal/infrastructure/rdb/persistence/queryimpl/ps_suggestion_query_impl.go
-
 package queryimpl
 
 var _ pssuggestionquery.Query = (*PsSuggestionQuery)(nil)
@@ -68,8 +65,6 @@ func NewPsSuggestionQuery(
 ### code 2: query method
 
 ```go
-// apps/calendar/internal/infrastructure/rdb/persistence/queryimpl/patient_query_impl.go
-
 func (a *PatientQuery) getPatientAggrForEditProfile(
 	ctx context.Context,
 	officeID uint64,

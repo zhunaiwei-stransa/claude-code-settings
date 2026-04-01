@@ -5,8 +5,6 @@
 ### code 1: update
 
 ```go
-// apps/calendar/internal/usecase/cancelwaitingusecase/update_cancel_waiting_use_case.go
-
 package cancelwaitingusecase
 
 type UpdateCancelWaitingUseCase interface {
@@ -241,8 +239,6 @@ func (uc *updateCancelWaitingUseCase) UpdateCancelWaiting(
 ### code 2: fetch single
 
 ```go
-// apps/calendar/internal/usecase/cancelusecase/fetch_cancel_usecase.go
-
 func (u *fetchCancelUseCase) FetchCancel(
 	ctx context.Context,
 	in *cancelinput.FetchCancelInput,
@@ -272,7 +268,6 @@ func (u *fetchCancelUseCase) FetchCancel(
 ### code 3: error handling
 
 ```go
-// apps/receipt/internal/usecase/karteusecase/update_kartes_use_case.go
 	if err := k.transactionManager.Commit(); err != nil {
 		return nil, fmt.Errorf("commit transaction: %w", err)
 	}
@@ -281,7 +276,6 @@ func (u *fetchCancelUseCase) FetchCancel(
 ### code 4: utils
 
 ```go
-// apps/calendar/internal/config/context.go
 func ContractChecker(ctx context.Context) (*contractdm.Checker, bool) {
 	checker, ok := ctx.Value(ContractCheckerKey{}).(*contractdm.Checker)
 	if !ok || checker == nil {

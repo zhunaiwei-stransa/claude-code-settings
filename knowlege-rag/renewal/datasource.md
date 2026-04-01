@@ -5,8 +5,6 @@
 ### code 1
 
 ```go
-// apps/calendar/internal/infrastructure/rdb/persistence/datasource/ps_suggestion_data_source.go
-
 package datasource
 
 import (
@@ -70,7 +68,6 @@ func (m *PsSuggestion) ReconstructPsSuggestionEntity() (*psproductdm.PsSuggestio
 ### code 2: utils
 
 ```go
-// apps/calendar/internal/infrastructure/rdb/persistence/datasource/helper.go
 func NullableTimeFromDeletedAt(deletedAt gorm.DeletedAt) *time.Time
 
 func DeletedAtFromNullableTime(t *time.Time) gorm.DeletedAt

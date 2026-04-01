@@ -5,8 +5,6 @@
 ### code 1: types.go
 
 ```go
-// apps/receipt/internal/service/outcomeservice/types.go
-
 type Service interface {
 	CreateOutcomesByKarte(ctx context.Context, input *CreateByKarteInput) error
 	RemoveOldOutcomesByKarte(ctx context.Context, input *RemoveOldOutcomesByKarteInput) error
@@ -42,8 +40,6 @@ type service struct {
 ### code 2: method
 
 ```go
-// apps/receipt/internal/service/outcomeservice/fetch_outcomes_by_blocks.go
-
 type FetchOutcomesByBlocksInput struct {
 	OfficeID  officevo.ID
 	PatientID patientvo.ID
@@ -63,7 +59,6 @@ func (s *service) FetchOutcomesByBlocks(
 ### code 3: usage
 
 ```go
-// apps/receipt/internal/infrastructure/router/karteoutcome.go
 	outcomeRouter.POST("", func(c *echo.Context) error {
 		transactionManager := rdb.NewTransactionManager(c.Request().Context(), s.dbs.ReceiptDB)
 		karteRepository := persistence.NewKarteRepository(transactionManager)

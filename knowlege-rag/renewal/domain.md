@@ -5,8 +5,6 @@
 ### code 1: entity, getter, changer
 
 ```go
-// apps/calendar/internal/domain/psproductdm/entity_suggestion.go
-
 package psproductdm
 
 import (
@@ -82,8 +80,6 @@ func (s *PsSuggestion) ChangeConditions(conditions *psproductvo.Conditions) {
 ### code 2: ReconstructXXX
 
 ```go
-// apps/calendar/internal/domain/psproductdm/reconstruct.go
-
 func ReconstructPsSuggestion(
 	id uint64,
 	officeID uint64,
@@ -144,8 +140,6 @@ func ReconstructPsSuggestion(
 ### code 3: errors
 
 ```go
-// apps/calendar/internal/domain/psproductdm/errors.go
-
 package psproductdm
 
 import "errors"
@@ -159,8 +153,6 @@ var (
 ### code 4: GenXXXForCreate(optional)
 
 ```go
-// apps/calendar/internal/domain/psproductdm/factory.go
-
 func GenPsSuggestionForCreate(
 	officeID officevo.ID,
 	patientID patientvo.ID,

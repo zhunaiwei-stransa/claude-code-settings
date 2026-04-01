@@ -5,8 +5,6 @@
 ### code 1
 
 ```go
-// apps/calendar/internal/handler/psproducthandler/fetch_ps_suggestion_for_print_handler.go
-
 package psproducthandler
 
 type fetchPsSuggestionForPrintHandler struct {
@@ -50,8 +48,6 @@ func (h *fetchPsSuggestionForPrintHandler) FetchPsSuggestionForPrint(c *echo.Con
 ### code 2: input
 
 ```go
-// apps/calendar/internal/usecase/timelineusecase/timelineinput/fetch_daily.go
-
 package timelineinput
 
 type FetchDailyInput struct {
@@ -66,8 +62,6 @@ type FetchDailyInput struct {
 ### code 3: output
 
 ```go
-// apps/calendar/internal/usecase/psproductusecase/psproductoutput/fetch_ps_suggestions.go
-
 package psproductoutput
 
 import "github.com/stransa-co-ltd/receipt-backend/apps/calendar/internal/query/psproductquery"

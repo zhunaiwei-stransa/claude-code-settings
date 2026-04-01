@@ -5,8 +5,6 @@
 ### code 1: repository interface
 
 ```go
-// apps/calendar/internal/domain/psproductdm/repository.go
-
 package psproductdm
 
 import (
@@ -28,8 +26,6 @@ type Repository interface {
 ### code 2: repository impl
 
 ```go
-// apps/calendar/internal/infrastructure/rdb/persistence/ps_suggestion_repository_impl.go
-
 package persistence
 
 var _ psproductdm.Repository = (*psProductRepository)(nil)
@@ -46,8 +42,6 @@ func NewPsProductRepository(tm transactiondef.TransactionManager) *psProductRepo
 ### code 3: repository fetch
 
 ```go
-// apps/calendar/internal/infrastructure/rdb/persistence/daily_memo_repository_impl.go
-
 func (r *dailyMemoRepository) FetchDailyMemoByDate(
 	ctx context.Context,
 	officeIDVO officevo.ID,
@@ -80,8 +74,6 @@ func (r *dailyMemoRepository) FetchDailyMemoByDate(
 ### code 4: repository create
 
 ```go
-// apps/calendar/internal/infrastructure/rdb/persistence/daily_memo_repository_impl.go
-
 func (r *dailyMemoRepository) CreateDailyMemo(
 	ctx context.Context,
 	dailyMemoEntity *dailymemodm.DailyMemo,
@@ -100,8 +92,6 @@ func (r *dailyMemoRepository) CreateDailyMemo(
 ### code 5: repository update
 
 ```go
-// apps/calendar/internal/infrastructure/rdb/persistence/cancel_waiting_repository_impl.go
-
 func (r *cancelWaitingRepository) UpdateCancelWaiting(
 	ctx context.Context,
 	entity *cancelwaitingdm.CancelWaiting,
@@ -145,8 +135,6 @@ func (r *cancelWaitingRepository) UpdateCancelWaiting(
 ### code 6: repository delete
 
 ```go
-// apps/calendar/internal/infrastructure/rdb/persistence/cancel_waiting_repository_impl.go
-
 func (r *cancelWaitingRepository) HardDeleteCancelWaiting(
 	ctx context.Context,
 	officeID officevo.ID,
@@ -165,8 +153,6 @@ func (r *cancelWaitingRepository) HardDeleteCancelWaiting(
 ```
 
 ```go
-// apps/receipt/internal/infrastructure/rdb/persistence/file_repository_impl.go
-
 func (r *fileRepository) SoftDeleteMediaByIDs(
 	ctx context.Context,
 	officeIDVO officevo.ID,
@@ -198,8 +184,6 @@ func (r *fileRepository) SoftDeleteMediaByIDs(
 ### code 3: repository fetch withLock
 
 ```go
-// apps/receipt/internal/infrastructure/rdb/persistence/karte_repository_impl.go
-
 func (k *karteRepository) FetchLockedPatientLockByPatientID(
 	ctx context.Context,
 	officeIDVO officevo.ID,
@@ -210,7 +194,6 @@ func (k *karteRepository) FetchLockedPatientLockByPatientID(
 // ...
 }
 
-// apps/receipt/internal/infrastructure/rdb/persistence/clause.go
 func withLockClause(withLock bool) []clause.Expression {
 	if withLock {
 		return []clause.Expression{clause.Locking{Strength: "UPDATE"}}

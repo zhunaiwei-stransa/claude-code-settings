@@ -5,8 +5,6 @@
 ### code 1
 
 ```go
-// vo/officevo/vo_id.go
-
 package officevo
 
 import (
@@ -60,7 +58,6 @@ func (i *ID) NullableValue() *uint64 {
 ### code 2: utils
 
 ```go
-// vo/sharedvo/vo_audit_time.go
 func NewAuditTimeNow() AuditTime {
 	return AuditTime(time.Now().UTC())
 }
