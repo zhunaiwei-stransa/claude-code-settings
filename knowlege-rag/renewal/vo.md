@@ -57,6 +57,15 @@ func (i *ID) NullableValue() *uint64 {
 }
 ```
 
+### code 2: utils
+
+```go
+// vo/sharedvo/vo_audit_time.go
+func NewAuditTimeNow() AuditTime {
+	return AuditTime(time.Now().UTC())
+}
+```
+
 ## Points and pitfalls
 
 1. vo is a wrapper of underlying type in datasource field

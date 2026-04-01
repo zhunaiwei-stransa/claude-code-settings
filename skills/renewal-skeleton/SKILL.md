@@ -55,11 +55,11 @@ code references index:
 There are some special rules for some layers:
 
 - Layer Repository: 
-1. Skeleton Never generate business code, instead it only write cliche helper code, such as `db := `, `.Model()` and finnaly use `panic("TODO")` to tell engineer to write the left code themselves.
+1. Skeleton Never generate business code, instead it only write cliche helper code, such as `db := `, `.Model()` and finnaly use `panic("TODO")` to left the work later.
 2. Do not generate unrelated code even though example is a whole view. For example, when generate skeleton for Create API, no need to generate Repository Update method.
 
 - Layer Query:
-1. Skeleton Never generate real code to implemenet Query interface, instead it use `panic("TODO")` to tell engineer to write code themselves.
+1. Skeleton Never generate real code to implemenet Query interface, instead it use `panic("TODO")` to tell engineer to left the work later.
 
 - Layer UseCase:
 1. `panic("TODO")` sholud be never used in this kind of "business logic" layer, do all your best in usecase later.

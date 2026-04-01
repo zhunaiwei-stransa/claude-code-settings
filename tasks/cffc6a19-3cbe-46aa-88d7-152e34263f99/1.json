@@ -1,0 +1,9 @@
+{
+  "id": "1",
+  "subject": "Migrate apps/patient into apps/apotool/cmd/patient",
+  "description": "Full migration of apps/patient into apps/apotool following the cmd pattern like calendar. Steps: 1) Add pkg domains, 2) Create internal/patient/ structure, 3) Fix imports, 4) Create cmd entrypoints, 5) Update Makefile.",
+  "activeForm": "Migrating patient app into apotool",
+  "status": "in_progress",
+  "blocks": [],
+  "blockedBy": []
+}

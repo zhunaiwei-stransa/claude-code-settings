@@ -81,3 +81,7 @@ func DeletedAtFromNullableTime(t *time.Time) gorm.DeletedAt
 2. New$Datasource create a datasource from domain entity
 3. func (m *Datasource) Reconstruct${Datasource}Entity() use domain Recontruct to create entity
 4. When you want to new datasource from enity, you can use .Value() or .NullableValue(), no need to get address
+
+## Constrains
+
+- You should only never modify type DataSource struct def unless you have special good reason

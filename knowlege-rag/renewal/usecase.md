@@ -278,6 +278,20 @@ func (u *fetchCancelUseCase) FetchCancel(
 	}
 ```
 
+### code 4: utils
+
+```go
+// apps/calendar/internal/config/context.go
+func ContractChecker(ctx context.Context) (*contractdm.Checker, bool) {
+	checker, ok := ctx.Value(ContractCheckerKey{}).(*contractdm.Checker)
+	if !ok || checker == nil {
+		return nil, false
+	}
+
+	return checker, true
+}
+```
+
 ## Points and pitfalls
 
 1. One handler, one file, one API
@@ -286,7 +300,9 @@ func (u *fetchCancelUseCase) FetchCancel(
 4. Fetch single API check domain NotFound error
 5. Error handle httperror sholud be beautifly formatted in several lines, not in a long line
 6. Some unexpected err is not returned as httperror, for exmaple: Commit err;
+7. Input may have some memory fields like memoDecoded, you should use these fields to create vo
 
 ## Constrains
 
 1. Usecase never parsed params into other type, this is all done in handler layer
+2. No need to comment any code in any case in any layer

@@ -24,12 +24,22 @@
     "superpowers@claude-plugins-official": [
       {
         "scope": "local",
+        "projectPath": "/Users/user40010308/Desktop/data/apotool_in_one",
         "installPath": "/Users/user40010308/.claude/plugins/cache/claude-plugins-official/superpowers/5.0.2",
         "version": "5.0.2",
         "installedAt": "2026-03-13T05:19:56.670Z",
         "lastUpdated": "2026-03-13T05:19:56.670Z",
-        "gitCommitSha": "363923f74aa9cd7b470c0aaa73dee629a8bfdc90",
-        "projectPath": "/Users/user40010308/Desktop/data/apotool_in_one"
+        "gitCommitSha": "363923f74aa9cd7b470c0aaa73dee629a8bfdc90"
+      }
+    ],
+    "rust-analyzer-lsp@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/user40010308/.claude/plugins/cache/claude-plugins-official/rust-analyzer-lsp/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-03-26T07:28:17.995Z",
+        "lastUpdated": "2026-03-26T07:28:17.995Z",
+        "gitCommitSha": "55b58ec6e5649104f926ba7558b567dc8d33c5ff"
       }
     ]
   }

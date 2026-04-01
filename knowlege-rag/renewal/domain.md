@@ -185,14 +185,7 @@ func GenPsSuggestionForCreate(
 }
 ```
 
-### code 5: utils
 
-```go
-// vo/sharedvo/vo_audit_time.go
-func NewAuditTimeNow() AuditTime {
-	return AuditTime(time.Now().UTC())
-}
-```
 
 ## Points and pitfalls
 
@@ -209,3 +202,4 @@ func NewAuditTimeNow() AuditTime {
 
 1. Never change updatedAt in memory, it will be done in Repository
 2. For a specific kind of entity, there is always only one entity struct, factory.go only generate coresponding entity
+3. Reconstruct is one and only that create an entity from datasource. You sholud deirectly newEntity in Reconstruct but not ChangeXXX anything.
