@@ -298,5 +298,5 @@ func ContractChecker(ctx context.Context) (*contractdm.Checker, bool) {
 
 ## Constrains
 
-1. Usecase never parsed params into other type, this is all done in handler layer
-2. No need to comment any code in any case in any layer
+- Usecase never parsed params into other type, this is all done in handler layer
+- No need to comment any code in any case in any layer

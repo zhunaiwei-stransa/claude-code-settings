@@ -1,5 +1,5 @@
 {
-  "numStartups": 189,
+  "numStartups": 204,
   "installMethod": "native",
   "autoUpdates": false,
   "theme": "dark-daltonized",
@@ -320,57 +320,57 @@
       ],
       "exampleFilesGeneratedAt": 1774835624046,
       "lastTotalWebSearchRequests": 0,
-      "lastCost": 1.2430629999999998,
-      "lastAPIDuration": 243804,
-      "lastToolDuration": 31322,
-      "lastDuration": 55564169,
-      "lastLinesAdded": 3,
-      "lastLinesRemoved": 2,
-      "lastTotalInputTokens": 48700,
-      "lastTotalOutputTokens": 12491,
-      "lastTotalCacheCreationInputTokens": 48888,
-      "lastTotalCacheReadInputTokens": 832004,
-      "lastSessionId": "7bc8fe0e-0a7c-4e77-aeb7-73b903763018",
-      "lastAPIDurationWithoutRetries": 243678,
-      "lastFpsAverage": 9.64,
-      "lastFpsLow1Pct": 124.04,
+      "lastCost": 1.8255172499999996,
+      "lastAPIDuration": 194973,
+      "lastToolDuration": 12341,
+      "lastDuration": 4400106,
+      "lastLinesAdded": 172,
+      "lastLinesRemoved": 58,
+      "lastTotalInputTokens": 72605,
+      "lastTotalOutputTokens": 11427,
+      "lastTotalCacheCreationInputTokens": 110195,
+      "lastTotalCacheReadInputTokens": 1203575,
+      "lastSessionId": "b07cf31c-9022-4267-a10f-88fc40818d2b",
+      "lastAPIDurationWithoutRetries": 194873,
+      "lastFpsAverage": 1,
+      "lastFpsLow1Pct": 93.8,
       "lastModelUsage": {
         "claude-haiku-4-5-20251001": {
-          "inputTokens": 5401,
-          "outputTokens": 633,
+          "inputTokens": 3471,
+          "outputTokens": 828,
           "cacheReadInputTokens": 0,
-          "cacheCreationInputTokens": 0,
+          "cacheCreationInputTokens": 16649,
           "webSearchRequests": 0,
-          "costUSD": 0.008566
+          "costUSD": 0.02842225
         },
-        "claude-sonnet-4-6": {
-          "inputTokens": 43299,
-          "outputTokens": 11858,
-          "cacheReadInputTokens": 832004,
-          "cacheCreationInputTokens": 48888,
+        "claude-opus-4-6": {
+          "inputTokens": 69134,
+          "outputTokens": 10599,
+          "cacheReadInputTokens": 1203575,
+          "cacheCreationInputTokens": 93546,
           "webSearchRequests": 0,
-          "costUSD": 1.2344970000000002
+          "costUSD": 1.7970949999999997
         }
       },
       "lastSessionMetrics": {
-        "frame_duration_ms_count": 4980,
-        "frame_duration_ms_min": 0.11012500000651926,
-        "frame_duration_ms_max": 63.10662500000001,
-        "frame_duration_ms_avg": 2.129846083734743,
-        "frame_duration_ms_p50": 1.4163749999970605,
-        "frame_duration_ms_p95": 5.090510750003155,
-        "frame_duration_ms_p99": 8.12820393000729,
-        "pre_tool_hook_duration_ms_count": 22,
+        "frame_duration_ms_count": 4406,
+        "frame_duration_ms_min": 0.06179200002225116,
+        "frame_duration_ms_max": 56.43537500000093,
+        "frame_duration_ms_avg": 2.0752827921013655,
+        "frame_duration_ms_p50": 1.6485000000247965,
+        "frame_duration_ms_p95": 4.0437606999999804,
+        "frame_duration_ms_p99": 10.450182500008957,
+        "pre_tool_hook_duration_ms_count": 35,
         "pre_tool_hook_duration_ms_min": 0,
-        "pre_tool_hook_duration_ms_max": 3,
-        "pre_tool_hook_duration_ms_avg": 1.0454545454545454,
+        "pre_tool_hook_duration_ms_max": 2,
+        "pre_tool_hook_duration_ms_avg": 0.8285714285714286,
         "pre_tool_hook_duration_ms_p50": 1,
         "pre_tool_hook_duration_ms_p95": 2,
-        "pre_tool_hook_duration_ms_p99": 2.789999999999999,
-        "hook_duration_ms_count": 10,
+        "pre_tool_hook_duration_ms_p99": 2,
+        "hook_duration_ms_count": 25,
         "hook_duration_ms_min": 0,
         "hook_duration_ms_max": 1,
-        "hook_duration_ms_avg": 0.2,
+        "hook_duration_ms_avg": 0.16,
         "hook_duration_ms_p50": 0,
         "hook_duration_ms_p95": 1,
         "hook_duration_ms_p99": 1
@@ -1351,7 +1351,7 @@
   "penguinModeOrgEnabled": false,
   "clientDataCache": {
     "data": {},
-    "timestamp": 1774949112886
+    "timestamp": 1775116808188
   },
   "cachedExtraUsageDisabledReason": "org_level_disabled",
   "s1mAccessCache": {
@@ -1415,8 +1415,8 @@
       "lastUsedAt": 1773795976473
     },
     "renewal-fix": {
-      "usageCount": 110,
-      "lastUsedAt": 1774834595039
+      "usageCount": 117,
+      "lastUsedAt": 1775108059069
     },
     "json-tag": {
       "usageCount": 2,
@@ -1445,36 +1445,36 @@
   },
   "toolUsage": {
     "Bash": {
-      "usageCount": 1211,
-      "lastUsedAt": 1774949079507
+      "usageCount": 1728,
+      "lastUsedAt": 1775116801038
     },
     "Read": {
-      "usageCount": 3373,
-      "lastUsedAt": 1774949089039
+      "usageCount": 3795,
+      "lastUsedAt": 1775116585693
     },
     "Glob": {
-      "usageCount": 964,
-      "lastUsedAt": 1774919017801
+      "usageCount": 978,
+      "lastUsedAt": 1775111691856
     },
     "Write": {
-      "usageCount": 287,
-      "lastUsedAt": 1774838162102
+      "usageCount": 343,
+      "lastUsedAt": 1775116535252
     },
     "Edit": {
-      "usageCount": 877,
-      "lastUsedAt": 1774949108631
+      "usageCount": 953,
+      "lastUsedAt": 1775116579673
     },
     "Skill": {
-      "usageCount": 28,
-      "lastUsedAt": 1774834595048
+      "usageCount": 31,
+      "lastUsedAt": 1775100700373
     },
     "Grep": {
-      "usageCount": 429,
-      "lastUsedAt": 1774917091127
+      "usageCount": 518,
+      "lastUsedAt": 1775116591771
     },
     "Task": {
-      "usageCount": 44,
-      "lastUsedAt": 1774918954393
+      "usageCount": 64,
+      "lastUsedAt": 1775116291999
     },
     "TaskCreate": {
       "usageCount": 12,
@@ -1483,10 +1483,19 @@
     "TaskUpdate": {
       "usageCount": 32,
       "lastUsedAt": 1774919576801
+    },
+    "EnterPlanMode": {
+      "usageCount": 2,
+      "lastUsedAt": 1775096436588
+    },
+    "AskUserQuestion": {
+      "usageCount": 1,
+      "lastUsedAt": 1775095705414
     }
   },
   "lspRecommendationIgnoredCount": 1,
   "hasVisitedExtraUsage": true,
   "showSpinnerTree": false,
-  "claudeInChromeDefaultEnabled": false
+  "claudeInChromeDefaultEnabled": false,
+  "effortCalloutDismissed": true
 }

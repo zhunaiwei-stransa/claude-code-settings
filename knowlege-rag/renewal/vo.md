@@ -75,5 +75,5 @@ func NewAuditTimeNow() AuditTime {
 
 ## Constrains
 
-1. Never swallow error when new a vo
-2. For some legacy reason, domain field name may diff from table name, which means some field name is an alias for table. But vo should always use table name. Known alias(left name sholud never exist in vo): staff = resource;
+- Never swallow error when new a vo
+- For some legacy reason, domain field name may diff from table name, which means some field name is an alias for table. But vo should always use table name. Known alias(left name sholud never exist in vo): staff = resource;

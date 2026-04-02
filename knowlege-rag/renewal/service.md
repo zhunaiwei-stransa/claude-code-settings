@@ -89,3 +89,6 @@ func (s *service) FetchOutcomesByBlocks(
 2. similar to usecase, each service have independant package
 3. Service interface and name is only Service/service that are in `types.go`, which is kind of special
 4. Service method implement and input and output are in one seperate file.
+
+## Constrains
+- The new service is only using repository but not query, even though it use join in repository. Others are temporary

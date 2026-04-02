@@ -95,6 +95,6 @@ type FetchPsSuggestionsLineItem struct {
 
 ## Constrains
 
-1. In `apps/calendar/internal/infrastructure/requestdto/`, defines some kinds of request format standard that most API should follow. For now it includes: menu, staff. For most recent message, you can list this directory.
-2. In `apps/calendar/internal/infrastructure/responsedto/icon.go`, defines some kinds of response format standard that most API should follow. For now it includes: menu, staff, patientStatus, icon, CheckedItem. For most recent message, you can list this directory.
-3. In every input, Memo sholud be decoded as base64 and store into MemoDecoded
+- In `apps/calendar/internal/infrastructure/requestdto/`, defines some kinds of request format standard that most API should follow. For now it includes: menu, staff. For most recent message, you can list this directory.
+- In `apps/calendar/internal/infrastructure/responsedto/icon.go`, defines some kinds of response format standard that most API should follow. For now it includes: menu, staff, patientStatus, icon, CheckedItem. For most recent message, you can list this directory.
+- In every input, Memo sholud be decoded as base64 and store into MemoDecoded

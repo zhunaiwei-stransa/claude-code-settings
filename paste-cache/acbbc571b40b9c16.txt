@@ -1,0 +1,27 @@
+# Goal
+
+standardize apps/patient into format like apps/calendar , only left a dockerfile for deploy.
+
+## Standard
+
+- apps/apotool only have one domain pkg shared by sub-apps. `apps/apotool/internal/pkg/domain`
+- apps/apotool only have one datasource pkg shared by sub-apps. `apps/apotool/internal/pkg/infrastructure/rdb/persistence/datasource`
+- query and usecase is always private to sub-apps
+- service is best-effort public by only using domain but bot query
+
+## Constrains
+
+- Not even a line of sub-app calendar should be modified. Always modify petient if they two have conflicts
+- In the end, patient should acts all API as same as before, even though the inner code is refactoring
+
+# Plan
+
+We achive the goal step by step, form easy to hard.
+
+1. Delete dead code of apps/patient for clean
+2. Move code of apps/patient that are not conflicted with code of apps/apotool. That means apps/apotool will only have added code.
+3. Move code of apps/patient that are conflicted with code apps/apotool. You try best to fix conflict with following the Constrains
+
+# Status
+
+Now let's start step 1. It semms that apps/patient is still too large. Make it done this time.

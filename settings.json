@@ -43,6 +43,7 @@
       "Read(**/*.key)"
     ]
   },
+  "model": "opus",
   "statusLine": {
     "type": "command",
     "command": "~/.claude/status-line.sh"
@@ -53,6 +54,7 @@
     "rust-analyzer-lsp@claude-plugins-official": true
   },
   "alwaysThinkingEnabled": true,
+  "autoMemoryEnabled": false,
   "skipDangerousModePermissionPrompt": true,
-  "autoMemoryEnabled": false
+  "effortLevel": "low"
 }

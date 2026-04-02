@@ -192,6 +192,7 @@ func GenPsSuggestionForCreate(
 
 ## Constrains
 
-1. Never change updatedAt in memory, it will be done in Repository
-2. For a specific kind of entity, there is always only one entity struct, factory.go only generate coresponding entity
-3. Reconstruct is one and only that create an entity from datasource. You sholud deirectly newEntity in Reconstruct but not ChangeXXX anything.
+- Never change updatedAt in memory, it will be done in Repository
+- For a specific kind of entity, there is always only one entity struct, factory.go only generate coresponding entity
+- Reconstruct is one and only that create an entity from datasource. You sholud deirectly newEntity in Reconstruct but not ChangeXXX anything.
+- Domain level is absolutely unique in one app.

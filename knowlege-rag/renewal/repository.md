@@ -214,7 +214,8 @@ func withLockClause(withLock bool) []clause.Expression {
 
 ## Constrains
 
-1. For most tables, especially small and middle table, only have one update method to update from a entire entity
-2. When generate Update method, only generate specific fields update for the api you are working. That means you don't need to generate Update method when the api do not need update method.
-3. Save method is always forbbidden, instead use Fetch-Change-Update-Or-Create logic in UseCase layer.
-4. If want to use `clause.Locking{Strength: "UPDATE"}`, add withLock bool param in Fetch method, and update all references. You cannot create any new method just for a select for update
+- For most tables, especially small and middle table, only have one update method to update from a entire entity
+- When generate Update method, only generate specific fields update for the api you are working. That means you don't need to generate Update method when the api do not need update method.
+- Save method is always forbbidden, instead use Fetch-Change-Update-Or-Create logic in UseCase layer.
+- If want to use `clause.Locking{Strength: "UPDATE"}`, add withLock bool param in Fetch method, and update all references. You cannot create any new method just for a select for update
+- Repository level is absolutely unique in one app.
