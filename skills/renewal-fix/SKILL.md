@@ -55,4 +55,5 @@ Last but not least, the skill is called fix, but the general goal is more than f
 - Normally, appended code into the end of the file
 - Human reading frindly output in markdown format
 - Do your best effort to make sure code can be compiled succfully
+- If you see commnet like `// todo: ` `// claude todo: `, you must obey the hint I give you, think deep and right
 - Language: English!
