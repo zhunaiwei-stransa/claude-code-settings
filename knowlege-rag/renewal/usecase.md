@@ -12,14 +12,14 @@ type UpdateCancelWaitingUseCase interface {
 }
 
 type updateCancelWaitingUseCase struct {
-	cancelWaitingRepo cancelwaitingdm.Repository
+	cancelWaitingRepository cancelwaitingdm.Repository
 }
 
 func NewUpdateCancelWaitingUseCase(
-	cancelWaitingRepo cancelwaitingdm.Repository,
+	cancelWaitingRepository cancelwaitingdm.Repository,
 ) *updateCancelWaitingUseCase {
 	return &updateCancelWaitingUseCase{
-		cancelWaitingRepo: cancelWaitingRepo,
+		cancelWaitingRepository: cancelWaitingRepository,
 	}
 }
 
@@ -43,7 +43,7 @@ func (uc *updateCancelWaitingUseCase) UpdateCancelWaiting(
 		)
 	}
 
-	entity, err := uc.cancelWaitingRepo.GetCancelWaiting(ctx, officeIDVO, idVO)
+	entity, err := uc.cancelWaitingRepository.GetCancelWaiting(ctx, officeIDVO, idVO)
 	if err != nil {
 		if errors.Is(err, cancelwaitingdm.ErrCancelWaitingNotFound) {
 			return httperror.NotFound(config.ErrCodeNotFound, err)
@@ -223,7 +223,7 @@ func (uc *updateCancelWaitingUseCase) UpdateCancelWaiting(
 	entity.ChangeStaff2ID(staff2IDVO)
 	entity.ChangeStaff3ID(staff3IDVO)
 
-	err = uc.cancelWaitingRepo.UpdateCancelWaiting(ctx, entity)
+	err = uc.cancelWaitingRepository.UpdateCancelWaiting(ctx, entity)
 	if err != nil {
 		return httperror.InternalServerError(
 			config.ErrCodeInternalServerError,

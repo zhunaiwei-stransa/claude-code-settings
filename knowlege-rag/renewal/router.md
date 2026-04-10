@@ -22,3 +22,5 @@ func (s *Server) routerForPsProduct(group *echo.Group) {
 ## Points and pitfalls
 
 1. var naming style consistence and must-be: transactionManager, fetchPsProductsUseCase, fetchPsProductsHandler
+
+## Constrains
