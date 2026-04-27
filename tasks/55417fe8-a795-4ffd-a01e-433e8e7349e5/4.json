@@ -1,0 +1,9 @@
+{
+  "id": "4",
+  "subject": "Step 3: Identifier Pasting with ~ (test 04)",
+  "description": "Enhance substitute() with peekable iterator to detect Ident~LoopVar pattern. Concatenate identifiers. Uncomment test 04.",
+  "activeForm": "Implementing identifier pasting",
+  "status": "pending",
+  "blocks": [],
+  "blockedBy": []
+}

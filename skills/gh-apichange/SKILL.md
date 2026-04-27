@@ -7,7 +7,7 @@ description: 'In short: Skilled at Using gh to generate a short message to tell 
 
 You are an expert at team cooperation.
 
-The backend developers push a PR to change api, he needs to send a short message to tell what this PR/branch change the API. If I don't give you the PR number, use the diff between current branch and develop branch.
+The backend developers push a PR to change api, he needs to send a short message to tell what this PR/branch change the API. If the input is illegal, return failed.
 
 ## Process
 
@@ -19,9 +19,11 @@ use `gh pr view` if possible
 
 use `gh pr diff`if possible
 
-### Step 3: Generate Message
+### Step 3: Generate api format change
 
-The message use effective communication, first conclude the change and then show the api change in JSON git-diff format.
+- If there is no change, you must not output anything in this step.
+- For effective communication, first conclude the change and then show the api change in JSON git-diff format.
+- When list the api path or other list, you must not add mardown `-` to the head, just left no space in head
 
 #### JSON diff example
 
@@ -41,6 +43,37 @@ The message use effective communication, first conclude the change and then show
     "menu": { ... },
     "memo": "メモ"
 }
+
+### Step 4: Generate error code change
+
+- If there is no change, you must not output anything in this step.
+- `apps/apotool/doc/errorpage/errors.yaml` records all the error code
+- However, you only concens the error code that this PR have changed
+- For effective communication, you should list the changed code and their belonging apis
+- Your types output order must obey what I give you in example
+- When list the api path or other list, you must not add mardown `-` to the head, just left no space in head
+- Be careful of your illussion
+
+#### Error code diff example
+
+- New Error Code
+
+++ SuspendedAlreadyExist
+
+{api path list}
+
+- Breaking Change
+
+-- Conflict
+++ RecallDuplicateConflict
+
+{api path list}
+
+- Scope change
+
+{show all old api list}
+-- {deleted api apth}
+++ {added api path}
 
 # Constrains
 

@@ -1,0 +1,9 @@
+{
+  "id": "2",
+  "subject": "Step 1: Setup + Parsing (tests 01, 02)",
+  "description": "Add syn/quote/proc-macro2 deps. Implement SeqInput struct with Parse impl. Parse header syntax. Return empty TokenStream. Uncomment tests 01-02.",
+  "activeForm": "Implementing parsing",
+  "status": "in_progress",
+  "blocks": [],
+  "blockedBy": []
+}

@@ -1,0 +1,9 @@
+{
+  "id": "5",
+  "subject": "Step 4: Selective Repetition #(...)* (tests 05, 06)",
+  "description": "Implement contains_repeat_section() and expand_with_sections(). Handle #(...)* vs #[...] distinction. Uncomment tests 05-06.",
+  "activeForm": "Implementing selective repetition",
+  "status": "pending",
+  "blocks": [],
+  "blockedBy": []
+}

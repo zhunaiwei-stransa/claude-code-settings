@@ -1,0 +1,21 @@
+#20 sha256:d2164316a27e17f26eb98d24af50422dd7dfb5b76ce56930bd155373310598ce
+#20 221.5 github.com/stransa-co-ltd/receipt-backend/apps/apotool/internal/pkg/infrastructure/rdb/persistence: /root/sdk/go1.26.2/pkg/tool/linux_amd64/compile: signal: killed
+#20 ERROR: executor failed running [/bin/sh -c GOEXPERIMENT=jsonv2 CGO_ENABLED=0 GOOS=linux GOARCH=amd64 GOAMD64=v3 go build -trimpath -ldflags="-s -w" -o /go/bin/calendar ./cmd/calendar/main.go &&   GOEXPERIMENT=jsonv2 CGO_ENABLED=0 GOOS=linux GOARCH=amd64 GOAMD64=v3 go build -trimpath -ldflags="-s -w" -o /go/bin/patient ./cmd/patient/main.go]: exit code: 1
+------
+ > [builder 14/14] RUN GOEXPERIMENT=jsonv2 CGO_ENABLED=0 GOOS=linux GOARCH=amd64 GOAMD64=v3 go build -trimpath -ldflags="-s -w" -o /go/bin/calendar ./cmd/calendar/main.go &&   GOEXPERIMENT=jsonv2 CGO_ENABLED=0 GOOS=linux GOARCH=amd64 GOAMD64=v3 go build -trimpath -ldflags="-s -w" -o /go/bin/patient ./cmd/patient/main.go:
+------
+executor failed running [/bin/sh -c GOEXPERIMENT=jsonv2 CGO_ENABLED=0 GOOS=linux GOARCH=amd64 GOAMD64=v3 go build -trimpath -ldflags="-s -w" -o /go/bin/calendar ./cmd/calendar/main.go &&   GOEXPERIMENT=jsonv2 CGO_ENABLED=0 GOOS=linux GOARCH=amd64 GOAMD64=v3 go build -trimpath -ldflags="-s -w" -o /go/bin/patient ./cmd/patient/main.go]: exit code: 1
+
+[Container] 2026/04/21 03:12:49.724693 Command did not exit successfully docker build --secret id=gh_app_secret,env=GH_APP_SECRET --secret id=gh_app_id,env=GH_APP_ID --target patient-external-api -t ${IMAGE_REPO_NAME}:${IMAGE_TAG} -f apps/apotool/Dockerfile . exit status 1
+[Container] 2026/04/21 03:12:49.989389 Phase complete: BUILD State: FAILED
+[Container] 2026/04/21 03:12:49.990077 Phase context status code: COMMAND_EXECUTION_ERROR Message: Error while executing command: docker build --secret id=gh_app_secret,env=GH_APP_SECRET --secret id=gh_app_id,env=GH_APP_ID --target patient-external-api -t ${IMAGE_REPO_NAME}:${IMAGE_TAG} -f apps/apotool/Dockerfile .. Reason: exit status 1
+[Container] 2026/04/21 03:12:50.047645 Entering phase POST_BUILD
+[Container] 2026/04/21 03:12:50.049932 Running command docker push ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}:${IMAGE_TAG}
+The push refers to repository [721871748042.dkr.ecr.ap-northeast-1.amazonaws.com/apotool-v2-patient-all-staging]
+An image does not exist locally with the tag: 721871748042.dkr.ecr.ap-northeast-1.amazonaws.com/apotool-v2-patient-all-staging
+
+[Container] 2026/04/21 03:12:50.260382 Command did not exit successfully docker push ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}:${IMAGE_TAG} exit status 1
+[Container] 2026/04/21 03:12:50.270413 Phase complete: POST_BUILD State: FAILED
+[Container] 2026/04/21 03:12:50.270427 Phase context status code: COMMAND_EXECUTION_ERROR Message: Error while executing command: docker push ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}:${IMAGE_TAG}. Reason: exit status 1
+[Container] 2026/04/21 03:12:50.379397 Expanding base directory path: .
+[Container] 2026/04/21 03:12:50.383437 Assembling file list

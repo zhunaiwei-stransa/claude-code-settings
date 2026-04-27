@@ -85,10 +85,13 @@ func (s *service) FetchOutcomesByBlocks(
 
 ## Points and pitfalls
 
-1. service is newed and called by usecase to share code between usecases
-2. similar to usecase, each service have independant package
+1. Service is newed and called by usecase to share code between usecases
+2. Similar to usecase, each service have independant package
 3. Service interface and name is only Service/service that are in `types.go`, which is kind of special
 4. Service method implement and input and output are in one seperate file.
+5. We try our best to use vo as parameter for service method.
+6. Service could have some helper functions, no matter public or private.
 
 ## Constrains
 - The new service is only using repository but not query, even though it use join in repository. Others are temporary
+- When wire a service, use nil params are totally forbidden, must new dependency even though it will not be used inside

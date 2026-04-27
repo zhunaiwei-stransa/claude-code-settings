@@ -1,0 +1,9 @@
+{
+  "id": "1",
+  "subject": "Create kiro persistence files (plan.md, requirement.md, specs)",
+  "description": "Generate plan.md, requirement.md, and spec_1.md through spec_6.md in the /kiro directory",
+  "activeForm": "Creating kiro persistence files",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

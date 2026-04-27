@@ -1,0 +1,14 @@
+../apps/apotool/internal/patient/usecase/reservationusecase/fetch_reservations_for_print_use_case.go:1: : # github.com/stransa-co-ltd/receipt-backend/apps/apotool/internal/patient/usecase/reservationusecase
+internal/patient/usecase/reservationusecase/fetch_reservations_for_print_use_case.go:104:18: undefined: japaneseWeekday (typecheck)
+package reservationusecase
+1 issues:
+* typecheck: 1
+make: *** [lint-fix] Error 1
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+~/Desktop/data/receipt-backend/apps/apotool (feature/send-telemed-notification) » make check-compile                                                   2 ↵ user40010308@W6T7WKX2MG
+Checking calendar compilation...
+calendar: OK
+Checking patient compilation...
+# github.com/stransa-co-ltd/receipt-backend/apps/apotool/internal/patient/usecase/reservationusecase
+internal/patient/usecase/reservationusecase/fetch_reservations_for_print_use_case.go:104:18: undefined: japaneseWeekday
+patient: FAIL

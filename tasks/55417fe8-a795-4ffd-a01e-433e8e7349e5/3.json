@@ -1,0 +1,9 @@
+{
+  "id": "3",
+  "subject": "Step 2: Basic Expansion (test 03)",
+  "description": "Implement substitute() function for token-tree walking and variable replacement. Repeat body N times. Uncomment test 03.",
+  "activeForm": "Implementing basic expansion",
+  "status": "pending",
+  "blocks": [],
+  "blockedBy": []
+}

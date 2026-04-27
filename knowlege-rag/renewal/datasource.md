@@ -82,4 +82,5 @@ func DeletedAtFromNullableTime(t *time.Time) gorm.DeletedAt
 ## Constrains
 
 - You should only never modify type DataSource struct def unless you have special good reason
+- The datasource Object define I give you is totally correct, you should not change any def of it unless I clearly ask you to do.
 - Domain level is absolutely unique in one app.

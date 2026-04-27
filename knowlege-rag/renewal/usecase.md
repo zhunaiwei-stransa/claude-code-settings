@@ -273,7 +273,19 @@ func (u *fetchCancelUseCase) FetchCancel(
 	}
 ```
 
-### code 4: utils
+### code 4: error code
+
+- The latest error code is still string but need comment to explain error code meaning
+- error code should be whole app unique because FE will map a code into unique message
+- error code should named precise with DDD meaning, for example `ReservationXXInvalid`, if a code is general name like `BadRequest`, it is a normal common error code for FE not to show special message
+- error code is defined in `httperror.go`, when create a HTTPError, only the errCode matters, err param is not a big dual
+
+```go
+// ErrCodeRecallMenuDuplicate recall menu duplicate when save a reservation 
+ErrCodeRecallMenuDuplicate httperror.ErrCode = "RecallMenuDuplicate"
+```
+
+### code 5: utils
 
 ```go
 func ContractChecker(ctx context.Context) (*contractdm.Checker, bool) {
@@ -285,6 +297,7 @@ func ContractChecker(ctx context.Context) (*contractdm.Checker, bool) {
 	return checker, true
 }
 ```
+
 
 ## Points and pitfalls
 
