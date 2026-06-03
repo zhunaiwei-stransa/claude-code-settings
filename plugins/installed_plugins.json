@@ -41,6 +41,17 @@
         "lastUpdated": "2026-03-26T07:28:17.995Z",
         "gitCommitSha": "55b58ec6e5649104f926ba7558b567dc8d33c5ff"
       }
+    ],
+    "superpowers@superpowers-marketplace": [
+      {
+        "scope": "local",
+        "installPath": "/Users/user40010308/.claude/plugins/cache/superpowers-marketplace/superpowers/5.1.0",
+        "version": "5.1.0",
+        "installedAt": "2026-05-19T05:47:24.311Z",
+        "lastUpdated": "2026-05-19T05:47:24.311Z",
+        "gitCommitSha": "f2cbfbefebbfef77321e4c9abc9e949826bea9d7",
+        "projectPath": "/Users/user40010308/Desktop/data/receipt-backend-review"
+      }
     ]
   }
 }

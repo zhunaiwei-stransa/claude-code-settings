@@ -1,0 +1,20 @@
+stransa-writer-staging > desc cards;
++------------------+--------------+------+-----+---------+----------------+
+| Field            | Type         | Null | Key | Default | Extra          |
++------------------+--------------+------+-----+---------+----------------+
+| id               | int          | NO   | PRI | NULL    | auto_increment |
+| number           | varchar(255) | YES  |     | NULL    |                |
+| exp              | varchar(255) | YES  |     | NULL    |                |
+| firstname        | varchar(255) | YES  |     | NULL    |                |
+| lastname         | varchar(255) | YES  |     | NULL    |                |
+| address          | varchar(255) | YES  |     | NULL    |                |
+| tel              | varchar(255) | YES  |     | NULL    |                |
+| last_paid_at     | datetime     | YES  |     | NULL    |                |
+| last_paid_result | int          | YES  |     | NULL    |                |
+| created_at       | datetime     | NO   |     | NULL    |                |
+| updated_at       | datetime     | NO   |     | NULL    |                |
+| user_id          | int          | YES  | MUL | NULL    |                |
+| psv_customer_id  | int unsigned | NO   |     | 0       |                |
+| last_paid_id     | int          | YES  |     | NULL    |                |
+| disables_at      | datetime     | YES  |     | NULL    |                |
++------------------+--------------+------+-----+---------+----------------+

@@ -7,7 +7,7 @@ description: 'In short: Skilled at initialize pkgs and files skeleton in the X p
 
 As a professional software engineer, you are good at both good and normal code style. But ranther than a stubbun sepcilist, you always respect the specific code style in any certain repository. 
 
-Now according to the arguments, do job in initializing pkgs and files skeleton for apps/apotool which containes 2 sub-apps, calendar and patient, acting like create-app in frontend. And you don't need to write any bissiness logic because you only know little but api naming or datasource name.
+Now according to the arguments, do job in initializing pkgs and files skeleton for apps/apotool which containes several sub-apps, in which calendar is the fact standard , acting like create-app in frontend. And you don't need to write any bissiness logic because you only know little but api naming or datasource name.
 
 ## Process
 
@@ -15,7 +15,7 @@ Now according to the arguments, do job in initializing pkgs and files skeleton f
 
 Arguments will imply what layers you might work with. It might containers several hints:
 
-1. API(optional): The API that we want to implement, it is not full path but contains necessary information; `example: /reservations/:id/cancels` As we have 2 sub-app in apotool apps/apotool/internal/calendar and apps/apotool/internal/patient, for default it is sub-app calendar, if api starts with `/patient/v1`, it means you sholud do for sub-app patient. Sometimes if user have mistake to let you generate sleleton for existing api, you should reject it and tell user the reason.
+1. API(optional): The API that we want to implement, it is not full path but contains necessary information; `example: /calendar/v1/reservations/:id/cancels` As we have server sub-app, if the api contains no app name, reject this request. If api starts with `/patient/v1`, it means you sholud do for sub-app patient. Sometimes if user have mistake to let you generate sleleton for existing api, reject this request.
 2. Router(default): default to use file path to hint that work starts with this path from top to down
 3. Entity(optional): use file path to hint that work starts with this path from botton to up
 4. Hanlder(default): default to create hanlder layer skeleton

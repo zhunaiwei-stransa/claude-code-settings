@@ -54,5 +54,7 @@
   },
   "alwaysThinkingEnabled": true,
   "autoMemoryEnabled": false,
-  "skipDangerousModePermissionPrompt": true
+  "skipDangerousModePermissionPrompt": true,
+  "theme": "dark-daltonized",
+  "effortLevel": "medium"
 }

@@ -21,7 +21,7 @@ For our cooperation good, we can divided the code we matter into 3 levels in con
 
 ### Php code link
 
-You can find PHP code in soft link `link-apotool_master` in repo root
+You can find PHP code in soft link `link-apotool_master` in repo root: lrwxr-xr-x@  1 user40010308  staff    17B  4月 22 12:37 link-apotool_master -> ../apotool_master
 
 ### Precheck Php code link
 

@@ -1,0 +1,244 @@
+<?php
+
+App::uses('AppController', 'Controller');
+
+/**
+ * カードコントローラー
+ *
+ * @property Card Card
+ * @property Contract Contract
+ */
+class CardController extends AppController
+{
+    public $uses = ['Card', 'Office', 'PaymentServiceApi'];
+
+    public function beforeFilter()
+    {
+        parent::beforeFilter();
+
+        // USENはカード決済機能無し
+        if (Configure::read('Env.usen')) {
+            throw new NotFoundException();
+        }
+    }
+
+    /**
+     * クレジットカード設定
+     *
+     * @return void
+     */
+    public function index()
+    {
+        $this->layout = ($this->viewVars['isTablet']? 'tablet/': '') . 'patient';
+
+        // offices.user_idに登録されているユーザー以外はカード登録されても意味がない
+        if (! $this->Card->User->Office->hasAny(['user_id' => $this->Auth->user('id')])) {
+            $this->render('index_valid');
+            return;
+        }
+
+        $userID = $this->Office->field('user_id', ['id' => $this->Auth->user('office_id')]);
+        $card = $this->Card->findByUserId($userID);
+
+        //GMO移行前の画面処理
+        if ($this->request->is('post') && !$this->checkStartAtGmo($this->Auth->user('office_id'))) {
+            $requestData = $this->request->input('json_decode', true);
+
+            $error = [];
+            try {
+                $this->Card->getDataSource()->begin();
+
+                // 支払い手段を更新する
+                $this->loadModel('Contract');
+                $status = $this->Contract->updateBillTypes(
+                    $this->Auth->user('id'),
+                    Configure::read('bill_types.CREDIT')
+                );
+
+                if (! $status) {
+                    $error[] = '支払い手段の更新に失敗しました';
+                    throw new \Exception(implode("\n", $error));
+                }
+
+                // SBPSに登録処理とcardsテーブルに保存する
+                $status = ClassRegistry::init('CardAuthLogic')->update_sbps_auth(
+                    $requestData,
+                    $this->Auth->User('id'),
+                    $card,
+                    $error
+                );
+
+                if (! $status) {
+                    throw new \Exception(implode("\n", $error));
+                }
+
+                //バックオフィスにメール送信
+                $office = $this->Office->get($this->Auth->user('office_id'));
+                $env = $this->Office->isEnvProduction() ? '本番' : 'デモ';
+                $action = $requestData['plan_bill_type'] == '2' ? '登録' : '変更';
+
+                App::uses('CakeEmail', 'Network/Email');
+                $email = new CakeEmail('smtp');
+                $email
+                    ->emailFormat('text')
+                    ->template(
+                        /* template */ 'backoffice/card_registration_complete',
+                        /* Layout */ 'notice')
+                    ->from([Configure::read('system_info_from') => Configure::read('system_info_sender')])
+                    ->to(Configure::read('support_notice_address'))
+                    ->subject(sprintf('[%s] クレジットカード%sが完了しました [%s]', $env, $action, $office['name']))
+                    ->viewVars([
+                        'office_name' => $office['name'],
+                        'office_id' => $office['id'],
+                        'action' => $action
+                    ]);
+
+                // ISO-2022-JP に設定する
+                $email->charset('ISO-2022-JP');
+                $email->headerCharset('ISO-2022-JP');
+
+                // メール送信処理
+                $email->send();
+
+                $this->Card->getDataSource()->commit();
+            } catch (\Exception $e) {
+                $this->Card->getDataSource()->rollback();
+
+                $this->log($e->getMessage());
+                $this->log($e->getTraceAsString());
+            }
+
+            $this->viewClass = 'Json';
+            $results = compact('status', 'error');
+            $this->set(compact('results'));
+            $this->set('_serialize', ['results']);
+            return;
+        }
+
+        $this->set('pageTitle', 'お支払い方法');
+        $this->set('data', Configure::read("SBPS_CARD_AUTH"));
+
+        $cardResult = [
+            'number' => null,
+            'exp' => null,
+            'firstname' => null,
+            'lastname' => null,
+            'last_paid_result' => null
+        ];
+
+        $card = empty($card)? $cardResult: array_intersect_key($card['Card'], $cardResult);
+
+        //GMO移行後の画面処理
+        if ($this->checkStartAtGmo($this->Auth->user('office_id'))) {
+            $contract = $this->Contract->findByOfficeId($this->Auth->user('office_id'));
+
+            if(intval($contract['Contract']['plan_bill_type']) != Configure::read('bill_types.CREDIT')){
+
+                $btnType = 'cardChangeDiv';
+            }else if(!empty($card)){
+                $btnType = 'cardUpdateDiv';
+            }else{
+                $btnType = 'cardCreateP';
+            }
+
+            $this->set('card', $card);
+            $this->set('btn_type', $btnType);
+            $this->render('index_new');
+        }
+
+        $this->set(compact('card')); 
+    }
+
+    /**
+     * registration_url取得
+     *
+     * @return　boolean
+     */
+    public function registration_url() {
+        if (!$this->checkStartAtGmo($this->Auth->user('office_id'))) {
+            throw new NotFoundException();
+        }
+
+        if ($this->request->is('ajax') && $this->request->is('post')) {
+            $userID = $this->Office->field('user_id', ['id' => $this->Auth->user('office_id')]);
+            $customerCode = ClassRegistry::init('Receipt')->generateSBPSCustCode($userID);
+
+            $reqBody = [
+                'customer' => [
+                    'sourceOfficeID' => intval($this->Auth->user('office_id')),
+                    'sourceShopID' => $this->PaymentServiceApi->getSourcedata('sourceShopID'),
+                    'customerCode' => $customerCode,
+                    'sourceType' => $this->PaymentServiceApi->getSourcedata('sourceTypeApotool'),
+                    'action' => 'EDIT',
+                ],
+            ];
+    
+            $result = $this->PaymentServiceApi->getRegistrationUrl($reqBody);
+
+            $cardData = $this->Card->find('first', [
+                'conditions' => [
+                    $this->Card->alias . '.user_id' => $userID,
+                    $this->Card->alias . '.disables_at' => null
+                ],
+            ]);
+
+            if(empty($cardData)){
+                $this->Card->getDataSource()->begin();
+
+                $this->Card->save([
+                    'user_id' => $userID,
+                    'psv_customer_id' => $result['body']['customer']['id'],
+                ],['validate' => false]);
+    
+                $this->Card->getDataSource()->commit();
+            }else{
+                $this->Card->getDataSource()->begin();
+
+                $this->Card->save([
+                    'id' => $cardData['Card']['id'],
+                    'psv_customer_id' => $result['body']['customer']['id'],
+                ],['validate' => false]);
+    
+                $this->Card->getDataSource()->commit();
+            }
+
+            $response = [
+                "result" => 'ok' ,
+                'id' => $result['body']['customer']['id'],
+                'url' => $result['body']['customer']['registrationUrl'] . '&from=APOTOOL&autoResponse=true'
+            ];
+
+            echo json_encode($response);
+        } else {
+            $this->redirect(array('action' => 'index'));
+        }
+
+        $this->_stop();
+    }
+
+    /**
+     * UsePaymentServiceCardStartAtの設定値を取得する。
+     *
+     * @param $officeId
+     */
+    private function checkStartAtGmo($officeId) {
+        $gmoStartAtArray = readConfigureByDBEnv("UsePaymentServiceCardStartAt");
+
+        $startDay = $gmoStartAtArray['startAt'];
+        if(!empty($gmoStartAtArray['officeId'])){
+            if(array_key_exists($officeId, $gmoStartAtArray['officeId'])){
+                $startDay = $gmoStartAtArray['officeId'][$officeId];
+            }
+        }
+
+        $today = DateTimeImmutable::createFromFormat('Y-m-d H:i:s', gmdate('Y-m-d H:i:s'), new DateTimeZone('UTC'));
+
+        $startsAt = DateTimeImmutable::createFromFormat('Y-m-d H:i:s', $startDay, new DateTimeZone('UTC'));
+
+        if($today >= $startsAt){
+            return true;
+        }else{
+            return false;
+        }
+    }
+}

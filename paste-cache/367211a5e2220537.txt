@@ -1,0 +1,142 @@
+//go:generate mockgen -source=$GOFILE -destination=../../mock/mockusecase/mock$GOPACKAGE/mock_$GOFILE -package=mock$GOPACKAGE
+package customerusecase
+
+import (
+    "context"
+    "errors"
+    "os"
+    "time"
+
+    "payment-service/common/apoerr"
+    "payment-service/common/apperr"
+    "payment-service/common/tx"
+    "payment-service/common/vo/customervo"
+    "payment-service/common/vo/officevo"
+    "payment-service/common/vo/sharedvo"
+    "payment-service/common/vo/shopvo"
+    "payment-service/domain/customerdm"
+    "payment-service/domain/paymentgatewaydm"
+    "payment-service/domain/shopdm"
+    "payment-service/usecase/customerusecase/customerinput"
+    "payment-service/usecase/customerusecase/customeroutput"
+    "payment-service/usecase/customerusecase/registrationurlservice"
+    "payment-service/usecase/customerusecase/tokenservice"
+)
+
+type CreateCustomerRegistrationUrl interface {
+    CreateCustomerRegistrationUrl(ctx context.Context, in *customerinput.CreateCustomerRegistrationUrlInput) (*customeroutput.CreateCustomerRegistrationUrlOutput, error)
+}
+
+type createCustomerRegistrationUrlUsecase struct {
+    customerRepository     customerdm.Repository
+    paymentGateway         paymentgatewaydm.PaymentGateway
+    shopRepository         shopdm.Repository
+    registrationUrlService registrationurlservice.RegistrationUrlService
+    tokenService           tokenservice.TokenService
+}
+
+func NewCreateCustomerRegistrationUrlusecase(customerRepository customerdm.Repository, paymentGateway paymentgatewaydm.PaymentGateway, shopRepository shopdm.Repository, registrationUrlService registrationurlservice.RegistrationUrlService, tokenService tokenservice.TokenService) *createCustomerRegistrationUrlUsecase {
+    return &createCustomerRegistrationUrlUsecase{
+        customerRepository:     customerRepository,
+        paymentGateway:         paymentGateway,
+        shopRepository:         shopRepository,
+        registrationUrlService: registrationUrlService,
+        tokenService:           tokenService,
+    }
+}
+
+func (u *createCustomerRegistrationUrlUsecase) CreateCustomerRegistrationUrl(ctx context.Context, in *customerinput.CreateCustomerRegistrationUrlInput) (*customeroutput.CreateCustomerRegistrationUrlOutput, error) {
+    sourceTypeVO, err := sharedvo.NewSourceType(in.Customer.SourceType)
+    if err != nil {
+        return nil, apoerr.Wrap(err)
+    }
+
+    sourceOfficeIDVO, err := officevo.NewID(in.Customer.SourceOfficeID)
+    if err != nil {
+        return nil, apoerr.Wrap(err)
+    }
+
+    var customerIDVO customervo.ID
+
+    if in.Customer.IsDummy {
+        token, err := u.tokenService.GenerateDummyWebAuthToken(sourceOfficeIDVO, in.Customer.CustomerCode, in.Customer.Action, time.Now().UTC())
+        if err != nil {
+            return nil, apoerr.Wrap(err)
+        }
+
+        dummyRegistrationUrl := u.registrationUrlService.GenerateDummyRegistrationUrl(in.Customer.Action, token)
+
+        username := os.Getenv("PAYMENT_WEB_BASIC_AUTH_USERNAME")
+        password := os.Getenv("PAYMENT_WEB_BASIC_AUTH_PASSWORD")
+
+        return customeroutput.NewCreateCustomerRegistrationUrlOutput(customerIDVO, dummyRegistrationUrl, username, password), nil
+    }
+
+    sourceShopIDVO, err := shopvo.NewID(in.Customer.SourceShopID)
+    if err != nil {
+        return nil, apoerr.Wrap(err)
+    }
+
+    externalIDVO, err := customervo.NewExternalID(in.Customer.CustomerCode)
+    if err != nil {
+        return nil, apoerr.Wrap(err)
+    }
+
+    shopEntity, err := u.shopRepository.FetchShopByID(ctx, sourceShopIDVO, false)
+    if err != nil {
+        return nil, apoerr.Wrap(err)
+    }
+
+    if shopEntity.CardConfigs() == nil {
+        return nil, apoerr.Wrap(nil, apoerr.WithOriginError(apperr.InternalServerError))
+    }
+
+    if (shopEntity.ShopType().Equals(shopvo.ShopTypePlatform) && sourceTypeVO.Equals(sharedvo.SourceTypeApotool)) ||
+        (shopEntity.ShopType().Equals(shopvo.ShopTypeTenant) && sourceTypeVO.Equals(sharedvo.SourceTypeSasatoPay)) {
+        ctx, rollback, err := tx.BeginTx(ctx)
+        if err != nil {
+            return nil, apoerr.Wrap(err)
+        }
+        defer rollback()
+
+        customerEntity, err := u.customerRepository.FetchCustomerByExternalID(ctx, externalIDVO, true)
+        if err != nil {
+            if !errors.Is(err, apperr.CustomerNotFound) {
+                return nil, apoerr.Wrap(tx.HandleErrorWithRollbackTx(ctx, err))
+            }
+
+            customerEntityForCreate, err := customerdm.GenCustomerForCreate(sourceOfficeIDVO, sourceShopIDVO, externalIDVO, sourceTypeVO)
+            if err != nil {
+                return nil, apoerr.Wrap(tx.HandleErrorWithRollbackTx(ctx, err))
+            }
+
+            idVO, err := u.customerRepository.CreateCustomer(ctx, customerEntityForCreate)
+            if err != nil {
+                return nil, apoerr.Wrap(tx.HandleErrorWithRollbackTx(ctx, err))
+            }
+
+            customerIDVO = idVO
+        } else {
+            customerIDVO = customerEntity.ID()
+        }
+
+        ctx, err = tx.CommitTx(ctx)
+        if err != nil {
+            return nil, apoerr.Wrap(tx.HandleErrorWithRollbackTx(ctx, err))
+        }
+
+        token, err := u.tokenService.GenerateWebAuthToken(sourceOfficeIDVO, sourceShopIDVO, customerIDVO, in.Customer.Action, *shopEntity.CardConfigs(), time.Now().UTC())
+        if err != nil {
+            return nil, apoerr.Wrap(err)
+        }
+
+        registrationUrl := u.registrationUrlService.GenerateRegistrationUrl(token)
+
+        username := os.Getenv("PAYMENT_WEB_BASIC_AUTH_USERNAME")
+        password := os.Getenv("PAYMENT_WEB_BASIC_AUTH_PASSWORD")
+
+        return customeroutput.NewCreateCustomerRegistrationUrlOutput(customerIDVO, registrationUrl, username, password), nil
+    }
+
+    return nil, apoerr.Wrap(nil, apoerr.WithOriginError(apperr.InvalidParameter))
+}

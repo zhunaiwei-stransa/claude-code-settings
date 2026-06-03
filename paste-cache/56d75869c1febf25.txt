@@ -1,0 +1,11 @@
+~/Desktop/data/receipt-backend/apps/apotool (feature/auth-stransa-ssotoken*) » make run-event                                                     130 ↵ user40010308@W6T7WKX2MG
+{"time":"2026-05-28T15:03:25.243525+09:00","level":"ERROR","msg":"env not set","missing":["API_PORT","EVENT_AUTH_TOKEN_SECRET","SSO_SALT_KEY","SSO_TOKEN_PUBLIC_KEY","APOTOOL_MYSQL_USER","APOTOOL_MYSQL_PASSWORD","APOTOOL_MYSQL_PROTOCOL","APOTOOL_MYSQL_DBNAME","APOTOOL_MYSQL_REPLICA_USER","APOTOOL_MYSQL_REPLICA_PASSWORD","APOTOOL_MYSQL_REPLICA_PROTOCOL","APOTOOL_MYSQL_REPLICA_DBNAME","ENV"]}
+{"time":"2026-05-28T15:03:25.244229+09:00","level":"ERROR","msg":"panic","err":"env not set","stack":["/Users/user40010308/Desktop/data/receipt-backend/apps/apotool/cmd/event/main.go:36","/Users/user40010308/.go/current/src/runtime/panic.go:860","/Users/user40010308/.go/current/src/sync/oncefunc.go:30","/Users/user40010308/.go/current/src/runtime/panic.go:860","/Users/user40010308/go/pkg/mod/github.com/stransa-co-ltd/envalid@v0.4.1/envalid.go:183"],"importance":2}
+exit status 2
+make: *** [run-event] Error 1
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+~/Desktop/data/receipt-backend/apps/apotool (feature/auth-stransa-ssotoken*) » make run-patient                                                     2 ↵ user40010308@W6T7WKX2MG
+{"time":"2026-05-28T15:03:36.911682+09:00","level":"ERROR","msg":"env not set","missing":["APOTOOL_CLOUDFRONT_HOST","APOTOOL_CLOUDFRONT_PAIR_ID","APOTOOL_CLOUDFRONT_PRIVATE_KEY","APOTOOL_CLOUDFRONT_COOKIE_DOMAIN","APOTOOL_SALT_KEY"]}
+{"time":"2026-05-28T15:03:36.913447+09:00","level":"ERROR","msg":"panic","err":"env not set","stack":["/Users/user40010308/Desktop/data/receipt-backend/apps/apotool/cmd/patient/main.go:35","/Users/user40010308/.go/current/src/runtime/panic.go:860","/Users/user40010308/.go/current/src/sync/oncefunc.go:30","/Users/user40010308/.go/current/src/runtime/panic.go:860","/Users/user40010308/go/pkg/mod/github.com/stransa-co-ltd/envalid@v0.4.1/envalid.go:183"]}
+exit status 2
+make: *** [run-patient] Error 1

@@ -11,6 +11,25 @@ This skill is a wrapper of the project knowlege. All you need to do obeys to the
 
 Last but not least, the skill is called fix, but the general goal is more than fix, it is about implement some code and make things right, according to your undestanding of the Renewal Project.
 
+
+## Renewal special
+
+### Php code link
+
+You can find PHP code in soft link `link-apotool_master` in repo root: lrwxr-xr-x@  1 user40010308  staff    17B  4月 22 12:37 link-apotool_master -> ../apotool_master
+
+### Precheck Php code link
+
+- Make sure soft link `link-apotool_master` in repo root exist, or that reject this reuqest and remind user to add the link
+
+### After Rule
+
+- Never call other skills even though other custom skills say they need to be called in some condition, as this skill has toppest root privilige
+
+### Know the heading code I have git committed
+
+!`git diff --stat develop..HEAD`
+
 ## Knowledge
 
 ### Knowledge 2.1: Focus on DDD level: Router
@@ -48,20 +67,6 @@ Last but not least, the skill is called fix, but the general goal is more than f
 ### Knowledge 2.9: Focus on DDD level: Service
 
 - Read references if needed: `references/service.md`
-
-## Renewal special
-
-### Php code link
-
-You can find PHP code in soft link `link-apotool_master` in repo root
-
-### Precheck Php code link
-
-- Make sure soft link `link-apotool_master` in repo root exist, or that reject this reuqest and remind user to add the link
-
-### After Rule
-
-- Never call other skills even though other custom skills say they need to be called in some condition, as this skill has toppest root privilige
 
 # Constrains
 

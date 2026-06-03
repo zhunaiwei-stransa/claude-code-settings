@@ -19,7 +19,7 @@ As a professional software engineer, you are good at both good and normal code s
 
 ### Step 3: Special rules for special repositpry
 
-#### github.com/stransa-co-ltd/receipt-backend
+#### receipt-backend or stransa-backend
 
 Current repo: !`git remote -v`
 Current git branch: !`git branch --show-current`
@@ -34,6 +34,7 @@ code references index:
 - `references/datasource.md`
 - `references/repository.md`
 - `references/query.md`
+- `references/service.md`
 
 git commit format: 
 
@@ -49,6 +50,7 @@ git commit -m "fix(infrastructure): validation error"
 - Think wide for potential risks, obeying the already exist development guidelines
 - Some obvious problem, for example spelling typo, naming problem
 - Feel good to adapt into the level of other engineers who are in this project, so don't need to make the code best but suitable
+- Think of dead code related. If this PR introduce some dead code, find them and remind to delete them.
 
 # Constrains
 
