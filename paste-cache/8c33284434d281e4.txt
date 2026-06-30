@@ -1,0 +1,168 @@
+    public function regist()
+    {
+        // メソッドがpostでなければ不正。ログインしていなくても不正。
+        if (!$this->request->is('post')) {
+            return $this->makeResponse(400);
+        }
+
+        $contract = $this->viewVars['my_contract'];
+        if (empty($contract['id'])) {
+            // ここで契約データが存在しないことはありえないですが、念のため。
+            return $this->makeResponse(400);
+        }
+        if ( $this->allowAction($contract) !== self::ALLOW_ACTION_REGIST ) {
+            return $this->makeResponse(400);
+        }
+        if ($contract['ai_phone_valid']) {
+            // すでに有効になっていれば、何もしない
+            return $this->makeResponse(204);
+        }
+
+        $status = 200;
+        $res = null;
+
+        $ds = $this->ApPlan->getDataSource();
+
+        try {
+            $ds->begin();
+
+            $office = $this->Office->get($this->officeId);
+            $profile = $this->Profile->findByUserId($office['user_id']);
+
+            if (empty($office) || empty($profile) || empty($profile['Profile']['contract_email'])) {
+                // ClubApotoolに認証出来た時点でデータの整合性が担保されるのでここにくることはないはず
+                throw new \Exception('予期せぬエラーが発生しました。');
+            }
+
+            $profile = $profile['Profile'];
+
+            $data = $this->request->data('plan');
+            $planKey = isset($data) ? $data : null;
+
+            // プラン情報取得
+            if (!empty($planKey)) {
+                $planDetails = $this->ApPlan->getPlanDetails($planKey)[$planKey];
+            } else {
+                throw new \Exception('無効なプランが選択されました。');
+            }
+
+            // 画像アップロード処理
+            if (!empty($this->request->params['form'])) {
+                $identityDocumentPath = $this->upload($this->request->params['form']);
+            } else {
+                throw new \Exception('画像が選択されませんでした。');
+            }
+
+            $nowUtc = $this->currentTimeUtc();
+
+            // サービス利用申込書保存
+            $applicationInfo = $this->ApApplication->getApplicationInfo($this->officeId);
+
+            if (empty($applicationInfo)) {
+                // 一回目の利用申し込みなら新規レコード作成処理
+                $data = [
+                    'office_id' => $this->officeId,
+                    'subscriber_type' => $this->request->data('subscriber_type'),
+                    'subscriber_name' => $this->request->data('subscriber_name'),
+                    'representative_name' => $this->request->data('representative_name'),
+                    'subscriber_address' => $this->request->data('subscriber_address'),
+                    'subscriber_tel' => $this->request->data('subscriber_tel'),
+                    'contact_person_name' => $this->request->data('contact_person_name'),
+                    'office_name' => $this->request->data('office_name'),
+                    'office_address' => $this->request->data('office_address'),
+                    'office_tel' => $this->request->data('office_tel'),
+                    'applied_date' => (new DateTime('now', new DateTimeZone('Asia/Tokyo')))->format('Y-m-d'),
+                    'applied_by' => $office['user_id'],
+                    'identity_document_path' => $identityDocumentPath,
+                ];
+
+                $this->ApApplication->create();
+            } else {
+                $this->ApApplication->id = $applicationInfo['ApApplication']['id'];
+                // 二回目の利用申し込みなら既存レコード更新処理
+                $data = [
+                    'subscriber_type' => $this->request->data('subscriber_type'),
+                    'subscriber_name' => $this->request->data('subscriber_name'),
+                    'representative_name' => $this->request->data('representative_name'),
+                    'subscriber_address' => $this->request->data('subscriber_address'),
+                    'subscriber_tel' => $this->request->data('subscriber_tel'),
+                    'contact_person_name' => $this->request->data('contact_person_name'),
+                    'office_name' => $this->request->data('office_name'),
+                    'office_address' => $this->request->data('office_address'),
+                    'office_tel' => $this->request->data('office_tel'),
+                    'applied_date' => (new DateTime('now', new DateTimeZone('Asia/Tokyo')))->format('Y-m-d'),
+                    'applied_by' => $office['user_id'],
+                    'identity_document_path' => $identityDocumentPath,
+                    'updated_at' => $nowUtc,
+                ];
+            }
+
+            $this->ApApplication->save($data);
+
+            $nowJst = new DateTime('now', new DateTimeZone('Asia/Tokyo'));
+            // 当月の1日を適用日とする
+            $applyDate = $nowJst->modify('first day of this month')->format('Y-m-d H:i:s');
+
+            $freeEndedAt = $this->calcFreeEndedAtUtc();
+
+            $apPlan = $this->ApPlan->getInitialPlan($this->officeId);
+            if (empty($apPlan)) {
+                // 一回目の利用申し込みなら新規レコード作成処理
+                $data = [
+                    'office_id' => $this->officeId,
+                    'plan' => $planKey,
+                    'basic_price' => $planDetails['basic_price'],
+                    'basic_units' => $planDetails['basic_units'],
+                    'unit_price' => $planDetails['unit_price'],
+                    'minute_price' => $planDetails['minute_price'],
+                    'free_ended_at' => $freeEndedAt,
+                    'apply_date' => $applyDate,
+                    'applied_at' => null,
+                    'incoming_tel' => null,
+                    'is_new_entry' => 1,
+                    'created_at' => $nowUtc,
+                    'created_by' => $this->userId,
+                    'updated_at' => $nowUtc,
+                    'updated_by' => $this->userId,
+                ];
+
+                $this->ApPlan->create();
+            } else {
+                // 二回目の利用申し込みなら既存レコード更新処理
+                $data = [
+                    'id' => $apPlan['id'],
+                    'plan' => $planKey,
+                    'basic_price' => $planDetails['basic_price'],
+                    'basic_units' => $planDetails['basic_units'],
+                    'unit_price' => $planDetails['unit_price'],
+                    'minute_price' => $planDetails['minute_price'],
+                    'apply_date' => $applyDate,
+                    'updated_at' => $nowUtc,
+                    'updated_by' => $this->userId,
+                ];
+            }
+
+            $this->ApPlan->clear();
+            if (!$this->ApPlan->save($data)) {
+                throw new \Exception('利用申し込み中にDBエラーが発生しました。');
+            } 
+
+            // レコードの処理が成功したらメール送信
+            // 申込者に通知を送信
+            $this->sendEntryNotificationNew($office, $profile, $planDetails['name'], $planDetails['basic_price']);
+
+            // 管理部署に通知を送信
+            $this->sendBackOfficeNotificationNew($office, $planDetails['name'], $profile['contract_email']);
+
+            $res = $profile['contract_email'];
+
+            $ds->commit();
+        } catch (Exception $e) {
+            $ds->rollback();
+            $this->log($e->getMessage(), 'error');
+            $this->log($e->getTraceAsString(), 'error');
+            $status = 500;
+        }
+
+        return $this->makeResponse($status, $res);
+    }

@@ -24,24 +24,51 @@ As a professional software engineer, you are good at both good and normal code s
 Current repo: !`git remote -v`
 Current git branch: !`git branch --show-current`
 
-code references index:
-
-- `references/router.md`
-- `references/handler.md`
-- `references/usecase.md`
-- `references/domain.md`
-- `references/vo.md`
-- `references/datasource.md`
-- `references/repository.md`
-- `references/query.md`
-- `references/service.md`
-
 git commit format: 
 
 ```bash
 git commit -m "feat(calendar): add patient modify sheet"
 git commit -m "fix(infrastructure): validation error"
 ```
+
+## Knowledge
+
+### Knowledge 2.1: Focus on DDD level: Router
+
+- Read references if needed: `references/router.md`
+
+### Knowledge 2.2: Focus on DDD level: Hander
+
+- Read references if needed: `references/handler.md`
+
+### Knowledge 2.3: Focus on DDD level: UseCase
+
+- Read references if needed: `references/usecase.md`
+
+### Knowledge 2.4: Focus on DDD level: Domain
+
+- Read references if needed: `references/domain.md`
+
+### Knowledge 2.5: Focus on DDD level: VO(Valueobject)
+
+- Read references if needed: `references/vo.md`
+
+### Knowledge 2.6: Focus on DDD level: Datasource
+
+- Read references if needed: `references/datasource.md`
+
+### Knowledge 2.7: Focus on DDD level: Repository
+
+- Read references if needed: `references/repository.md`
+
+### Knowledge 2.8: Focus on DDD level: Query
+
+- Read references if needed: `references/query.md`
+
+### Knowledge 2.9: Focus on DDD level: Service
+
+- Read references if needed: `references/service.md`
+
 
 ### Step 4: Thinking and review
 

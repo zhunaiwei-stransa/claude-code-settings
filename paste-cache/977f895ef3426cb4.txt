@@ -1,0 +1,17 @@
+~/Desktop/data/receipt-backend/apps/apotool (feature/setting-shifts-data) » make lint-fix                                                                                                            130 ↵ user40010308@W6T7WKX2MG
+../apps/apotool/internal/setting/infrastructure/router/dev_token_verifier.go:9:2: G101: Potential hardcoded credentials (gosec)
+    BackdoorTokenDuringDev2    = "dev-token2"
+    ^
+../apps/apotool/internal/setting/usecase/shiftusecase/fetch_shifts_use_case.go:54:69: confusing-results: unnamed results of the same type may be confusing, consider using named results (revive)
+func computeDateRange(mode string, week, month *string) (time.Time, time.Time, error) {
+                                                                    ^
+../apps/apotool/internal/setting/usecase/shiftusecase/fetch_shifts_use_case.go:58:37: use-errors-new: replace fmt.Errorf by errors.New (revive)
+            return time.Time{}, time.Time{}, fmt.Errorf("week parameter is required for mode=week")
+                                             ^
+../apps/apotool/internal/setting/usecase/shiftusecase/fetch_shifts_use_case.go:74:37: use-errors-new: replace fmt.Errorf by errors.New (revive)
+            return time.Time{}, time.Time{}, fmt.Errorf("month parameter is required for mode=month")
+                                             ^
+4 issues:
+* gosec: 1
+* revive: 3
+make: *** [lint-fix] Error 1

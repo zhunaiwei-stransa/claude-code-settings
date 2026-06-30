@@ -1,0 +1,489 @@
+{
+    "year": "2026",
+    "terms": [
+        2026
+    ],
+    "receipts": [
+        {
+            "Receipt": {
+                "basic": {
+                    "title": "Apotool & Box",
+                    "total": "0"
+                },
+                "extra_unit": false,
+                "sms_basic": {
+                    "title": "SMS　月額利用料",
+                    "total": "0"
+                },
+                "sms_send": {
+                    "title": "SMS　送信料金　(2026%/01%/15〜2026%/02%/14)",
+                    "count": "0",
+                    "total": "0",
+                    "unit": "15"
+                },
+                "material": {
+                    "title": "技工物管理機能　月額利用料",
+                    "total": "0"
+                },
+                "intelligence": {
+                    "title": "分析機能 Intelligence　月額利用料",
+                    "total": "0"
+                },
+                "regist_card_app": {
+                    "title": "診察券アプリ　月額利用料",
+                    "total": "0"
+                },
+                "regi_app": {
+                    "title": "お会計さん　月額利用料",
+                    "total": "0"
+                },
+                "clinical_path": {
+                    "title": "診療計画　月額利用料",
+                    "total": "0"
+                },
+                "implant": {
+                    "title": "インプラント　月額利用料",
+                    "total": "0"
+                },
+                "interview_sheet": {
+                    "title": "問診票　月額利用料",
+                    "total": "0"
+                },
+                "cti": {
+                    "title": "cti　月額利用料",
+                    "total": "0"
+                },
+                "line_app": {
+                    "title": "LINE　月額利用料",
+                    "total": "0"
+                },
+                "line_basic": false,
+                "line_send": false,
+                "chatbot_md": false,
+                "medical_box_basic": false,
+                "medical_box_storage": false,
+                "medical_box_air_perio_exam": false,
+                "subkarte": false,
+                "oncall_basic": {
+                    "title": "ご案内ばん　月額利用料",
+                    "total": "0"
+                },
+                "oncall_send": {
+                    "title": "ご案内ばん　呼出利用料　(2026%/01%/15〜2026%/02%/14)",
+                    "unit": "15",
+                    "count": "3",
+                    "total": "45"
+                },
+                "shinseiki_cashier": false,
+                "fr_basic": {
+                    "title": "かおdeパス　月額利用料",
+                    "total": "0"
+                },
+                "ai_phone": {
+                    "title": "電話がらくだ　月額利用料",
+                    "total": "0"
+                },
+                "ai_phone_usage": {
+                    "title": "電話がらくだ　超過料金　(2026%/01%/01〜2026%/01%/31)",
+                    "unit": "180",
+                    "count": "0",
+                    "total": "0"
+                },
+                "ai_phone_minute": {
+                    "title": "電話がらくだ　通話料金　(2026%/01%/01〜2026%/01%/31)",
+                    "unit": "3.2",
+                    "count": "0",
+                    "total": "0"
+                },
+                "id": "30140",
+                "paid_at": "2026-02-14 17:09:51",
+                "year_month": "2026-03-15",
+                "total_amount": "49",
+                "status": "1",
+                "free_unit_count": "1",
+                "usage_from": "2026-01-14 15:00:00",
+                "usage_to": "2026-02-14 14:59:59",
+                "plan_bill_type": "2",
+                "subtotal_amount": "45"
+            }
+        },
+        {
+            "Receipt": {
+                "basic": {
+                    "title": "Apotool & Box",
+                    "total": "0"
+                },
+                "extra_unit": false,
+                "sms_basic": {
+                    "title": "SMS　月額利用料",
+                    "total": "0"
+                },
+                "sms_send": {
+                    "title": "SMS　送信料金　(2026%/02%/15〜2026%/03%/14)",
+                    "count": "1",
+                    "total": "15",
+                    "unit": "15",
+                    "has_breakdown": true
+                },
+                "sms_send1": {
+                    "unit": 15,
+                    "title": "SMS送信料金内訳（15円%/通）",
+                    "count": 1,
+                    "total": 15,
+                    "breakdown": true
+                },
+                "material": {
+                    "title": "技工物管理機能　月額利用料",
+                    "total": "0"
+                },
+                "intelligence": {
+                    "title": "分析機能 Intelligence　月額利用料",
+                    "total": "0"
+                },
+                "regist_card_app": {
+                    "title": "診察券アプリ　月額利用料",
+                    "total": "0"
+                },
+                "regi_app": {
+                    "title": "お会計さん　月額利用料",
+                    "total": "0"
+                },
+                "clinical_path": {
+                    "title": "診療計画　月額利用料",
+                    "total": "0"
+                },
+                "implant": {
+                    "title": "インプラント　月額利用料",
+                    "total": "0"
+                },
+                "interview_sheet": {
+                    "title": "問診票　月額利用料",
+                    "total": "0"
+                },
+                "cti": {
+                    "title": "cti　月額利用料",
+                    "total": "0"
+                },
+                "line_app": {
+                    "title": "LINE　月額利用料",
+                    "total": "0"
+                },
+                "line_basic": false,
+                "line_send": false,
+                "chatbot_md": false,
+                "medical_box_basic": {
+                    "title": "Medical Box　月額利用料",
+                    "total": 0,
+                    "has_breakdown": true
+                },
+                "medical_box_detail1": {
+                    "unit": 0,
+                    "title": "Medical Box　月額利用料内訳（10GBプラン）",
+                    "count": 1,
+                    "total": 0,
+                    "breakdown": true
+                },
+                "medical_box_air_perio_exam": false,
+                "subkarte": false,
+                "oncall_basic": {
+                    "title": "ご案内ばん　月額利用料",
+                    "total": "0"
+                },
+                "oncall_send": {
+                    "title": "ご案内ばん　呼出利用料　(2026%/02%/15〜2026%/03%/14)",
+                    "unit": "15",
+                    "count": "6",
+                    "total": "90"
+                },
+                "shinseiki_cashier": false,
+                "fr_basic": {
+                    "title": "かおdeパス　月額利用料",
+                    "total": "0"
+                },
+                "ai_phone": {
+                    "title": "電話がらくだ　月額利用料",
+                    "total": "0"
+                },
+                "ai_phone_usage": {
+                    "title": "電話がらくだ　超過料金　(2026%/02%/01〜2026%/02%/28)",
+                    "unit": "180",
+                    "count": "0",
+                    "total": "0"
+                },
+                "ai_phone_minute": {
+                    "title": "電話がらくだ　通話料金　(2026%/02%/01〜2026%/02%/28)",
+                    "unit": "3.2",
+                    "count": "0",
+                    "total": "0"
+                },
+                "id": "31365",
+                "paid_at": "2026-03-14 17:09:13",
+                "year_month": "2026-04-15",
+                "total_amount": "115",
+                "status": "1",
+                "free_unit_count": "1",
+                "usage_from": "2026-02-14 15:00:00",
+                "usage_to": "2026-03-14 14:59:59",
+                "plan_bill_type": "2",
+                "subtotal_amount": "105"
+            }
+        },
+        {
+            "Receipt": {
+                "basic": {
+                    "title": "Apotool & Box",
+                    "total": "18000"
+                },
+                "extra_unit": false,
+                "sms_basic": {
+                    "title": "SMS　月額利用料",
+                    "total": "0"
+                },
+                "sms_send": {
+                    "title": "SMS　送信料金　(2026%/03%/15〜2026%/04%/14)",
+                    "count": "30",
+                    "total": "450",
+                    "unit": "15",
+                    "has_breakdown": true
+                },
+                "sms_send1": {
+                    "unit": 15,
+                    "title": "SMS送信料金内訳（15円%/通）",
+                    "count": 26,
+                    "total": 390,
+                    "breakdown": true
+                },
+                "sms_send2": {
+                    "unit": 30,
+                    "title": "SMS送信料金内訳（30円%/通）",
+                    "count": 2,
+                    "total": 60,
+                    "breakdown": true
+                },
+                "material": {
+                    "title": "技工物管理機能　月額利用料",
+                    "total": "0"
+                },
+                "intelligence": {
+                    "title": "分析機能 Intelligence　月額利用料",
+                    "total": "0"
+                },
+                "regist_card_app": {
+                    "title": "診察券アプリ　月額利用料",
+                    "total": "10000"
+                },
+                "regi_app": {
+                    "title": "お会計さん　月額利用料",
+                    "total": "3500"
+                },
+                "clinical_path": {
+                    "title": "診療計画　月額利用料",
+                    "total": "0"
+                },
+                "implant": {
+                    "title": "インプラント　月額利用料",
+                    "total": "0"
+                },
+                "interview_sheet": {
+                    "title": "問診票　月額利用料",
+                    "total": "0"
+                },
+                "cti": {
+                    "title": "cti　月額利用料",
+                    "total": "0"
+                },
+                "line_app": {
+                    "title": "LINE　月額利用料",
+                    "total": "25000"
+                },
+                "line_basic": false,
+                "line_send": false,
+                "chatbot_md": false,
+                "medical_box_basic": {
+                    "title": "Medical Box　月額利用料",
+                    "total": 0,
+                    "has_breakdown": true
+                },
+                "medical_box_detail1": {
+                    "unit": 0,
+                    "title": "Medical Box　月額利用料内訳（10GBプラン）",
+                    "count": 1,
+                    "total": 0,
+                    "breakdown": true
+                },
+                "medical_box_air_perio_exam": false,
+                "subkarte": false,
+                "oncall_basic": {
+                    "title": "ご案内ばん　月額利用料",
+                    "total": "0"
+                },
+                "oncall_send": {
+                    "title": "ご案内ばん　呼出利用料　(2026%/03%/15〜2026%/04%/14)",
+                    "unit": "15",
+                    "count": "55",
+                    "total": "825"
+                },
+                "shinseiki_cashier": false,
+                "fr_basic": {
+                    "title": "かおdeパス　月額利用料",
+                    "total": "0"
+                },
+                "ai_phone": {
+                    "title": "電話がらくだ　月額利用料",
+                    "total": "50000"
+                },
+                "ai_phone_usage": {
+                    "title": "電話がらくだ　超過料金　(2026%/03%/01〜2026%/03%/31)",
+                    "unit": "180",
+                    "count": "0",
+                    "total": "0"
+                },
+                "ai_phone_minute": {
+                    "title": "電話がらくだ　通話料金　(2026%/03%/01〜2026%/03%/31)",
+                    "unit": "3.2",
+                    "count": "0",
+                    "total": "0"
+                },
+                "id": "31909",
+                "paid_at": "2026-04-14 17:09:35",
+                "year_month": "2026-05-15",
+                "total_amount": "118552",
+                "status": "1",
+                "free_unit_count": "2",
+                "usage_from": "2026-03-14 15:00:00",
+                "usage_to": "2026-04-14 14:59:59",
+                "plan_bill_type": "2",
+                "subtotal_amount": "107775"
+            }
+        },
+        {
+            "Receipt": {
+                "basic": {
+                    "title": "Apotool & Box",
+                    "total": "18000"
+                },
+                "extra_unit": false,
+                "sms_basic": {
+                    "title": "SMS　月額利用料",
+                    "total": "0"
+                },
+                "sms_send": {
+                    "title": "SMS　送信料金　(2026%/04%/15〜2026%/05%/14)",
+                    "count": "28",
+                    "total": "420",
+                    "unit": "15",
+                    "has_breakdown": true
+                },
+                "sms_send1": {
+                    "unit": 15,
+                    "title": "SMS送信料金内訳（15円%/通）",
+                    "count": 14,
+                    "total": 210,
+                    "breakdown": true
+                },
+                "sms_send2": {
+                    "unit": 30,
+                    "title": "SMS送信料金内訳（30円%/通）",
+                    "count": 7,
+                    "total": 210,
+                    "breakdown": true
+                },
+                "material": {
+                    "title": "技工物管理機能　月額利用料",
+                    "total": "0"
+                },
+                "intelligence": {
+                    "title": "分析機能 Intelligence　月額利用料",
+                    "total": "0"
+                },
+                "regist_card_app": {
+                    "title": "診察券アプリ　月額利用料",
+                    "total": "10000"
+                },
+                "regi_app": {
+                    "title": "お会計さん　月額利用料",
+                    "total": "3500"
+                },
+                "clinical_path": {
+                    "title": "診療計画　月額利用料",
+                    "total": "0"
+                },
+                "implant": {
+                    "title": "インプラント　月額利用料",
+                    "total": "0"
+                },
+                "interview_sheet": {
+                    "title": "問診票　月額利用料",
+                    "total": "0"
+                },
+                "cti": {
+                    "title": "cti　月額利用料",
+                    "total": "0"
+                },
+                "line_app": {
+                    "title": "LINE　月額利用料",
+                    "total": "25000"
+                },
+                "line_basic": false,
+                "line_send": false,
+                "chatbot_md": false,
+                "medical_box_basic": {
+                    "title": "Medical Box　月額利用料",
+                    "total": 0,
+                    "has_breakdown": true
+                },
+                "medical_box_detail1": {
+                    "unit": 0,
+                    "title": "Medical Box　月額利用料内訳（10GBプラン）",
+                    "count": 1,
+                    "total": 0,
+                    "breakdown": true
+                },
+                "medical_box_air_perio_exam": false,
+                "subkarte": false,
+                "oncall_basic": {
+                    "title": "ご案内ばん　月額利用料",
+                    "total": "0"
+                },
+                "oncall_send": {
+                    "title": "ご案内ばん　呼出利用料　(2026%/04%/15〜2026%/05%/14)",
+                    "unit": "15",
+                    "count": "37",
+                    "total": "555"
+                },
+                "shinseiki_cashier": false,
+                "fr_basic": {
+                    "title": "かおdeパス　月額利用料",
+                    "total": "0"
+                },
+                "ai_phone": {
+                    "title": "電話がらくだ　月額利用料",
+                    "total": "50000"
+                },
+                "ai_phone_usage": {
+                    "title": "電話がらくだ　超過料金　(2026%/04%/01〜2026%/04%/30)",
+                    "unit": "180",
+                    "count": "0",
+                    "total": "0"
+                },
+                "ai_phone_minute": {
+                    "title": "電話がらくだ　通話料金　(2026%/04%/01〜2026%/04%/30)",
+                    "unit": "3.2",
+                    "count": "0",
+                    "total": "0"
+                },
+                "id": "32503",
+                "paid_at": "2026-05-14 17:09:54",
+                "year_month": "2026-06-15",
+                "total_amount": "118222",
+                "status": "1",
+                "free_unit_count": "2",
+                "usage_from": "2026-04-14 15:00:00",
+                "usage_to": "2026-05-14 14:59:59",
+                "plan_bill_type": "2",
+                "subtotal_amount": "107475"
+            }
+        }
+    ],
+    "userType": "1000"
+}

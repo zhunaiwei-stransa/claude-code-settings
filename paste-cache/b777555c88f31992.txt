@@ -1,0 +1,25 @@
+
+=== Failed
+=== FAIL: internal/domain/insurancedm TestCalculateCareBurden/normal_3-wari,_no_public (0.00s)
+    care_burden_test.go:285: 
+            Error Trace:    /__w/stransa-backend/stransa-backend/apps/receipt/internal/domain/insurancedm/care_burden_test.go:42
+                                        /__w/stransa-backend/stransa-backend/apps/receipt/internal/domain/insurancedm/care_burden_test.go:285
+            Error:          Received unexpected error:
+                            new care insurer number: care insurer number must be 6 digits: '13456789'
+            Test:           TestCalculateCareBurden/normal_3-wari,_no_public
+
+=== FAIL: internal/domain/insurancedm TestCalculateCareBurden/floors_total_and_claim_with_fractional_unit_price (0.00s)
+    care_burden_test.go:285: 
+            Error Trace:    /__w/stransa-backend/stransa-backend/apps/receipt/internal/domain/insurancedm/care_burden_test.go:42
+                                        /__w/stransa-backend/stransa-backend/apps/receipt/internal/domain/insurancedm/care_burden_test.go:285
+            Error:          Received unexpected error:
+                            new care insurer number: care insurer number must be 6 digits: '13456789'
+            Test:           TestCalculateCareBurden/floors_total_and_claim_with_fractional_unit_price
+
+=== FAIL: internal/domain/insurancedm TestCalculateCareBurden/welfare_law_12_with_insured_number_prefix_H_drops_insurance_to_zero (0.00s)
+    care_burden_test.go:285: 
+            Error Trace:    /__w/stransa-backend/stransa-backend/apps/receipt/internal/domain/insurancedm/care_burden_test.go:42
+                                        /__w/stransa-backend/stransa-backend/apps/receipt/internal/domain/insurancedm/care_burden_test.go:285
+            Error:          Received unexpected error:
+                            new care insurer number: care insurer number must be 6 digits: '13456789'
+            Test:           TestCalculateCareBurden/welfare_law_12_with_insured_number_prefix_H_drops_insurance_to_zero

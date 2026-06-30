@@ -55,6 +55,5 @@
   "alwaysThinkingEnabled": true,
   "autoMemoryEnabled": false,
   "skipDangerousModePermissionPrompt": true,
-  "theme": "dark-daltonized",
-  "effortLevel": "medium"
+  "theme": "dark-daltonized"
 }

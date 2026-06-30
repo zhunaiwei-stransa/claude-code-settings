@@ -1,0 +1,546 @@
+{
+    "year": "2021",
+    "terms": [
+        2026,
+        2025,
+        2024,
+        2023,
+        2022,
+        2021,
+        2020,
+        2019,
+        2018,
+        2017,
+        2016,
+        2015,
+        2014
+    ],
+    "receipts": [
+        {
+            "ManualReceipt": {
+                "delivery_number": null,
+                "invoice_number": "21_0102_00024_01",
+                "paid_at": "2021-01-14 15:00:00",
+                "subject": "Apotool\uff06Box\u6708\u984d\u5229\u7528\u6599\u30002\u6708\u5206\u3010\u53e3\u5ea7\u632f\u66ff\u660e\u7d30\u66f8\u3011",
+                "subtotal": "96260",
+                "tax": "9626",
+                "total": "105886",
+                "id": "703",
+                "ManualReceiptDetail": [
+                    {
+                        "product_name": "Apotool\uff06Box\u3000\u6708\u984d\u5229\u7528\u6599",
+                        "detail": "\u8868\u793a\u52176\u5217\u307e\u3067\u304c\u57fa\u672c\u6599\u91d1\u306b\u542b\u307e\u308c\u307e\u3059",
+                        "unit_price": "18000",
+                        "quantity": "1",
+                        "price": "18000",
+                        "manual_receipt_id": "703"
+                    },
+                    {
+                        "product_name": "SMS \u6708\u984d\u5229\u7528\u6599",
+                        "detail": "",
+                        "unit_price": "2000",
+                        "quantity": "1",
+                        "price": "2000",
+                        "manual_receipt_id": "703"
+                    },
+                    {
+                        "product_name": "\u5206\u6790\u6a5f\u80fd\u3000Intelligence\u3000\u6708\u984d\u5229\u7528\u6599",
+                        "detail": "",
+                        "unit_price": "12000",
+                        "quantity": "1",
+                        "price": "12000",
+                        "manual_receipt_id": "703"
+                    },
+                    {
+                        "product_name": "\u8a3a\u5bdf\u5238\u30a2\u30d7\u30ea\u3000\u6708\u984d\u5229\u7528\u6599",
+                        "detail": "",
+                        "unit_price": "10000",
+                        "quantity": "1",
+                        "price": "10000",
+                        "manual_receipt_id": "703"
+                    },
+                    {
+                        "product_name": "\u304a\u4f1a\u8a08\u3055\u3093\u3000\u6708\u984d\u5229\u7528\u6599",
+                        "detail": "",
+                        "unit_price": "3500",
+                        "quantity": "1",
+                        "price": "3500",
+                        "manual_receipt_id": "703"
+                    },
+                    {
+                        "product_name": "7\u53f0\u76ee\u4ee5\u964d\u8ffd\u52a0\u30e6\u30cb\u30c3\u30c8\u3000\u6708\u984d\u5229\u7528\u6599\uff089\u53f0\uff09",
+                        "detail": "1\u53f0\u3042\u305f\u308a\u6708\u984d1,200\u5186\u00d79\u53f0\r\n\u5225\u90143\u53f0\u5206\u306f\u7121\u511f\u6a5f\u80fd\u958b\u653e\u3068\u306a\u308a\u307e\u3059\r\n",
+                        "unit_price": "10800",
+                        "quantity": "1",
+                        "price": "10800",
+                        "manual_receipt_id": "703"
+                    },
+                    {
+                        "product_name": "SMS\u9001\u4fe1\u6599\u91d1",
+                        "detail": "\u9001\u4fe1\u6599\u91d1\uff1a15\u5186\uff0f\uff11\u901a\uff08\u96c6\u8a08\u671f\u9593\uff1a2020\/12\/15 - 2021\/1\/14\uff09",
+                        "unit_price": "15",
+                        "quantity": "137",
+                        "price": "2055",
+                        "manual_receipt_id": "703"
+                    },
+                    {
+                        "product_name": "SMS\u9001\u4fe1\u6599\u91d1",
+                        "detail": "\u9001\u4fe1\u6599\u91d1\uff1a30\u5186\uff0f\uff11\u901a\uff08\u96c6\u8a08\u671f\u9593\uff1a2020\/12\/15 - 2021\/1\/14\uff09",
+                        "unit_price": "30",
+                        "quantity": "678",
+                        "price": "20340",
+                        "manual_receipt_id": "703"
+                    },
+                    {
+                        "product_name": "SMS\u9001\u4fe1\u6599\u91d1",
+                        "detail": "\u9001\u4fe1\u6599\u91d1\uff1a45\u5186\uff0f\uff11\u901a\uff08\u96c6\u8a08\u671f\u9593\uff1a2020\/12\/15 - 2021\/1\/14\uff09",
+                        "unit_price": "45",
+                        "quantity": "369",
+                        "price": "16605",
+                        "manual_receipt_id": "703"
+                    },
+                    {
+                        "product_name": "SMS\u9001\u4fe1\u6599\u91d1",
+                        "detail": "\u9001\u4fe1\u6599\u91d1\uff1a60\u5186\uff0f\uff11\u901a\uff08\u96c6\u8a08\u671f\u9593\uff1a2020\/12\/15 - 2021\/1\/14\uff09",
+                        "unit_price": "60",
+                        "quantity": "16",
+                        "price": "960",
+                        "manual_receipt_id": "703"
+                    }
+                ]
+            }
+        },
+        {
+            "Receipt": {
+                "basic": {
+                    "title": "Apotool & Box",
+                    "total": "0"
+                },
+                "extra_unit": false,
+                "sms_basic": {
+                    "title": "SMS\u3000\u6708\u984d\u5229\u7528\u6599",
+                    "total": "0"
+                },
+                "sms_send": {
+                    "title": "SMS\u3000\u9001\u4fe1\u6599\u91d1\u3000(2020\/12\/15\u301c2021\/01\/14)",
+                    "count": "99",
+                    "total": "0",
+                    "unit": "0",
+                    "has_breakdown": true
+                },
+                "sms_send1": {
+                    "unit": 0,
+                    "title": "SMS\u9001\u4fe1\u6599\u91d1\u5185\u8a33\uff080\u5186\/\u901a\uff09",
+                    "count": 77,
+                    "total": 0,
+                    "breakdown": true
+                },
+                "sms_send2": {
+                    "unit": 0,
+                    "title": "SMS\u9001\u4fe1\u6599\u91d1\u5185\u8a33\uff080\u5186\/\u901a\uff09",
+                    "count": 11,
+                    "total": 0,
+                    "breakdown": true
+                },
+                "material": {
+                    "title": "\u6280\u5de5\u7269\u7ba1\u7406\u6a5f\u80fd\u3000\u6708\u984d\u5229\u7528\u6599",
+                    "total": "0"
+                },
+                "intelligence": {
+                    "title": "\u5206\u6790\u6a5f\u80fd Intelligence\u3000\u6708\u984d\u5229\u7528\u6599",
+                    "total": "0"
+                },
+                "regist_card_app": {
+                    "title": "\u8a3a\u5bdf\u5238\u30a2\u30d7\u30ea\u3000\u6708\u984d\u5229\u7528\u6599",
+                    "total": "0"
+                },
+                "regi_app": {
+                    "title": "\u304a\u4f1a\u8a08\u3055\u3093\u3000\u6708\u984d\u5229\u7528\u6599",
+                    "total": "0"
+                },
+                "clinical_path": {
+                    "title": "\u8a3a\u7642\u8a08\u753b\u3000\u6708\u984d\u5229\u7528\u6599",
+                    "total": "0"
+                },
+                "implant": {
+                    "title": "\u30a4\u30f3\u30d7\u30e9\u30f3\u30c8\u3000\u6708\u984d\u5229\u7528\u6599",
+                    "total": "0"
+                },
+                "interview_sheet": false,
+                "cti": false,
+                "line_app": false,
+                "line_basic": {
+                    "title": "LINE\u3000\u6708\u984d\u5229\u7528\u6599",
+                    "total": "0"
+                },
+                "line_send": {
+                    "title": "LINE\u3000\u9001\u4fe1\u6599\u91d1\u3000(2020\/12\/15\u301c2021\/01\/14)",
+                    "unit": "5",
+                    "count": "4",
+                    "total": "20"
+                },
+                "chatbot_md": false,
+                "medical_box_basic": {
+                    "title": "Medical Box\u3000\u6708\u984d\u5229\u7528\u6599",
+                    "total": 0,
+                    "has_breakdown": true
+                },
+                "medical_box_detail1": {
+                    "unit": 0,
+                    "title": "Medical Box\u3000\u6708\u984d\u5229\u7528\u6599\u5185\u8a33\uff0810GB\u30d7\u30e9\u30f3\uff09",
+                    "count": 1,
+                    "total": 0,
+                    "breakdown": true
+                },
+                "medical_box_air_perio_exam": false,
+                "subkarte": false,
+                "oncall_basic": false,
+                "oncall_send": false,
+                "shinseiki_cashier": false,
+                "fr_basic": false,
+                "ai_phone": false,
+                "ai_phone_usage": false,
+                "ai_phone_minute": false,
+                "id": "8868",
+                "paid_at": "2021-01-14 17:00:04",
+                "year_month": "2021-02-15",
+                "total_amount": "22",
+                "status": "1",
+                "free_unit_count": "0",
+                "usage_from": "2020-12-14 15:00:00",
+                "usage_to": "2021-01-14 14:59:59",
+                "plan_bill_type": "1",
+                "subtotal_amount": "20"
+            }
+        },
+        {
+            "Receipt": {
+                "basic": {
+                    "title": "Apotool & Box",
+                    "total": "0"
+                },
+                "extra_unit": false,
+                "sms_basic": {
+                    "title": "SMS\u3000\u6708\u984d\u5229\u7528\u6599",
+                    "total": "0"
+                },
+                "sms_send": {
+                    "title": "SMS\u3000\u9001\u4fe1\u6599\u91d1\u3000(2021\/01\/15\u301c2021\/02\/14)",
+                    "count": "54",
+                    "total": "0",
+                    "unit": "0",
+                    "has_breakdown": true
+                },
+                "sms_send1": {
+                    "unit": 0,
+                    "title": "SMS\u9001\u4fe1\u6599\u91d1\u5185\u8a33\uff080\u5186\/\u901a\uff09",
+                    "count": 39,
+                    "total": 0,
+                    "breakdown": true
+                },
+                "sms_send2": {
+                    "unit": 0,
+                    "title": "SMS\u9001\u4fe1\u6599\u91d1\u5185\u8a33\uff080\u5186\/\u901a\uff09",
+                    "count": 6,
+                    "total": 0,
+                    "breakdown": true
+                },
+                "sms_send3": {
+                    "unit": 0,
+                    "title": "SMS\u9001\u4fe1\u6599\u91d1\u5185\u8a33\uff080\u5186\/\u901a\uff09",
+                    "count": 1,
+                    "total": 0,
+                    "breakdown": true
+                },
+                "material": {
+                    "title": "\u6280\u5de5\u7269\u7ba1\u7406\u6a5f\u80fd\u3000\u6708\u984d\u5229\u7528\u6599",
+                    "total": "0"
+                },
+                "intelligence": {
+                    "title": "\u5206\u6790\u6a5f\u80fd Intelligence\u3000\u6708\u984d\u5229\u7528\u6599",
+                    "total": "0"
+                },
+                "regist_card_app": {
+                    "title": "\u8a3a\u5bdf\u5238\u30a2\u30d7\u30ea\u3000\u6708\u984d\u5229\u7528\u6599",
+                    "total": "0"
+                },
+                "regi_app": {
+                    "title": "\u304a\u4f1a\u8a08\u3055\u3093\u3000\u6708\u984d\u5229\u7528\u6599",
+                    "total": "0"
+                },
+                "clinical_path": {
+                    "title": "\u8a3a\u7642\u8a08\u753b\u3000\u6708\u984d\u5229\u7528\u6599",
+                    "total": "0"
+                },
+                "implant": {
+                    "title": "\u30a4\u30f3\u30d7\u30e9\u30f3\u30c8\u3000\u6708\u984d\u5229\u7528\u6599",
+                    "total": "0"
+                },
+                "interview_sheet": false,
+                "cti": false,
+                "line_app": false,
+                "line_basic": {
+                    "title": "LINE\u3000\u6708\u984d\u5229\u7528\u6599",
+                    "total": "0"
+                },
+                "line_send": {
+                    "title": "LINE\u3000\u9001\u4fe1\u6599\u91d1\u3000(2021\/01\/15\u301c2021\/02\/14)",
+                    "unit": "5",
+                    "count": "2",
+                    "total": "10"
+                },
+                "chatbot_md": false,
+                "medical_box_basic": {
+                    "title": "Medical Box\u3000\u6708\u984d\u5229\u7528\u6599",
+                    "total": 1800,
+                    "has_breakdown": true
+                },
+                "medical_box_detail1": {
+                    "unit": 1800,
+                    "title": "Medical Box\u3000\u6708\u984d\u5229\u7528\u6599\u5185\u8a33\uff081TB\u30d7\u30e9\u30f3\uff09",
+                    "count": 1,
+                    "total": 1800,
+                    "breakdown": true
+                },
+                "medical_box_air_perio_exam": false,
+                "subkarte": false,
+                "oncall_basic": false,
+                "oncall_send": false,
+                "shinseiki_cashier": false,
+                "fr_basic": false,
+                "ai_phone": false,
+                "ai_phone_usage": false,
+                "ai_phone_minute": false,
+                "id": "9145",
+                "paid_at": "2021-02-14 17:00:03",
+                "year_month": "2021-03-15",
+                "total_amount": "11",
+                "status": "1",
+                "free_unit_count": "0",
+                "usage_from": "2021-01-14 15:00:00",
+                "usage_to": "2021-02-14 14:59:59",
+                "plan_bill_type": "1",
+                "subtotal_amount": "1810"
+            }
+        },
+        {
+            "Receipt": {
+                "basic": {
+                    "title": "Apotool & Box",
+                    "total": "0"
+                },
+                "extra_unit": false,
+                "sms_basic": {
+                    "title": "SMS\u3000\u6708\u984d\u5229\u7528\u6599",
+                    "total": "0"
+                },
+                "sms_send": {
+                    "title": "SMS\u3000\u9001\u4fe1\u6599\u91d1\u3000(2021\/02\/15\u301c2021\/03\/14)",
+                    "count": "42",
+                    "total": "200",
+                    "unit": "10",
+                    "has_breakdown": true
+                },
+                "sms_send1": {
+                    "unit": 10,
+                    "title": "SMS\u9001\u4fe1\u6599\u91d1\u5185\u8a33\uff0810\u5186\/\u901a\uff09",
+                    "count": 10,
+                    "total": 100,
+                    "breakdown": true
+                },
+                "sms_send2": {
+                    "unit": 20,
+                    "title": "SMS\u9001\u4fe1\u6599\u91d1\u5185\u8a33\uff0820\u5186\/\u901a\uff09",
+                    "count": 5,
+                    "total": 100,
+                    "breakdown": true
+                },
+                "material": {
+                    "title": "\u6280\u5de5\u7269\u7ba1\u7406\u6a5f\u80fd\u3000\u6708\u984d\u5229\u7528\u6599",
+                    "total": "0"
+                },
+                "intelligence": {
+                    "title": "\u5206\u6790\u6a5f\u80fd Intelligence\u3000\u6708\u984d\u5229\u7528\u6599",
+                    "total": "0"
+                },
+                "regist_card_app": {
+                    "title": "\u8a3a\u5bdf\u5238\u30a2\u30d7\u30ea\u3000\u6708\u984d\u5229\u7528\u6599",
+                    "total": "0"
+                },
+                "regi_app": {
+                    "title": "\u304a\u4f1a\u8a08\u3055\u3093\u3000\u6708\u984d\u5229\u7528\u6599",
+                    "total": "0"
+                },
+                "clinical_path": {
+                    "title": "\u8a3a\u7642\u8a08\u753b\u3000\u6708\u984d\u5229\u7528\u6599",
+                    "total": "0"
+                },
+                "implant": {
+                    "title": "\u30a4\u30f3\u30d7\u30e9\u30f3\u30c8\u3000\u6708\u984d\u5229\u7528\u6599",
+                    "total": "0"
+                },
+                "interview_sheet": false,
+                "cti": {
+                    "title": "cti\u3000\u6708\u984d\u5229\u7528\u6599",
+                    "total": "0"
+                },
+                "line_app": false,
+                "line_basic": {
+                    "title": "LINE\u3000\u6708\u984d\u5229\u7528\u6599",
+                    "total": "0"
+                },
+                "line_send": {
+                    "title": "LINE\u3000\u9001\u4fe1\u6599\u91d1\u3000(2021\/02\/15\u301c2021\/03\/14)",
+                    "unit": "5",
+                    "count": "18",
+                    "total": "90"
+                },
+                "chatbot_md": false,
+                "medical_box_basic": {
+                    "title": "Medical Box\u3000\u6708\u984d\u5229\u7528\u6599",
+                    "total": 3600,
+                    "has_breakdown": true
+                },
+                "medical_box_detail1": {
+                    "unit": 3600,
+                    "title": "Medical Box\u3000\u6708\u984d\u5229\u7528\u6599\u5185\u8a33\uff082TB\u30d7\u30e9\u30f3\uff09",
+                    "count": 1,
+                    "total": 3600,
+                    "breakdown": true
+                },
+                "medical_box_air_perio_exam": false,
+                "subkarte": false,
+                "oncall_basic": false,
+                "oncall_send": false,
+                "shinseiki_cashier": false,
+                "fr_basic": false,
+                "ai_phone": false,
+                "ai_phone_usage": false,
+                "ai_phone_minute": false,
+                "id": "9353",
+                "paid_at": "2021-03-14 17:00:04",
+                "year_month": "2021-04-15",
+                "total_amount": "4059",
+                "status": "1",
+                "free_unit_count": "0",
+                "usage_from": "2021-02-14 15:00:00",
+                "usage_to": "2021-03-14 14:59:59",
+                "plan_bill_type": "1",
+                "subtotal_amount": "3890"
+            }
+        },
+        {
+            "Receipt": {
+                "basic": {
+                    "title": "Apotool & Box",
+                    "total": "0"
+                },
+                "extra_unit": false,
+                "sms_basic": {
+                    "title": "SMS\u3000\u6708\u984d\u5229\u7528\u6599",
+                    "total": "0"
+                },
+                "sms_send": {
+                    "title": "SMS\u3000\u9001\u4fe1\u6599\u91d1\u3000(2021\/03\/15\u301c2021\/04\/14)",
+                    "count": "20",
+                    "total": "0",
+                    "unit": "0",
+                    "has_breakdown": true
+                },
+                "sms_send1": {
+                    "unit": 0,
+                    "title": "SMS\u9001\u4fe1\u6599\u91d1\u5185\u8a33\uff080\u5186\/\u901a\uff09",
+                    "count": 12,
+                    "total": 0,
+                    "breakdown": true
+                },
+                "sms_send4": {
+                    "unit": 0,
+                    "title": "SMS\u9001\u4fe1\u6599\u91d1\u5185\u8a33\uff080\u5186\/\u901a\uff09",
+                    "count": 2,
+                    "total": 0,
+                    "breakdown": true
+                },
+                "material": {
+                    "title": "\u6280\u5de5\u7269\u7ba1\u7406\u6a5f\u80fd\u3000\u6708\u984d\u5229\u7528\u6599",
+                    "total": "0"
+                },
+                "intelligence": {
+                    "title": "\u5206\u6790\u6a5f\u80fd Intelligence\u3000\u6708\u984d\u5229\u7528\u6599",
+                    "total": "0"
+                },
+                "regist_card_app": {
+                    "title": "\u8a3a\u5bdf\u5238\u30a2\u30d7\u30ea\u3000\u6708\u984d\u5229\u7528\u6599",
+                    "total": "0"
+                },
+                "regi_app": {
+                    "title": "\u304a\u4f1a\u8a08\u3055\u3093\u3000\u6708\u984d\u5229\u7528\u6599",
+                    "total": "0"
+                },
+                "clinical_path": {
+                    "title": "\u8a3a\u7642\u8a08\u753b\u3000\u6708\u984d\u5229\u7528\u6599",
+                    "total": "0"
+                },
+                "implant": {
+                    "title": "\u30a4\u30f3\u30d7\u30e9\u30f3\u30c8\u3000\u6708\u984d\u5229\u7528\u6599",
+                    "total": "0"
+                },
+                "interview_sheet": false,
+                "cti": {
+                    "title": "cti\u3000\u6708\u984d\u5229\u7528\u6599",
+                    "total": "0"
+                },
+                "line_app": false,
+                "line_basic": {
+                    "title": "LINE\u3000\u6708\u984d\u5229\u7528\u6599",
+                    "total": "0"
+                },
+                "line_send": {
+                    "title": "LINE\u3000\u9001\u4fe1\u6599\u91d1\u3000(2021\/03\/15\u301c2021\/04\/14)",
+                    "unit": "5",
+                    "count": "2",
+                    "total": "10"
+                },
+                "chatbot_md": false,
+                "medical_box_basic": {
+                    "title": "Medical Box\u3000\u6708\u984d\u5229\u7528\u6599",
+                    "total": 5400,
+                    "has_breakdown": true
+                },
+                "medical_box_detail1": {
+                    "unit": 5400,
+                    "title": "Medical Box\u3000\u6708\u984d\u5229\u7528\u6599\u5185\u8a33\uff083TB\u30d7\u30e9\u30f3\uff09",
+                    "count": 1,
+                    "total": 5400,
+                    "breakdown": true
+                },
+                "medical_box_detail2": {
+                    "unit": 0,
+                    "title": "Medical Box Perio\u3000\u6708\u984d\u5229\u7528\u6599\u5185\u8a33",
+                    "count": 1,
+                    "total": 0,
+                    "breakdown": true
+                },
+                "subkarte": false,
+                "oncall_basic": false,
+                "oncall_send": false,
+                "shinseiki_cashier": false,
+                "fr_basic": false,
+                "ai_phone": false,
+                "ai_phone_usage": false,
+                "ai_phone_minute": false,
+                "id": "9562",
+                "paid_at": "2021-04-14 17:00:03",
+                "year_month": "2021-05-15",
+                "total_amount": "11",
+                "status": "1",
+                "free_unit_count": "0",
+                "usage_from": "2021-03-14 15:00:00",
+                "usage_to": "2021-04-14 14:59:59",
+                "plan_bill_type": "1",
+                "subtotal_amount": "5410"
+            }
+        }
+    ],
+    "userType": "1000"
+}

@@ -1,0 +1,18 @@
+stransa-writer-staging > desc shifts;
++------------------+--------------+------+-----+---------+----------------+
+| Field            | Type         | Null | Key | Default | Extra          |
++------------------+--------------+------+-----+---------+----------------+
+| id               | int          | NO   | PRI | NULL    | auto_increment |
+| date_at          | date         | YES  | MUL | NULL    |                |
+| shift_pattern_id | int          | YES  | MUL | NULL    |                |
+| resource_id      | int          | YES  | MUL | NULL    |                |
+| created_at       | datetime     | NO   |     | NULL    |                |
+| updated_at       | datetime     | NO   |     | NULL    |                |
+| name             | varchar(255) | YES  |     | NULL    |                |
+| starts_at        | datetime     | YES  |     | NULL    |                |
+| ends_at          | datetime     | YES  |     | NULL    |                |
+| off_starts_at    | datetime     | YES  |     | NULL    |                |
+| off_ends_at      | datetime     | YES  |     | NULL    |                |
+| color            | varchar(255) | YES  |     | NULL    |                |
+| memo             | text         | YES  |     | NULL    |                |
++------------------+--------------+------+-----+---------+----------------+

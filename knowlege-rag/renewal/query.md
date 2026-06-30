@@ -111,5 +111,6 @@ func (a *PatientQuery) getPatientAggrForEditProfile(
 3. Query impl may use join, as office_id is an important id to avoid data misquery, so we must write redundant code to check tableMain.office_id = tableSub.office_id. But not every table has column office_id, you can check this in datasource pkg
 4. For query pkg, xxx_item.go is usually only one
 5. Join use beautiful format of anti-quote like Joins(`xxx\n`).
-6. Query layer is private of sub-app. However, there is a pkg/query that can share query code bwtween sub-apps, so when 2 sub-apps use same query method, consider moving code into public pkg/
+6. Query layer is private of sub-app. However, there is a pkg/query that can share query code bwtween sub-apps
 7. gorm.G should always use ptr type not struct type, like `gorm.G[*datasource.OncallUnitGroup]` is correct. However, you could ignore the exist inconsistency.
+8. only entire object or join object can be result type, row fetch is anti-model in repo though it exists in repo

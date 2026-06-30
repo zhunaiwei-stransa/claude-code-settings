@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Apotool & Box for Dentist</title>
+<meta http-equiv="Content-Script-Type" content="text/javascript" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+
+<link rel="stylesheet" type="text/css" href="/user/css/bootstrap.min.css?1438580681" media="all"/><!-- ▼jquery ui -->
+<link rel="stylesheet" type="text/css" href="/user/css/jquery.ui.core.css?1438580681" media="all"/><link rel="stylesheet" type="text/css" href="/user/css/jquery.ui.accordion.css?1438580681" media="all"/><link rel="stylesheet" type="text/css" href="/user/css/jquery.ui.menu.css?1438580681" media="all"/><link rel="stylesheet" type="text/css" href="/user/css/jquery.ui.autocomplete.css?1438580681" media="all"/><link rel="stylesheet" type="text/css" href="/user/css/jquery.ui.button.css?1438580681" media="all"/><link rel="stylesheet" type="text/css" href="/user/css/jquery.ui.datepicker.css?1438580681" media="all"/><link rel="stylesheet" type="text/css" href="/user/css/jquery.ui.resizable.css?1438580681" media="all"/><link rel="stylesheet" type="text/css" href="/user/css/jquery.ui.dialog.css?1438580681" media="all"/><link rel="stylesheet" type="text/css" href="/user/css/jquery.ui.progressbar.css?1438580681" media="all"/><link rel="stylesheet" type="text/css" href="/user/css/jquery.ui.selectable.css?1438580681" media="all"/><link rel="stylesheet" type="text/css" href="/user/css/jquery.ui.slider.css?1438580681" media="all"/><link rel="stylesheet" type="text/css" href="/user/css/jquery.ui.spinner.css?1438580681" media="all"/><link rel="stylesheet" type="text/css" href="/user/css/jquery.ui.tabs.css?1438580681" media="all"/><link rel="stylesheet" type="text/css" href="/user/css/jquery.ui.tooltip.css?1438580681" media="all"/><!-- ▲jquery ui -->
+
+<link rel="stylesheet" type="text/css" href="/user/css/application.css?1493168201" media="all"/><link rel="stylesheet" type="text/css" href="/user/css/fontawesome/css/all.min.css?1538106195" media="all"/><link rel="stylesheet" type="text/css" href="/user/css/font-awesome.min.css?1469417737" media="all"/>
+<!--追加CSS-->
+<link rel="stylesheet" type="text/css" href="/user/css/add.css?1737605824" media="all"/><link rel="stylesheet" type="text/css" href="/user/css/datepicker.css?1497410671" media="all"/><link rel="stylesheet" type="text/css" href="/user/css/calendar_datepicker.css?1499941564" media="all"/><link rel="stylesheet" type="text/css" href="/user/css/vue-loading.min.css?1538106195" media="all"/>
+<!-- view側で読み込むcss -->
+<link rel="stylesheet" type="text/css" href="/user/css/aiphone/ap_usage.css?1692159070"/>
+<script type="text/javascript" src="/user/js/jquery.min.js?1438580681"></script><script type="text/javascript" src="/user/js/bootstrap.js?1438580681"></script><script type="text/javascript" src="/user/js/jquery-ui-1.10.4.js?1438580681"></script><script type="text/javascript" src="/user/js/bootstrap-datepicker.js?1454378571"></script><script type="text/javascript" src="/user/js/bootstrap-datepicker.ja.js?1520218211"></script>
+<script type="text/javascript" src="/user/js/datepicker_add.js?1438580681"></script><script type="text/javascript" src="/user/js/HolidayChk.js?1607914760"></script>
+<script type="text/javascript" src="/user/js/jquery.cleditor.js?1615187114"></script><script type="text/javascript" src="/user/js/common.js?1617772682"></script>
+<!-- Vueアプリ -->
+<link rel="stylesheet" type="text/css" href="/user/css/notosansjapanese.css?1548403347" media="all"/><script src="//cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/vue-loading-overlay@2"></script>
+
+<!-- view側で読み込むjs -->
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+<!--[if lt IE 9]>
+<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js" type="text/javascript"></script>
+<![endif]-->
+
+
+<link href="/user/images/apple-touch-icon-144x144-precomposed.png" rel="apple-touch-icon-precomposed" sizes="144x144" type="image/png" />
+<link href="/user/images/apple-touch-icon-114x114-precomposed.png" rel="apple-touch-icon-precomposed" sizes="114x114" type="image/png" />
+<link href="/user/images/apple-touch-icon-72x72-precomposed.png" rel="apple-touch-icon-precomposed" sizes="72x72" type="image/png" />
+<link href="/user/images/apple-touch-icon-precomposed.png" rel="apple-touch-icon-precomposed" type="image/png" />
+<link href="/user/images/favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+
+
+</head>
+
+<!-- ▼BODY部 スタート -->
+<body>
+<!--<div style="width:100%;font-size:20px;font-size:12px;background-color:#f00;color:#fff;text-align:center;z-index: 10000000;position: absolute;opacity: 0.5;">開発環境</div>-->
+<div class="page-container">
+<div class="wrapper">
+<div class="container-fluid" style="min-width:1260px;">
+
+<!-- グローバルナビゲーション -->
+
+<!-- グローバルナビゲーション START -->
+<div id="global-navigation-app">
+    <global-navigation
+            :is-trial="'1' !== '1'"
+            :trial-left="'26536'"
+            :nav-bar-class='{"event":"","reservations":"","patient":"","dashboard":"","ps_sales":"","regi_transactions":""}'
+            :office-name='"\u30b9\u30c8\u30e9\u30f3\u30b6\u6b6f\u79d1\u533b\u9662"'
+            :is-usen="'' !== ''"
+            :online-manual-url="'https://teachme.jp/r/roomzQlTs573'"
+            :use-regi-app="true"
+            :is-use-new-utility="'1' !== ''"
+            :show-use-new-utility-button="true"
+            :display-md-checked-in-cnt="'' === '1'"
+            :medical-box-activated="'1' !== ''"
+            :is-pre-user=true            :use-interview="true"
+            :use-chatbot-md="true"
+            :use-telemed="true"
+            :use-intelligence="true"
+            :medical-box-in-use="true"
+            :medical-box-base-url="'https://demo-medicalbox.stransa.co.jp'"
+            :use-medical-box-air="true"
+            :md-checked-in-req-err-limit="5"
+            :user-management-url="'https://demo-user.stransa.co.jp/management/users'"
+            :my-page-url="'https://demo-user.stransa.co.jp/my-page'"
+            :user-email='"zhu.naiwei+admin@stransa.co.jp"'
+            :user-name='"\u6731 \u4e43\u5a01"'
+            :subkarte-release-flg='true'
+            :use-subkarte="true"
+            :use-oncall="true"
+            :use-fr="true"
+            :use-ai-phone="true"
+            :interview-base-url="'https://demo-interview-admin.stransa.co.jp'"
+            :use-regist-card-app="true"
+            :in-use-web-reservation="true"
+            :in-use-renewal-web-reservation="true"
+            :use-reception="true"
+            :use-line="true"
+            :user-management-show="true"
+            :contract-management-show="true"
+    ></global-navigation>
+</div>
+<!-- グローバルナビゲーション END -->
+
+<!-- お知らせモーダル START -->
+<div id="notification-modal-app">
+    <notification-modal
+        :use-chatbot-md="true"
+        :use-subkarte="true"
+        :interview-base-url="'https://demo-interview-admin.stransa.co.jp'"
+        :medical-box-base-url="'https://demo-medicalbox.stransa.co.jp'"
+    ></notification-modal>
+</div>
+<!-- お知らせモーダル END -->
+
+<!-- AI電話転送モーダル START -->
+<div id="ai-phone-modal-app">
+    <ai-phone-container
+        :use-ai-phone="true"
+    ></ai-phone-container>
+</div>
+<!-- AI電話転送モーダル END -->
+
+<!-- appSyncモーダル START -->
+<div id="notification-pop-up-app">
+    <notification-pop-up
+        :use-ai-phone="true"
+        :use-reception="true"
+    ></notification-pop-up>
+</div>
+<!-- appSyncモーダル END -->
+
+<script type="text/javascript" src="/user/js/notification.js?v=20250820"></script><script type="text/javascript">
+//<![CDATA[
+VueNotificationModal.default.install(Vue)
+//]]>
+</script><script type="text/javascript" src="/user/js/ai_phone_notification.js?1763347732"></script><script type="text/javascript">
+//<![CDATA[
+VueAiPhoneNotification.default.install(Vue)
+//]]>
+</script><script type="text/javascript" src="/user/js/notification_pop_up.js?1764323278"></script><script type="text/javascript">
+//<![CDATA[
+VueNotificationPopUp.default.install(Vue)
+//]]>
+</script><script type="text/javascript" src="/user/js/global_navigation.js?1778548716"></script><script type="text/javascript">
+//<![CDATA[
+VueGlobalNavigation.default.install(Vue)
+//]]>
+</script><script type="text/javascript" src="/user/js/navigation.js?1780474446"></script>
+<!-- コンテンツ -->
+<div class="content-fluid clearfix setting">
+
+<!-- メインコンテンツ -->
+
+
+<div id="conf-container" style="height: 543px;">
+    <h1>電話がらくだ使用状況</h1>
+    <div id="ap-usage" class="inner">
+        <div class="status">
+            <h2>使用状況</h2>
+        </div>
+        <div class="usage-month">
+            <dl>
+                <h2>今月の使用状況 : 0<small>/300</small></h2>
+                            </dl>
+            <dl>
+                <dt>合計利用料金(税別)：50,000円</dt>
+            </dl>
+        </div>
+        <div class="plan">
+            <dl>
+                <dt>現在のプラン：</dt>
+                <dd class="current-plan">Basicプラン（300コール / 月）</dd>
+            </dl>
+            <dl>
+                <a href="/user/ai_phone_contract" target="_blank">プラン変更のお申し込みはこちら</a>
+            </dl>
+        </div>
+        <div class="plan-text">
+            <ul>
+                                                            <li>
+                            Basicプラン > 300コール / 月 ￥50,000円
+                            (301コール以上は1コール180円の料金が発生します)
+                        </li>
+                                                                                <li>
+                            Advanceプラン > 600コール / 月 ￥100,000円
+                            (601コール以上は1コール100円の料金が発生します)
+                        </li>
+                                                </ul>
+        </div>
+
+        <div class="support">
+            <p><strong>Apotool &amp; Boxサポートセンター</strong>｜TEL：03‐6403‐4880　Eメール：<a href="mailto:support@stransa.co.jp">support@stransa.co.jp</a></p>
+        </div>
+
+    </div>
+</div>
+
+
+<script>
+// footerを消すためだけに使用
+    function getContainerHeight() {
+        var h = $(window).height();
+        var header = $('header').outerHeight();
+        var height = h - header;
+        $('#conf-container').css('height', height+ 'px');
+    }
+    getContainerHeight();
+    $(window).on('resize', function() {
+        getContainerHeight();
+    });
+</script>
+
+</div><!-- / .content-fluid -->
+
+
+<!-- フッター -->
+<footer>
+<div class="footer-titles"><h1 class="clinic-name">ストランザ歯科医院</h1><p>&copy; Apotool & Box for Dentist</p></div>
+</footer>
+
+
+<!-- Back to Top -->
+<div id="back-top">
+<a><i class="icon-arrow-up icon-large"></i><p>Top</p></a>
+</div>
+<div id="loading-anime"></div>
+<div id="disappearing" style="display:none;"></div>
+
+
+</div><!-- / .container-fluid -->
+</div><!-- .wrapper -->
+</div><!-- .page-container -->
+
+<!-- ▲BODY部 エンド -->
+<!-- 患者管理用目メガドロップメニュー -->
+<!-- ▼患者管理リスト（モーダル表示用コンテンツ） -->
+<style>
+    #patient-dialog{
+        width: 80%;
+        background: #fff;
+        padding: 10px 10px 20px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        border-top:3px solid #25b5b5;
+        display:none;
+    }
+    #lean_overlay {
+        position: fixed;
+        z-index: 100;
+        top: 0px;
+        left: 0px;
+        height: 100%;
+        width: 100%;
+        background: #fff !important;
+        display: none;
+    }
+</style>
+
+
+<div id="patient-dialog">
+    <!-- TODO: パスにサブURI user が入っているので、URI変更時に対応必要 -->
+    <link rel="stylesheet" type="text/css" href="/user/css/inettuts.css?1438580681"/><link rel="stylesheet" type="text/css" href="/user/css/style.css?1499941564"/>
+    <!-- ▼メイン -->
+    表示するリストを選択してください。
+    <table class="table-list-header" style="width:100%;">
+    <tbody>
+
+    <!-- TODO: パスにサブURI user が入っているので、URI変更時に対応必要 -->
+    <form name="formList" action="/aposhop/mail/" method="POST">
+    <input type="hidden" name="search_mode" value="">
+    <input type="hidden" name="office_id" value="24">
+    </form>
+    <tr>
+        <td colspan="2" style="">
+        <div id="columns">
+
+    <!-- 左カラム start -->
+            <ul id="column1" class="column">
+                <li class="widget color-green" id="intro">
+                    <div class="widget-head">
+                        <a href="javascript:showList('all');"><h3>全ての患者リスト</h3></a>
+                    </div>
+                    <div class="widget-content">
+                        <h4>Apotool & Box に登録されている全ての患者一覧です。</h4>
+                        <p class="lead">診察券番号、患者氏名（ひらがな、カタカナ、漢字)、登録されている電話番号のどれかで、患者さんを検索することが出来ます。</p>
+                        <p><a href="javascript:showList('all');" class="button">リストを見る</a></p>
+                    </div>
+                </li>
+                <li class="widget color-green" id="widget6">
+                    <div class="widget-head">
+                                                    <a href="javascript:showList('provisional');"><h3>全ての予約リスト</h3></a>
+                                            </div>
+                    <div class="widget-content">
+                        <h4>将来の治療、検診の予約をしている患者さんのリストです。</h4>
+                        <p class="lead">カレンダー画面で予約、または仮予約登録及び連絡予定日を登録すると、このリストに表示されます。</p>
+                                              <p><a href="javascript:showList('provisional');" class="button">リストを見る</a></p>
+                                            </div>
+                </li>
+            </ul>
+    <!-- 左カラム end -->
+
+
+    <!-- 中央カラム start -->
+            <ul id="column2" class="column">
+                <li class="widget color-red" id="widget2">
+                    <div class="widget-head">
+                        <a href="javascript:showList('suspended');"><h3>未定者リスト</h3></a>
+                    </div>
+                    <div class="widget-content">
+                        <h4>次回の来院予約を確定せずに帰られた患者さんを登録するリストです。</h4>
+                        <p class="lead">カレンダー画面で、患者さんからの連絡を待つのか、それとも医院側から連絡をするのかなど、その後の対処法までも細かく登録出来ます。勿論、メールやコンテンツの配信もできます。</p>
+                        <p><a href="javascript:showList('suspended');" class="button">リストを見る</a></p>
+                    </div>
+                </li>
+                <li class="widget color-red" id="widget3">
+                    <div class="widget-head">
+                        <a href="javascript:showList('cancel');"><h3>キャンセル者リスト</h3></a>
+                    </div>
+                    <div class="widget-content">
+                        <h4>過去にキャンセルされた患者さんとその予約の内容を表示しています。</h4>
+                        <p class="lead">キャンセルした理由やその後の予約状況も一目で見ることが出来ます。</p>
+                        <p><a href="javascript:showList('cancel');" class="button">リストを見る</a></p>
+                    </div>
+                </li>
+                <li class="widget color-red" id="widget5">
+                    <div class="widget-head">
+                        <a href="javascript:showList('recalls');"><h3>定期検診患者リスト</h3></a>
+                    </div>
+                    <div class="widget-content">
+                        <h4>将来の定期検診予定者のリストです。</h4>
+                        <p class="lead">定期検診の案内状況、予約状況そして来院と４つのステータスにグルーピングされているので、患者さんの定期検診状況を確実に把握できます。</p>
+                        <p><a href="javascript:showList('recalls');" class="button">リストを見る</a></p>
+                    </div>
+                </li>
+            </ul>
+    <!-- 中央カラム end -->
+
+
+    <!-- 右カラム start -->
+            <ul id="column3" class="column">
+                <li class="widget color-yellow" id="widget8">
+                    <div class="widget-head">
+                                                <a href="javascript:showList('contact');"><h3>連絡者リスト</h3></a>
+                                            </div>
+                    <div class="widget-content">
+                        <h4>次回未定登録された患者、仮予約登録された患者、インプラントオペ未確定の患者、連絡登録された患者さんを表示するリストです。</h4>
+                                                <p><a href="javascript:showList('contact');" class="button">リストを見る</a></p>
+                        
+                    </div>
+                </li>
+
+                <li class="widget color-yellow" id="widget7">
+                    <div class="widget-head">
+                                                    <a href="javascript:showList('material');"><h3>技工物管理リスト</h3></a>
+                                            </div>
+                    <div class="widget-content">
+                        <h4>技工物の発注日、納品予定日、納品日、発注先の技工所（技工士）を管理するリストです。</h4>
+                                                    <p><a href="javascript:showList('material');" class="button">リストを見る</a></p>
+                                            </div>
+                </li>
+
+                                <li class="widget color-yellow" id="widget9">
+                    <div class="widget-head">
+                                                    <a href="javascript:showList('implants');"><h3>インプラント患者リスト</h3></a>
+                        
+                    </div>
+                    <div class="widget-content">
+                        <h4>インプラントのプロジェクトを作成した患者さんのリストです。</h4>
+                                                    <p><a href="javascript:showList('implants');" class="button">リストを見る</a></p>
+                                            </div>
+                </li>
+                                    </ul>
+    <!-- 右カラム end -->
+
+        </div><!-- #columns -->
+    </td>
+    </tr>
+    </tbody>
+    </table>
+<script>
+
+function showList(mode) {
+    $('input[name="search_mode"]').val( mode );
+    $('form[name="formList"]').submit();
+}
+</script>
+
+</div>
+
+<script src="/user/js/jquery.leanModal.min.js" type="text/javascript"></script>
+<script>
+    $(function() {
+        $('a[rel*=leanModal]').leanModal({
+            top: 50,                     // モーダルウィンドウの縦位置を指定
+            overlay : 0.5,               // 背面の透明度
+            closeButton: ".modal_close"  // 閉じるボタンのCSS classを指定
+        });
+    });
+</script><!-- 操作ログ用メガドロップ -->
+<!-- ▼操作ログ（モーダル表示用コンテンツ） -->
+<style>
+#operatioonallog{
+    width: 1150px;
+    background: #fff;
+    padding: 10px 10px 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    border-top: 3px solid #25b5b5;
+    display:none;
+}
+#operatioonallog .pagination{
+     display:table-cell;
+     float:right;
+     margin:0;
+     height:40px;
+     padding-top:10px;
+ }
+#operatioonallog tbody {
+    display:block;
+    overflow-y: scroll;
+    height: 400px;
+}
+#search_log_form input[type='text'] {
+    width: 120px;
+}
+</style>
+<!-- 操作ログモーダル -->
+<div class="full-content" id="operatioonallog">
+    <h1>
+        予約操作ログ一覧
+        &nbsp;&nbsp;</h1>
+
+    <form id="search_log_form">
+        <div class="form-inline">
+            <label>操作期間</label>
+            <input id="created_at_s" type="text" name="created_at_s" class="datepicker" value="2026/06/08" readonly="readonly" />
+            ～
+            <input id="created_at_e" type="text" name="created_at_e" class="datepicker" value="2026/06/08" readonly="readonly" />
+            <label>患者名 / 診察券番号</label><input type="text" name="patient_name" />
+            <input type="hidden" name="page" value="1" />
+            <button type="submit" class="btn btn-primary">検索</button>
+       </div>
+    </form>
+
+    <div id="operatioonallog_contents">
+    </div>
+    
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('a[href="#operatioonallog"]').click(function(){
+                load_operatioonallog_contents();
+            });
+        });
+        $('#search_log_form .datepicker').datepicker({
+            format: 'yyyy/mm/dd',
+            language: 'ja',
+            autoclose: true,
+            todayHighlight: true,
+            clearBtn: false,
+            startDate: '-3m',
+            endDate: '+0d',
+            beforeShowDay: picker_beforeShowDay_simple
+        })
+        .css('cursor', 'pointer');
+        $('#search_log_form').submit(function() {
+            load_operatioonallog_contents();
+            return false;
+        });
+        $('#operatioonallog_contents').on('paging', function(event, p1) {
+            $('input[name="page"]').val(p1);
+            load_operatioonallog_contents();
+        });
+        function load_operatioonallog_contents() {
+            openLoading();
+
+            var url = '/user/reservation_log/search_log';
+            if ($('input[name="page"]').val() > 1) {
+                url = url + '/page:' + $('input[name="page"]').val();
+            }
+
+            $.ajax({
+                url: url,
+                data: $('#search_log_form').serializeArray(),
+                dataType: 'html',
+                method: 'get',
+            })
+            .done(function(data) {
+                $('#operatioonallog_contents').html(data);
+                closeLoading();
+            })
+            .fail(function(data) {
+                closeLoading();
+            });
+        }
+        function openLoading() {
+            if ($('#reservation_log_search_animation_dialog').length > 0) {
+                return;
+            }
+
+            var htmlStr = '<div id="reservation_log_search_animation_dialog" class="template"><div><i class="fa fa-refresh fa-spin fa-3x fa-fw"></i><span>検索中です。暫くお待ちください。</span></div></div>';
+            $('body').append(htmlStr);
+            $("#reservation_log_search_animation_dialog.template").dialog({
+              modal: true,
+              closeOnEscape: false,
+              width: 355,
+              buttons: [],
+              open: function() {
+                  $('.ui-dialog', $('#reservation_log_search_animation_dialog.ui-dialog-content').parent().parent())
+                  .css('z-index', 12000)
+                  .css('background-color', '#fff')
+                  .css('box-shadow', '0 0 8px #666')
+                  .css('border-radius', '4px');
+;
+                  $('.ui-dialog-titlebar', $('#reservation_log_search_animation_dialog.ui-dialog-content').parent()).hide();
+              }
+            });
+        }
+        function closeLoading() {
+            $("#reservation_log_search_animation_dialog.template").dialog("close");
+            $('#reservation_log_search_animation_dialog.template').remove();
+        }
+    </script>
+
+</div><!-- /#operatioonallog -->
+
+<script>
+$(document).ready(function() {
+    // ブラウザサイズによって縦の表示をコントロールする
+    adjust();
+    $(window).resize(function(){
+        adjust();
+    });
+
+    function adjust(){
+        var h = $(window).height();
+        $('.right-column').css("height", h - 96);
+        $('#config-table-body').css("height", h - 173);
+        $('.side-menu').css("height", h - 95);
+        $('#search_panel').css("height", h - 95);
+    }
+});
+</script>
+
+
+<script type="text/javascript" src="/user/js/scroll.js?1438580681"></script>
+<script src="https://stransa4880.karakuri.ai/api/chats/popup.js" data-customer-name="【24】 ストランザ歯科医院"></script>
+<style>.krkr-button {display: none !important;}</style>
+
+</body>
+</html>

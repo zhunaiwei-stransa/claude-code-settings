@@ -1,0 +1,28 @@
+
+  ┌──────────────────────────────────────────────────┬─────────────────────────┐
+  │                    Controller                    │         Service         │
+  ├──────────────────────────────────────────────────┼─────────────────────────┤
+  │ ClubApotool/SmsContractController.php            │ SMS                     │
+  ├──────────────────────────────────────────────────┼─────────────────────────┤
+  │ ClubApotool/LineContractController.php           │ LINE                    │
+  ├──────────────────────────────────────────────────┼─────────────────────────┤
+  │ ClubApotool/ReceptionContractController.php      │ Reception               │
+  ├──────────────────────────────────────────────────┼─────────────────────────┤
+  │ ClubApotool/SubkarteContractController.php       │ Subkarte                │
+  ├──────────────────────────────────────────────────┼─────────────────────────┤
+  │ ClubApotool/TelemedContractController.php        │ Telemedicine            │
+  ├──────────────────────────────────────────────────┼─────────────────────────┤
+  │ ClubApotool/MdAppContractController.php          │ Medical App             │
+  ├──────────────────────────────────────────────────┼─────────────────────────┤
+  │ ClubApotool/OncallContractController.php         │ Oncall                  │
+  ├──────────────────────────────────────────────────┼─────────────────────────┤
+  │ ClubApotool/AiPhoneContractController.php        │ AI Phone                │
+  ├──────────────────────────────────────────────────┼─────────────────────────┤
+  │ ClubApotool/FrContractController.php             │ FR (Facial Recognition) │
+  ├──────────────────────────────────────────────────┼─────────────────────────┤
+  │ ClubApotool/WebReservationContractController.php │ Web Reservation         │
+  ├──────────────────────────────────────────────────┼─────────────────────────┤
+  │ ClubApotool/InterviewContractController.php      │ Interview               │
+  ├──────────────────────────────────────────────────┼─────────────────────────┤
+  │ ClubApotool/MedicalBoxAirContractController.php  │ MedicalBox Air          │
+  └──────────────────────────────────────────────────┴─────────────────────────┘

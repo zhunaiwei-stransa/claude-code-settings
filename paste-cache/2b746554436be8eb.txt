@@ -1,0 +1,31 @@
+/renewal-fix
+new: /contract/v1/profile
+old: /user/profile/
+Now the Go impl has a problem, it use user-id as only id, but the new token should use office-id, rewrite a query and make sure the output is one to one with what Profile/index.ctp show.
+❯ if I know office=868, how can I find the user by sql
+
+⏺ Based on the code in ProfileController.php:48-51:
+
+  $office_id = $this->Auth->user('office_id');
+  $this->userId = $this->Office->field('user_id', ['id' => $office_id]);
+  $this->user = $this->User->findById($this->userId);
+
+  The SQL would be:
+
+  -- Step 1: Get user_id from offices
+  SELECT user_id FROM offices WHERE id = 868;
+
+  -- Step 2: Get profile + user email in one query
+  SELECT p.*, u.email
+  FROM profiles p
+  INNER JOIN users u ON u.id = p.user_id
+  WHERE p.user_id = (SELECT user_id FROM offices WHERE id = 868);
+
+  Or as a single combined query:
+
+  SELECT p.name, p.representative_name, p.post_code, p.state_name,
+         p.address, p.tel, p.fax, p.contract_email, u.email
+  FROM offices o
+  JOIN profiles p ON p.user_id = o.user_id
+  JOIN users u ON u.id = o.user_id
+  WHERE o.id = 868;

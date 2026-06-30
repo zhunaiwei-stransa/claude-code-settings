@@ -1,0 +1,23 @@
+  1. Go naming: Url should be URL (both linedef/types.go and lineconfigsoutput)
+
+  The codebase uses HpURL (see clinicsettinginput/save_clinic_setting.go). Go convention and this repo's practice require acronyms to be all-caps.
+
+  Affected fields in both domain/linedef/types.go and lineconfigsoutput/fetch_line_configs.go:
+  - LiffUrl → LiffURL
+  - MiniAppUrl → MiniAppURL
+  - WebhookUrl → WebhookURL
+  - LiffFamilyUrl → LiffFamilyURL
+  - PrivacyPolicyUrl → PrivacyPolicyURL
+
+  (json tags like "liffUrl" stay as-is — those are fine)
+
+  2. JSON tag: "channelID" → "channelId" (output DTO)
+
+  Per project convention (reference: "Id in json tag name is always Id, not ID"), all other output DTOs use "officeId", "typeId", "displayItemId", etc.
+
+  In lineconfigsoutput/fetch_line_configs.go:
+  - json:"channelID" → json:"channelId"
+  - json:"officialAccountID" → json:"officialAccountId"
+
+  Note: The domain struct linedef/types.go should keep whatever the LINE backend actually returns (could be "channelID"). Only the output DTO needs to follow this project's convention if the frontend expects this project's
+  naming style.

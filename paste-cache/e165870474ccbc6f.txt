@@ -1,0 +1,52 @@
+func (c *client) FetchShops(
+    ctx context.Context,
+    officeID uint64,
+) (*paymentservicedef.FetchShopsResponse, error) {
+    path := fmt.Sprintf("/v1/shops?office-id=%d", officeID)
+
+    resp, err := c.doGet(ctx, path)
+    if err != nil {
+        return nil, fmt.Errorf("GET %s: %w", path, err)
+    }
+    defer resp.Body.Close()
+
+    if resp.StatusCode != http.StatusOK {
+        body, _ := io.ReadAll(resp.Body)
+
+        return nil, fmt.Errorf("GET %s: status %d, body: %s", path, resp.StatusCode, string(body))
+    }
+
+    var out paymentservicedef.FetchShopsResponse
+    if err := json.NewDecoder(resp.Body).Decode(&out); err != nil {
+        return nil, fmt.Errorf("decode fetch shops response: %w", err)
+    }
+
+    return &out, nil
+}
+
+func (c *client) FetchShop(
+    ctx context.Context,
+    shopID uint64,
+    officeID uint64,
+) (*paymentservicedef.FetchShopResponse, error) {
+    path := fmt.Sprintf("/v1/shops/%d?office-id=%d", shopID, officeID)
+
+    resp, err := c.doGet(ctx, path)
+    if err != nil {
+        return nil, fmt.Errorf("GET %s: %w", path, err)
+    }
+    defer resp.Body.Close()
+
+    if resp.StatusCode != http.StatusOK {
+        body, _ := io.ReadAll(resp.Body)
+
+        return nil, fmt.Errorf("GET %s: status %d, body: %s", path, resp.StatusCode, string(body))
+    }
+
+    var out paymentservicedef.FetchShopResponse
+    if err := json.NewDecoder(resp.Body).Decode(&out); err != nil {
+        return nil, fmt.Errorf("decode fetch shop response: %w", err)
+    }
+
+    return &out, nil
+}

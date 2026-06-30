@@ -298,6 +298,27 @@ func ContractChecker(ctx context.Context) (*contractdm.Checker, bool) {
 }
 ```
 
+### code 6: transaction
+
+```go
+	if err := u.tm.Begin(); err != nil {
+		return httperror.InternalServerError(
+			config.ErrCodeInternalServerError,
+			fmt.Errorf("begin transaction: %w", err),
+		)
+	}
+	defer u.tm.Rollback()
+
+	if err := u.tm.Commit(); err != nil {
+		return httperror.InternalServerError(
+			config.ErrCodeInternalServerError,
+			fmt.Errorf("commit transaction: %w", err),
+		)
+	}
+
+```
+
+- Begin Commit err return httperror.InternalServerError
 
 ## Points and pitfalls
 

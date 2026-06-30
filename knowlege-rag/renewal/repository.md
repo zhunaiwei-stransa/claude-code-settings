@@ -213,6 +213,7 @@ func withLockClause(withLock bool) []clause.Expression {
 6. Delete method is explicitly naming as SoftDelete using Update or HardDelete using Delete. SoftDelete use `"updated_at":  gorm.Expr("updated_at"),` to avoid update updated_at.
 7. Do not update id field in update method in most time.
 8. gorm.G should always use ptr type not struct type, like `gorm.G[*datasource.OncallUnitGroup]` is correct. However, you could ignore the exist inconsistency.
+9. only entire object or join object can be result type, row fetch is anti-model in repo though it exists in repo
 
 ## Constrains
 
