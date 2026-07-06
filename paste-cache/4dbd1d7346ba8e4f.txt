@@ -1,0 +1,36 @@
+  Bug: AvailablePlans serializes as null vs [] depending on path
+
+  File: apps/apotool/internal/contract/usecase/smsusecase/fetch_sms_contract_status_use_case.go:84-93
+
+  The early return for !termConsented creates a partial output struct:
+
+  return &smsoutput.FetchSmsContractStatusOutput{
+      Status: statusForbidden,
+      Preconditions: smsoutput.PreconditionsOutput{
+          TermConsented: termConsented,
+      },
+  }, nil
+
+  Here AvailablePlans is a nil []PlanOutput, which serializes as "availablePlans": null in JSON.
+
+  But in the normal path, availablePlans() at line 196 returns []PlanOutput{}, which serializes as "availablePlans": [].
+
+  This inconsistency can break frontend code that does .length or iterates without a null check. The medicalboxair use case avoids this by not having an early return — it always goes through the domain object.
+
+  Fix: Either initialize AvailablePlans: []smsoutput.PlanOutput{} in the early return, or remove the early return and always go through smsContract.toFetchSmsContractStatusOutput() (matching the medicalBoxAir pattern).
+
+  ---
+  Suggestion: Early return skips smsContract domain object, breaking pattern
+
+  File: fetch_sms_contract_status_use_case.go:84-93
+
+  The medicalboxairusecase (the closest sibling) does not have an early return for !termConsented. It always constructs the domain object and lets it determine the status internally:
+
+  // medicalboxair — always goes through domain object
+  mc := newMedicalBoxAirContract(perioExamExpires, medicalBoxExpires, termConsented)
+  return mc.toFetchMedicalBoxAirContractStatusOutput(), nil
+
+  The SMS use case early-returns before constructing smsContract, which also means the status() method in smsContract never handles the forbidden case — it only handles waiting, active, and notContracted. If the early return is
+   removed in the future, statusForbidden would never be returned.
+
+  Consider removing the early return and handling !termConsented inside smsContract.status() for consistency.

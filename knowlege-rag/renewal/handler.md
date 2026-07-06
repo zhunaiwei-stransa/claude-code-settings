@@ -29,12 +29,12 @@ func (h *fetchPsSuggestionForPrintHandler) FetchPsSuggestionForPrint(c *echo.Con
 		)
 	}
 
-	in := &psproductinput.FetchPsSuggestionForPrintInput{
-		OfficeID: officeID,
-	}
+	in := &psproductinput.FetchPsSuggestionForPrintInput{}
 	if err := echoapi.BindAndValidate(c, in); err != nil {
-		return httperror.BadRequest(config.ErrCodeInvalidParameter, err)
+			return httperror.BadRequest(config.ErrCodeBadRequest, err)
 	}
+
+	in.OfficeID = officeID
 
 	out, err := h.fetchPsSuggestionForPrintUseCase.FetchPsSuggestionForPrint(c.Request().Context(), in)
 	if err != nil {

@@ -1,0 +1,16 @@
+/renewal-plan
+you are writing a Front-Backend separated project contract apis based on PHP code.
+In general, I think 2 apis are enough, one for status and info /status, one for register contract /register.
+old system will call sendAccessToken, you ignore this thing in new system.
+be more careful about these:
+- php code in soft link link-apotool_master -> ../apotool_master
+- output date format use repo’s as standard, php format not need exactly copy
+- auth token is checked in other api that you dont need care about, just focus on what api should do
+- only write code for /status
+/status api has a unified process in all club-apotool apis, but the biz logic correctness must align with php
+1. fetch all data into one object(no matter required or optional, if optional ignore notfound err)
+2. this object provide method for get status or info
+3. usecase use this object to generate output response
+one important thing is that this object can only be defined in usecase
+new: GET /contract/v1/contracts/interview/status
+old: /user/interview_contract

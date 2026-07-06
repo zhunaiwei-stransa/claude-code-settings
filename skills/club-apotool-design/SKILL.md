@@ -11,17 +11,13 @@ when visit the URL and further register, the old php app will clall serveral api
 
 In input, I give you one of the new api url that containes the naming logic, for exmaple /contracts/ai-phone/register
 
-In new Go backend, I think 2 or 3 apis are enough, one for status and info /status, one for register contract /register, some contracts may have another function for /change. You will deign all the apis for one contract in one session.
+In new Go backend, I think 2 to 4 apis are enough, one for status and info /status, one for register contract /register, some contracts may have another function for /change, and for /activate. 
+
+We dont consider designing /leave or deregister api right now.
+
+You will deign all the apis for one contract in one session.
 
 Auth token is checked in other api that you dont need care about, just focus on api.
-
-## Php code link
-
-You can find PHP code in soft link `link-apotool_master` in repo root: lrwxr-xr-x@  1 user40010308  staff    17B  4月 22 12:37 link-apotool_master -> ../apotool_master
-
-### Precheck Php code link
-
-- Make sure soft link `link-apotool_master` in repo root exist, or that reject this reuqest and remind user to add the link
 
 ## Process
 
@@ -43,6 +39,7 @@ You can find PHP code in soft link `link-apotool_master` in repo root: lrwxr-xr-
 ### /status principles
 
 - status often tells the status of current contract
+- statusLabel often tells the status in Japanese
 - allowedAction often tells the user allowed action for now (php seems to merge status and action into one field named allow, which is not good)
 - other necessary information
 
@@ -88,7 +85,7 @@ GET /contracts/ai-phone/status
 
 ### /register principles
 
-- obey old php post format, if the old uses form, the new will use form
+- obey old php post format, if the old uses form for upload bin or something, the new will use form. Othervise use json.
 - be precice of every field, no useless fields, and naming obey old tradition
 - if it is really a form, give Bulk Edit format(The data format follows CSV Format Specification. Fields are separated by commas(,). Multiple records are separated by newlines.)
 
@@ -118,5 +115,5 @@ officeTel,string,true,03-1234-5678,,医院電話番号
 # Constrains
 
 - Human reading frindly output in markdown format
-- Do your best effort to make sure code can be compiled succfully
+- Never try to use tool to visit URL
 - Language: English!

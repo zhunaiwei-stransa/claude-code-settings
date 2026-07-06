@@ -13,6 +13,8 @@ You must carefully read the knowlege of Service, and also pratically read the ot
 
 ## Knowledge
 
+references is a soft link
+
 ### Knowledge 2.1: Focus on DDD level: Router
 
 - Read references if needed: `references/router.md`

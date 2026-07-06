@@ -32,6 +32,8 @@ You can find PHP code in soft link `link-apotool_master` in repo root: lrwxr-xr-
 
 ## Knowledge
 
+references is a soft link
+
 ### Knowledge 2.1: Focus on DDD level: Router
 
 - Read references if needed: `references/router.md`

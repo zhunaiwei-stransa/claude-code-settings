@@ -1,0 +1,28 @@
+~/Desktop/data/receipt-backend/apps/apotool (feature/clubapotool-sms-status) » make lint-fix                                                                                                               user40010308@W6T7WKX2MG
+WARN [runner] Changes related to "whitespace" are skipped for the file "/Users/user40010308/Desktop/data/receipt-backend/apps/apotool/internal/contract/usecase/smsusecase/fetch_sms_contract_status_use_case.go" due to conflicts with "wsl_v5".
+../apps/apotool/internal/contract/usecase/smsusecase/fetch_sms_contract_status_use_case.go:165:65: empty-lines: extra empty line at the end of a block (revive)
+func (sc *smsContract) switchPlan() *smsoutput.SwitchPlanOutput {
+    if sc.status() != statusWaiting {
+        return nil
+    }
+
+    if sc.app.RequestedSmsPlan == nil || *sc.app.RequestedSmsPlan == "" {
+        return nil
+    }
+
+    plan, ok := smsPlanDetails[*sc.app.RequestedSmsPlan]
+    if !ok {
+        return nil
+    }
+
+    return &smsoutput.SwitchPlanOutput{
+        Key:        plan.Key,
+        Name:       plan.Name,
+        BasicPrice: plan.BasicPrice,
+        ApplyMonth: timePtrToYearDashMonth(sc.app.ApplyMonth),
+    }
+
+}
+1 issues:
+* revive: 1
+make: *** [lint-fix] Error 1

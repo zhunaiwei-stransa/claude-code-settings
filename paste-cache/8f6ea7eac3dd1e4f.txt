@@ -1,0 +1,23 @@
+stransa-writer-staging > desc ap_applications;
++------------------------+--------------+------+-----+---------+----------------+
+| Field                  | Type         | Null | Key | Default | Extra          |
++------------------------+--------------+------+-----+---------+----------------+
+| id                     | int unsigned | NO   | PRI | NULL    | auto_increment |
+| office_id              | int unsigned | NO   | MUL | NULL    |                |
+| subscriber_type        | varchar(20)  | NO   |     | NULL    |                |
+| subscriber_name        | varchar(255) | NO   |     | NULL    |                |
+| representative_name    | varchar(255) | NO   |     | NULL    |                |
+| subscriber_address     | varchar(255) | NO   |     | NULL    |                |
+| subscriber_tel         | varchar(20)  | NO   |     | NULL    |                |
+| contact_person_name    | varchar(255) | NO   |     | NULL    |                |
+| office_name            | varchar(255) | NO   |     | NULL    |                |
+| office_address         | varchar(255) | NO   |     | NULL    |                |
+| office_tel             | varchar(20)  | NO   |     | NULL    |                |
+| applied_date           | date         | NO   |     | NULL    |                |
+| applied_by             | int unsigned | NO   |     | NULL    |                |
+| identity_document_path | varchar(255) | NO   |     | NULL    |                |
+| created_at             | datetime     | NO   |     | NULL    |                |
+| updated_at             | datetime     | NO   |     | NULL    |                |
+| deleted_at             | datetime     | YES  |     | NULL    |                |
++------------------------+--------------+------+-----+---------+----------------+
+17 rows in set (0.01 sec)
