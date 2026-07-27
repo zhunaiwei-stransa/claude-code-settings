@@ -114,3 +114,4 @@ func (a *PatientQuery) getPatientAggrForEditProfile(
 6. Query layer is private of sub-app. However, there is a pkg/query that can share query code bwtween sub-apps
 7. gorm.G should always use ptr type not struct type, like `gorm.G[*datasource.OncallUnitGroup]` is correct. However, you could ignore the exist inconsistency.
 8. only entire object or join object can be result type, row fetch is anti-model in repo though it exists in repo
+9. r.tm.Do().Unscoped() didnt work, dont use it

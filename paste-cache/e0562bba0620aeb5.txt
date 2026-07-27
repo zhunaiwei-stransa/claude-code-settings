@@ -1,0 +1,34 @@
+// upload.js  —— Node 18+ 直接执行: node upload.js
+import { readFile } from "node:fs/promises"
+
+// ① 从接口拿到的完整 presigned URL(整段粘进来,用反引号包住)
+const presignedUrl = `https://apotool-admin-staging.s3.ap-northeast-1.amazonaws.com/club-apotool/ai-phone/868/identity_document.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIA2QEXIXPFKYGHHMS4%2F20260722%2Fap-northeast-1%2Fs3%2Faws4_request&X-Amz-Date=20260722T064208Z&X-Amz-Expires=300&X-Amz-Security-Token=IQoJb3JpZ2luX2VjEAYaDmFwLW5vcnRoZWFzdC0xIkcwRQIgInCOGlzf4LYgxk7Y%2FuA01p0mFr4vCjz3%2Ba5KvvvbIHgCIQD4R1GstKIITuvDkEBhcsqk0CcAxmlwBUBExAqhiUxoZSqbBAjP%2F%2F%2F%2F%2F%2F%2F%2F%2F%2F8BEAAaDDcyMTg3MTc0ODA0MiIM8kUcskTB5llqslqHKu8DMANt4hQTmVe7YKJPowd0hxbxuGYsRoTqbldQ730sUBVrvnyigrIpWGnFkWaMFrf9tO%2FYV6ycNl4570nfBw2P5yDyjvbAZbgmQaeHr664IxuAAgVdhIXWCQ9GqqO94GThMBWnc9EurwoTUACNXjTcHnF0lYQVERvm27ucQYETEX5kRuLJVVGhMq4coV%2BdLMdN8n7fFooe9Zkim7jX0lv6my%2BQtNL49C36WefSLo2%2BwSZ9%2B5nk4YVdI11bXCXLNKntQSvAymCsw6QRB%2FTeNEZBbSBkkyRnR4%2FS3mlLn3xInPYZWEpX8lt4zyd5MGdH04bg0NIuWiPzCQopAwQaHFQEkvVAjwZnAwk5B6qnKNoIZiPRP%2FvMChm45NAPTjir1Qxlc5NF0fTiz5rsym9yHZhGaT%2Br6ERNAKmbpBgG3Hchf606HZpkGu1kHuaWSYfQ%2BJCmaKA%2BCDX64ieNmc2jWbCJpv%2FsLSo97VzvlId3KUk7QH9o%2Fl2BxutwS3InFHDTSi3PdtTQlE7DV3bzdeHHcN08pJ7SoG%2FF2WS2Fyr3%2B9l4QX6SAMt9JOm5Xl3C2FpMEWQB9i7mkv1XklxRItZpUrIeo4KjYQUQuBn9TERvZYci%2BbRMwlucVX85y5aZWKFdWZXOcxAhyKCPPlfmaLmNIuJdMM6zgdMGOqYB86xfHTk4XcxZbRfjHqTNPqo9bmR4%2Ba2pZGYm%2FS80p8j0RYofkIWCdoxwtt1kx3iOI57JDVEdwgaNcXqMVQPfQGrHdHN4TYAYKoAr%2FRN4s4S0EeLR4ZnWu4c0WJZv3uhV%2BdLE537ETdoxlDN9HdOHEal6twDKnQ1ATHYT1Szw54yTSlLsb1x5KJPK%2BdH3wVrFBIpxLbMViAERiAxoOqTiF0%2FN903ilg%3D%3D&X-Amz-SignedHeaders=host%3Bx-amz-storage-class&x-id=PutObject&X-Amz-Signature=72f608c665375e631fe67183ecfc3b2db09a4d88701c2faa39ca1c53decd8426`
+
+// ② 本地要上传的文件路径
+const filePath = "/Users/user40010308/Documents/test.png"
+
+async function upload() {
+  const body = await readFile(filePath) // 读成 Buffer 直接当 body
+
+  const res = await fetch(presignedUrl, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "image/png",
+      "x-amz-storage-class": "STANDARD", // 必须,和 SignedHeaders 对应
+    },
+    body,
+  })
+
+  const text = await res.text() // 成功时为空,失败时是 S3 的 XML 错误
+  console.log("HTTP", res.status)
+  if (!res.ok) {
+    console.error("上传失败,S3 返回:\n", text)
+    process.exit(1)
+  }
+  console.log("上传成功 ✅  filePath = club-apotool/ai-phone/868/identity_document.png")
+}
+
+upload().catch((err) => {
+  console.error("请求异常:", err)
+  process.exit(1)
+})

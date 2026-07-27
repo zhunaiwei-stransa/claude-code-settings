@@ -1,0 +1,8 @@
+~/Desktop/data/receipt-backend/apps/apotool (fix/list-bulletin-board-data) » make run-calendar                                                                                                             user40010308@W6T7WKX2MG
+{"time":"2026-07-21T11:51:06.280091+09:00","level":"INFO","msg":"configured db pool","name":"apotool.primary","max_open":100,"max_idle":10,"max_life":1800000000000,"max_idle_time":180000000000}
+{"time":"2026-07-21T11:51:06.296861+09:00","level":"INFO","msg":"configured db pool","name":"apotool.replica","max_open":100,"max_idle":10,"max_life":1800000000000,"max_idle_time":180000000000}
+{"time":"2026-07-21T11:51:06.301348+09:00","level":"INFO","msg":"initializing aggregator","id":"f8764151-8038-4517-931e-79274dd6c9eb","title":"hourly error summary","interval":"1h0m0s"}
+{"time":"2026-07-21T11:51:06.301364+09:00","level":"INFO","msg":"initializing aggregator","id":"f8764151-8038-4517-931e-79274dd6c9eb","title":"request summary","interval":"15m0s"}
+{"time":"2026-07-21T11:51:06.301693+09:00","level":"ERROR","msg":"panic","err":"* as allowed origin and AllowCredentials=true is insecure and not allowed. Use custom UnsafeAllowOriginFunc","stack":["/Users/user40010308/Desktop/data/receipt-backend/apps/apotool/cmd/calendar/main.go:36","/Users/user40010308/.go/current/src/runtime/panic.go:860","/Users/user40010308/go/pkg/mod/github.com/labstack/echo/v5@v5.0.4/middleware/middleware.go:94","/Users/user40010308/go/pkg/mod/github.com/labstack/echo/v5@v5.0.4/middleware/cors.go:141","/Users/user40010308/Desktop/data/receipt-backend/apps/apotool/internal/calendar/infrastructure/router/middleware.go:46"],"importance":2}
+exit status 2
+make: *** [run-calendar] Error 1

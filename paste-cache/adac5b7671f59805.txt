@@ -1,0 +1,16 @@
+~/Desktop/data/apotool-web (develop) » pnpm install                                                                                                                                                        user40010308@W6T7WKX2MG
+Scope: all 17 workspace projects
+Lockfile is up to date, resolution step is skipped
+Already up to date
+. postinstall$ node script/postinstall.js
+│ 🔨 Building @stransa-co-ltd/tooth-brush...
+│ (node:30631) [DEP0190] DeprecationWarning: Passing args to a child process with shell option true can lead to security vulnerabilities, as the arguments are not escaped, only concatenated.
+│ (Use `node --trace-deprecation ...` to show where the warning was created)
+│  ERR_PNPM_NO_IMPORTER_MANIFEST_FOUND  No package.json (or package.yaml, or package.json5) was found in "/Users/user40010308/Desktop/data/apotool-web/node_modules/.pnpm/@stransa-co-ltd+tooth-brush@git+https+++git@github.com…
+│ ❌ Error building @stransa-co-ltd/tooth-brush: Failed to build @stransa-co-ltd/tooth-brush (exit code: 1)
+│ Installation will continue, but you may need to build manually
+└─ Done in 241ms
+. prepare$ lefthook install
+│ sync hooks: ✔️ (pre-commit)
+└─ Done in 289ms
+Done in 1.1s using pnpm v10.19.0

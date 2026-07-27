@@ -214,6 +214,7 @@ func withLockClause(withLock bool) []clause.Expression {
 7. Do not update id field in update method in most time.
 8. gorm.G should always use ptr type not struct type, like `gorm.G[*datasource.OncallUnitGroup]` is correct. However, you could ignore the exist inconsistency.
 9. only entire object or join object can be result type, row fetch is anti-model in repo though it exists in repo
+10. r.tm.Do().Unscoped() didnt work, dont use it
 
 ## Constrains
 

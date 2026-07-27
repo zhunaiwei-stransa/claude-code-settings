@@ -1,0 +1,10 @@
+Running [/home/runner/golangci-lint-2.12.2-linux-amd64/golangci-lint config path] in [/home/runner/work/stransa-backend/stransa-backend/apps/receipt] ...
+  Running [/home/runner/golangci-lint-2.12.2-linux-amd64/golangci-lint run --path-mode=abs --config ../../.github/.golangci.yaml /home/runner/work/stransa-backend/stransa-backend/apps/receipt/... /home/runner/work/stransa-backend/stransa-backend/domain/... /home/runner/work/stransa-backend/stransa-backend/httpcontext/... /home/runner/work/stransa-backend/stransa-backend/httpcontext/awssigner/... /home/runner/work/stransa-backend/stransa-backend/infrastructure/... /home/runner/work/stransa-backend/stransa-backend/infrastructure/appsyncevents/... /home/runner/work/stransa-backend/stransa-backend/infrastructure/cloudfront/... /home/runner/work/stransa-backend/stransa-backend/infrastructure/s3/... /home/runner/work/stransa-backend/stransa-backend/infrastructure/sqs/... /home/runner/work/stransa-backend/stransa-backend/pagination/... /home/runner/work/stransa-backend/stransa-backend/vo/...] in [/home/runner/work/stransa-backend/stransa-backend/apps/receipt] ...
+  Error: /home/runner/work/stransa-backend/stransa-backend/apps/receipt/internal/usecase/fileusecase/create_media_presigned_urls_use_case_test.go:13:1: File is not properly formatted (gci)
+      "github.com/stransa-co-ltd/stransa-backend/domain/filedef"
+  ^
+  1 issues:
+  * gci: 1
+  
+  Error: issues found
+  Ran golangci-lint in 250105ms

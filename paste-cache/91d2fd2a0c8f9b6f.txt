@@ -1,0 +1,36 @@
+18:31:28 [vite] http proxy error: /contract
+Error: getaddrinfo ENOTFOUND base.invalid
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:121:26)
+18:31:28 [vite] http proxy error: /office-info
+Error: getaddrinfo ENOTFOUND base.invalid
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:121:26)
+18:31:28 [vite] http proxy error: /club-apotool/icons
+Error: getaddrinfo ENOTFOUND base.invalid
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:121:26)
+18:31:28 [vite] http proxy error: /outpatient/check-in-count
+Error: getaddrinfo ENOTFOUND base.invalid
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:121:26)
+18:31:28 [vite] http proxy error: /notification/read-status
+Error: getaddrinfo ENOTFOUND base.invalid
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:121:26)
+18:31:28 [vite] http proxy error: /notification/reservation-request/read-status
+Error: getaddrinfo ENOTFOUND base.invalid
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:121:26)
+18:31:28 [vite] http proxy error: /alerts
+Error: getaddrinfo ENOTFOUND base.invalid
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:121:26)
+18:31:28 [vite] http proxy error: /profile
+Error: getaddrinfo ENOTFOUND base.invalid
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:121:26)
+18:31:31 [vite] http proxy error: /contracts
+Error: getaddrinfo ENOTFOUND base.invalid
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:121:26)
+18:31:45 [vite] http proxy error: /card
+Error: getaddrinfo ENOTFOUND base.invalid
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:121:26)
+18:31:46 [vite] http proxy error: /contracts
+Error: getaddrinfo ENOTFOUND base.invalid
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:121:26)
+18:31:48 [vite] http proxy error: /notification/reservation-request/read-status
+Error: getaddrinfo ENOTFOUND base.invalid
+    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:121:26)

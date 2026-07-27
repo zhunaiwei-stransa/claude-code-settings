@@ -1,5 +1,0 @@
-~/Desktop/data/receipt-backend/apps/apotool (feature/setting-shifts-data) » make run-setting                                                                                                         127 ↵ user40010308@W6T7WKX2MG
-{"time":"2026-06-09T16:45:16.802688+09:00","level":"ERROR","msg":"env not set","missing":["API_PORT","SSO_SALT_KEY","SSO_TOKEN_PUBLIC_KEY","APOTOOL_MYSQL_USER","APOTOOL_MYSQL_PASSWORD","APOTOOL_MYSQL_PROTOCOL","APOTOOL_MYSQL_DBNAME","APOTOOL_MYSQL_REPLICA_USER","APOTOOL_MYSQL_REPLICA_PASSWORD","APOTOOL_MYSQL_REPLICA_PROTOCOL","APOTOOL_MYSQL_REPLICA_DBNAME","ENV"]}
-{"time":"2026-06-09T16:45:16.80335+09:00","level":"ERROR","msg":"panic","err":"env not set","stack":["/Users/user40010308/Desktop/data/receipt-backend/apps/apotool/cmd/setting/main.go:36","/Users/user40010308/.go/current/src/runtime/panic.go:860","/Users/user40010308/.go/current/src/sync/oncefunc.go:30","/Users/user40010308/.go/current/src/runtime/panic.go:860","/Users/user40010308/go/pkg/mod/github.com/stransa-co-ltd/envalid@v0.4.1/envalid.go:183"],"importance":2}
-exit status 2
-make: *** [run-setting] Error 1
