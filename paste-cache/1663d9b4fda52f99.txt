@@ -1,0 +1,10 @@
+  Status Label / Display Logic
+
+  - apps/apotool/internal/patient/usecase/reservationlistusecase/format_cell.go:19-20,175-188 — formatReservationStatus: returns 仮予約 or 本予約
+  - apps/apotool/internal/patient/usecase/reservationlistusecase/reservationlistoutput/reservation_list.go:35-37 — IsFixed bool drives the 【仮】marker
+  - apps/apotool/internal/patient/usecase/reservationlistusecase/reservationlistoutput/fetch_reservations.go:59 — IsFixed: r.NoticesOn == nil || r.FixedAt != nil
+  - apps/apotool/internal/outpatient/usecase/reservationusecase/reservationoutput/fetch_reservations.go:54,240 — IsUnfixed: row.NoticesOn != nil && row.FixedAt == nil
+  - apps/apotool/internal/calendar/query/timelinequery/daily.go:76,79 — IsUnfixed bool, NoticesOn *string in ReservationCard
+  - apps/apotool/internal/pkg/query/relatedreservationquery/related_reservation_item.go:15 — IsUnfixed bool
+  - apps/apotool/internal/patient/usecase/allpatientslistusecase/allpatientslistoutput/all_patients_list.go:18-21 — NoticesOn surfaces provisional state
+  - apps/apotool/internal/patient/usecase/reservationlistusecase/export_columns.go:25,77 — export column "icons" / header "特記事項"

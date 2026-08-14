@@ -1,0 +1,33 @@
+            $waitingRoomName = '';
+            if ($oncallReservation['oncall_type'] === OncallReservation::ONCALL_TYPE_EXAMINE_BEFORE) {
+                $reservationModel = ClassRegistry::init('Reservation');
+                $unit = $reservationModel->find('first', [
+                    'fields' => [
+                        'UnitNameSetting.waiting_room_name'
+                    ],
+                    'joins' => [
+                        [
+                            'type' => 'INNER',
+                            'table' => 'unit_name_settings',
+                            'alias' => 'UnitNameSetting',
+                            'conditions' => [
+                                'UnitNameSetting.office_id=Reservation.office_id',
+                                'UnitNameSetting.id=Reservation.unit_name_setting_id'
+                            ]
+                        ]
+                    ],
+                    'conditions' => [
+                        'Reservation.office_id' => $oncallReservation["office_id"],
+                        'Reservation.id' => $oncallReservation['reservation_id'],
+                        'Reservation.deleted_at' => null
+                    ]
+                ]);
+                if (empty($unit)) {
+                    throw new BadRequestException();
+                }
+                $waitingRoomName = $unit['UnitNameSetting']['waiting_room_name'];
+            }
+
+            if (!empty($waitingRoomName)) {
+                $content .= "\n{$waitingRoomName}でお待ちください。";
+            }    

@@ -1,0 +1,17 @@
+~/Desktop/data/receipt-backend/apps/apotool (feature/datsource-date-type) » make lint-fix                                                                                                                  user40010308@W6T7WKX2MG
+../apps/apotool/internal/pkg/infrastructure/rdb/persistence/datasourcev2/ai_monthly_report_config_data_source.go:1: : # github.com/stransa-co-ltd/stransa-backend/apps/apotool/internal/pkg/infrastructure/rdb/persistence/datasourcev2
+internal/pkg/infrastructure/rdb/persistence/datasourcev2/ai_monthly_report_config_data_source.go:31:23: undefined: gormtype.NewAuditTimeJST
+internal/pkg/infrastructure/rdb/persistence/datasourcev2/ai_monthly_report_config_data_source.go:32:23: undefined: gormtype.NewAuditTimeJST
+internal/pkg/infrastructure/rdb/persistence/datasourcev2/ap_patient_setting_data_source.go:39:33: undefined: gormtype.NewAuditTimeJST
+internal/pkg/infrastructure/rdb/persistence/datasourcev2/ap_patient_setting_data_source.go:41:33: undefined: gormtype.NewAuditTimeJST
+internal/pkg/infrastructure/rdb/persistence/datasourcev2/attachment_data_source.go:34:23: undefined: gormtype.NewAuditTimeJST
+internal/pkg/infrastructure/rdb/persistence/datasourcev2/attachment_data_source.go:35:23: undefined: gormtype.NewAuditTimeJST
+internal/pkg/infrastructure/rdb/persistence/datasourcev2/block_data_source.go:45:25: undefined: gormtype.NewAuditTimeJST
+internal/pkg/infrastructure/rdb/persistence/datasourcev2/block_data_source.go:47:25: undefined: gormtype.NewAuditTimeJST
+internal/pkg/infrastructure/rdb/persistence/datasourcev2/calendar_group_data_source.go:47:26: undefined: gormtype.NewAuditTimeJST
+internal/pkg/infrastructure/rdb/persistence/datasourcev2/calendar_group_data_source.go:48:26: undefined: gormtype.NewAuditTimeJST
+internal/pkg/infrastructure/rdb/persistence/datasourcev2/calendar_group_data_source.go:48:26: too many errors (typecheck)
+package datasourcev2
+1 issues:
+* typecheck: 1
+make: *** [lint-fix] Error 1

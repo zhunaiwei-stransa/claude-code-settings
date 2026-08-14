@@ -1,0 +1,12 @@
+~/Desktop/data/receipt-backend/apps/apotool (feat/max-ticket-no-lock-office) » make lint-fix                                                                                                               user40010308@W6T7WKX2MG
+../apps/apotool/internal/pkg/infrastructure/rdb/persistence/datasourcev2/file_upload_data_source_test.go:10:2: could not import github.com/stransa-co-ltd/stransa-backend/apps/apotool/internal/pkg/domain/fileuploadedm (internal/pkg/infrastructure/rdb/persistence/datasourcev2/file_upload_data_source_test.go:10:2: no required module provides package github.com/stransa-co-ltd/stransa-backend/apps/apotool/internal/pkg/domain/fileuploadedm; to add it:
+    go get github.com/stransa-co-ltd/stransa-backend/apps/apotool/internal/pkg/domain/fileuploadedm) (typecheck)
+    "github.com/stransa-co-ltd/stransa-backend/apps/apotool/internal/pkg/domain/fileuploadedm"
+    ^
+../apps/apotool/internal/pkg/infrastructure/rdb/persistence/datasourcev2/file_upload_data_source_test.go:11:2: could not import github.com/stransa-co-ltd/stransa-backend/apps/apotool/internal/pkg/domain/fileuploadedm/fileuploadvo (internal/pkg/infrastructure/rdb/persistence/datasourcev2/file_upload_data_source_test.go:11:2: no required module provides package github.com/stransa-co-ltd/stransa-backend/apps/apotool/internal/pkg/domain/fileuploadedm/fileuploadvo; to add it:
+    go get github.com/stransa-co-ltd/stransa-backend/apps/apotool/internal/pkg/domain/fileuploadedm/fileuploadvo) (typecheck)
+    "github.com/stransa-co-ltd/stransa-backend/apps/apotool/internal/pkg/domain/fileuploadedm/fileuploadvo"
+    ^
+2 issues:
+* typecheck: 2
+make: *** [lint-fix] Error 1

@@ -1,0 +1,59 @@
+### F4: MEDIUM — Credit Card Deletion for Telemedicine Not Implemented
+
+**PHP file:** `link-apotool_calendar/app/Controller/CancelController.php:291-397`
+
+PHP handles deletion of one-time credit cards when a telemedicine reservation is cancelled:
+
+```php
+// Before transaction: check if this is a credit-required telemedicine reservation
+$contractMdl = ClassRegistry::init('Contract');
+if ($contractMdl->isTelemedRequiredCredit($contract)) {
+    $isCreditRev = $this->Reservation->isCreditReservation($office_id, $reservation_id);
+}
+
+// ... transaction (cancel) ...
+
+// After transaction commit: delete one-time credit card if no other credit reservations remain
+if ($isCreditRev) {
+    $isDelete = $this->Reservation->isDeleteCredit($office_id, $patient_id, $reservation_id);
+    if ($isDelete) {
+        $regiCardMdl = ClassRegistry::init('RegiCard');
+        $cardInfo = $regiCardMdl->getPatientCard($office_id, $patient_id);
+        if (!empty($cardInfo) && !empty($cardInfo['cust_code']) && !empty($cardInfo['is_one_time'])) {
+            $regiCardMdl->deleteCard($office_id, $patient_id, $custCode);
+        }
+    }
+}
+```
+
+**PHP file:** `link-apotool_master/app/Model/Reservation.php:3345-3370`
+```php
+public function isCreditReservation($officeId, $reservationId) {
+    // INNER JOIN web_menus WHERE is_telemed=1 AND is_credit=1
+    // WHERE reservation.id = ? AND is_telemed = 1 AND deleted_at IS NULL
+}
+```
+
+**PHP file:** `link-apotool_master/app/Model/Reservation.php:3381-3411`
+```php
+public function isDeleteCredit($officeId, $patientId, $reservationId = null) {
+    // Count future credit-required telemedicine reservations for this patient
+    // (excluding the one being cancelled)
+    // If count === 0, card can be deleted
+}
+```
+
+**Go:** No credit card deletion logic exists in `cancelservice` or the cancel usecase.
+
+**Conditions for credit card deletion (PHP):**
+1. Office contract has telemedicine + credit requirement enabled
+2. The cancelled reservation is a telemedicine reservation with credit-required menu
+3. The patient has no other future telemedicine+credit reservations
+4. The patient's registered card is a one-time card (`is_one_time = 1`)
+
+**Impact:**
+- Telemedicine offices with credit card requirements: one-time cards will NOT be cleaned up when the associated reservation is cancelled via Go
+- The stale card data is not harmful but won't be automatically removed
+- This is a best-effort operation in PHP (failure doesn't fail the cancel)
+
+**Assessment:** Likely intentional omission if telemedicine credit card cleanup is planned as a separate migration. Confirm with team whether this feature is needed.

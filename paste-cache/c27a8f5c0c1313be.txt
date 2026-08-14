@@ -1,0 +1,36 @@
+
+  ➜  Local:   http://localhost:1693/
+  ➜  Network: use --host to expose
+  ➜  press h + enter to show help
+17:46:39 [vite] http proxy error: /office-info
+AggregateError [ECONNREFUSED]:
+    at internalConnectMultiple (node:net:1193:18)
+    at afterConnectMultiple (node:net:1783:7)
+17:46:39 [vite] http proxy error: /contract
+AggregateError [ECONNREFUSED]:
+    at internalConnectMultiple (node:net:1193:18)
+    at afterConnectMultiple (node:net:1783:7)
+17:46:39 [vite] http proxy error: /club-apotool/icons
+AggregateError [ECONNREFUSED]:
+    at internalConnectMultiple (node:net:1193:18)
+    at afterConnectMultiple (node:net:1783:7)
+17:46:39 [vite] http proxy error: /outpatient/check-in-count
+AggregateError [ECONNREFUSED]:
+    at internalConnectMultiple (node:net:1193:18)
+    at afterConnectMultiple (node:net:1783:7)
+17:46:39 [vite] http proxy error: /notification/read-status
+AggregateError [ECONNREFUSED]:
+    at internalConnectMultiple (node:net:1193:18)
+    at afterConnectMultiple (node:net:1783:7)
+17:46:39 [vite] http proxy error: /profile
+AggregateError [ECONNREFUSED]:
+    at internalConnectMultiple (node:net:1193:18)
+    at afterConnectMultiple (node:net:1783:7)
+17:46:39 [vite] http proxy error: /alerts
+AggregateError [ECONNREFUSED]:
+    at internalConnectMultiple (node:net:1193:18)
+    at afterConnectMultiple (node:net:1783:7)
+17:46:39 [vite] http proxy error: /notification/reservation-request/read-status
+AggregateError [ECONNREFUSED]:
+    at internalConnectMultiple (node:net:1193:18)
+    at afterConnectMultiple (node:net:1783:7)
