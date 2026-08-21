@@ -1,0 +1,67 @@
+  - noExplicitAny
+  - noExportsInTest
+  - noExtraNonNullAssertion
+  - noFallthroughSwitchClause
+  - noFocusedTests
+  - noFunctionAssign
+  - noGlobalAssign
+  - noGlobalIsFinite
+  - noGlobalIsNan
+  - noHeadImportInDocument
+  - noImplicitAnyLet
+  - noImportAssign
+  - noImportantInKeyframe
+  - noIrregularWhitespace
+  - noLabelVar
+  - noMisleadingCharacterClass
+  - noMisleadingInstantiator
+  - noMisplacedAssertion
+  - noMisrefactoredShorthandAssign
+  - noOctalEscape
+  - noPrototypeBuiltins
+  - noQuickfixBiome
+  - noReactSpecificProps
+  - noRedeclare
+  - noRedundantUseStrict
+  - noSelfCompare
+  - noShadowRestrictedNames
+  - noShorthandPropertyOverrides
+  - noSkippedTests
+  - noSparseArray
+  - noSuspiciousSemicolonInJsx
+  - noTemplateCurlyInString
+  - noThenProperty
+  - noTsIgnore
+  - noUnassignedVariables
+  - noUnknownAtRules
+  - noUnsafeDeclarationMerging
+  - noUnsafeNegation
+  - noUselessEscapeInString
+  - noUselessRegexBackrefs
+  - noVar
+  - noWith
+  - useAdjacentOverloadSignatures
+  - useAwait
+  - useBiomeIgnoreFolder
+  - useDefaultSwitchClauseLast
+  - useErrorMessage
+  - useGetterReturn
+  - useGoogleFontDisplay
+  - useGuardForIn
+  - useIsArray
+  - useIterableCallbackReturn
+  - useNamespaceKeyword
+  - useNumberToFixedDigitsArgument
+  - useStaticResponseMethods
+  - useStrictMode
+  
+
+configuration ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ✖ Biome exited because the configuration resulted in errors. Please fix them.
+  
+
+
+                                      
+  ────────────────────────────────────
+summary: (done in 0.58 seco

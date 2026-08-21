@@ -1,0 +1,9 @@
+{
+  "id": "1",
+  "subject": "Fix time.Now().UTC() in queryimpl files (6 files)",
+  "description": "Replace time.Now().UTC() with timeconv.NowJST() in:\n1. reservation_query_impl.go:53\n2. cancel_query_impl.go:947\n3. contact_query_impl.go:112,681\n4. material_query_impl.go:46\n5. patient_query_impl.go:659\n6. ap_log_query_impl.go:327\nAdd .UTC() at SQL boundaries for DATETIME columns.",
+  "activeForm": "Fixing queryimpl time.Now().UTC()",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

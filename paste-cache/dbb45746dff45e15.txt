@@ -1,0 +1,56 @@
+{
+    "data": {
+        "patients": [
+            {
+                "patient": {
+                    "id": 36669139,
+                    "name": "ビング",
+                    "nameFurigana": null,
+                    "registrationNumber": null,
+                    "birthday": null,
+                    "gender": null,
+                    "tel": null,
+                    "telMobile": "08071653942",
+                    "profileUrl": null,
+                    "memo": null,
+                    "status": {
+                        "rank": "",
+                        "color": "",
+                        "hasInfection": false,
+                        "isPaused": false,
+                        "isRecallTarget": false,
+                        "hasPendingCharges": false,
+                        "hasConsecutiveReservations": false,
+                        "isAppUser": false,
+                        "isFamilyAppUser": false,
+                        "isSasatoPayUser": false
+                    },
+                    "tag": null,
+                    "icons": [],
+                    "contactMethod": {
+                        "sms": true,
+                        "email": false,
+                        "html": false,
+                        "line": false,
+                        "mobileApp": false,
+                        "other": ""
+                    },
+                    "preferredContact": "SMS",
+                    "firstDate": null,
+                    "isSendMessageEnable": true,
+                    "lastMessage": null
+                },
+                "checkedInTimes": null,
+                "totalPaymentAmount": null,
+                "firstDate": null,
+                "lastVisitedAt": null,
+                "primaryDr": null,
+                "primaryDh": null,
+                "nextReservation": null,
+                "materials": []
+            }
+        ],
+        "totalCount": 1,
+        "page": 1
+    }
+}

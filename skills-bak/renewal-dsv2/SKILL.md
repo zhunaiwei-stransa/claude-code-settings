@@ -22,6 +22,12 @@ to resolve this problem, we introduce 2 packages:
 
 - This skill is specialized for renewal project.
 
+## Target
+
+- check one sub-app, make sure all time.Time in memeory is JST unless there are some special case
+- check if introducing any bugs before because of migrating datasource pkg
+- status file is prject-root/znwp-state.md storing every sub-app condition
+
 ## Rules
 
 - gormtype is only for gorm related struct like datasourcev2 and query struct, one field in one table's gormtype should consistent
@@ -31,6 +37,8 @@ to resolve this problem, we introduce 2 packages:
 - var naming: you don't need to emphasize var is JST as reader all knows it is usually JST, only special naming for UTC with subfix, that means you have right to renaming vars in refactoring
 - Updates either all use entity, either all use datasourcev2 model, mustn't mix use
 - compile check not generate real bin like, redirect to nil output stream
+- datasourcev2 is renamed as datasource
+- cannot use `timeconv.NowJST().UTC()`, use `now.UTC()` is ok
 
 ## vo patch
 

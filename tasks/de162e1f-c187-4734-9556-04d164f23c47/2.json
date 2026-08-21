@@ -1,0 +1,9 @@
+{
+  "id": "2",
+  "subject": "Fix time.Now().UTC() in usecase files (5 files)",
+  "description": "Replace time.Now().UTC() with timeconv.NowJST() in:\n1. fetch_reservation_use_case.go:170\n2. update_reservation_time_use_case.go:479\n3. send_check_in_notice_use_case.go:147\n4. create_reservation_use_case.go:722\n5. contactusecase/update_contact_status_use_case.go:56",
+  "activeForm": "Fixing usecase time.Now().UTC()",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

@@ -1,6 +1,0 @@
-~/Desktop/data/receipt-backend/apps/apotool (feature/misc-gen-upload-file-url) » make run-misc                                                                                                         2 ↵ user40010308@W6T7WKX2MG
-{"time":"2026-07-17T18:34:19.063101+09:00","level":"INFO","msg":"configured db pool","name":"apotool.primary","max_open":10,"max_idle":5,"max_life":300000000000,"max_idle_time":180000000000}
-{"time":"2026-07-17T18:34:19.085717+09:00","level":"ERROR","msg":"apotool db gorm open error","importance":2,"err":"Error 1049 (42000): Unknown database 'your_db_name'"}
-{"time":"2026-07-17T18:34:19.086118+09:00","level":"ERROR","msg":"panic","err":"Error 1049 (42000): Unknown database 'your_db_name'","stack":["/Users/user40010308/Desktop/data/receipt-backend/apps/apotool/cmd/misc/main.go:36","/Users/user40010308/.go/current/src/runtime/panic.go:860","/Users/user40010308/Desktop/data/receipt-backend/infrastructure/rdb/connection.go:94","/Users/user40010308/Desktop/data/receipt-backend/infrastructure/rdb/connection.go:201","/Users/user40010308/Desktop/data/receipt-backend/apps/apotool/internal/misc/infrastructure/router/server.go:186"],"importance":2}
-exit status 2
-make: *** [run-misc] Error 1

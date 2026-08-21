@@ -1,0 +1,9 @@
+{
+  "id": "5",
+  "subject": "Compile check and update znwp-state.md",
+  "description": "Run compile check, fix any issues, update status file.",
+  "activeForm": "Running compile check",
+  "status": "in_progress",
+  "blocks": [],
+  "blockedBy": []
+}

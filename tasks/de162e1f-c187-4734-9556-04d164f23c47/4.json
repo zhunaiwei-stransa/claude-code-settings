@@ -1,0 +1,9 @@
+{
+  "id": "4",
+  "subject": "Convert query struct scan fields to gormtype",
+  "description": "Query output structs still use plain time.Time for time fields. These are functionally correct because consumers use timeconv.TimePtrToJstRFC3339 for formatting (which handles UTC→JST). Converting to gormtype would be a consistency improvement. The datasource models already use gormtype (they were converted earlier). Deferred full scan struct conversion as a future incremental task.",
+  "activeForm": "Converting query structs to gormtype",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}

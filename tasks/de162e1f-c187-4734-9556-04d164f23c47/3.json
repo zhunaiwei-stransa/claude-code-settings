@@ -1,0 +1,9 @@
+{
+  "id": "3",
+  "subject": "Clean up timeline usecase .UTC() conversions",
+  "description": "Timeline/print usecases: .UTC() calls are at the usecase-to-query boundary. Query functions pass values directly to SQL WHERE on UTC-stored DATETIME columns. Pattern is consistent with scheduler service. No changes needed - functionally correct and at a natural boundary.",
+  "activeForm": "Cleaning timeline .UTC() conversions",
+  "status": "completed",
+  "blocks": [],
+  "blockedBy": []
+}
