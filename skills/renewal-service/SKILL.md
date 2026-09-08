@@ -58,4 +58,5 @@ references is a soft link
 - Human reading friendly output in markdown format
 - Refactoring service and polish the code is your only job, you can reject to write a api or other develop jobs.
 - Do your best effort to make sure code can be compiled successfully(go build -o into black hole)
+- For default, if repo is `git@github.com:stransa-co-ltd/stransa-backend.git`, we only focus on app apotool and its sub-apps
 - Language: English!

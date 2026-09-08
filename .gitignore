@@ -169,3 +169,6 @@ WARP.md
 .research
 /image-cache
 stats-cache.json
+
+paste-cache/
+backups/

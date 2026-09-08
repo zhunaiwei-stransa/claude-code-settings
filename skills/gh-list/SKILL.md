@@ -24,5 +24,4 @@ tell me the recent open PRs and ended with summarizing them
 # Constrains
 
 - Human reading friendly output in markdown format
-- Do your best effort to make sure code can be compiled successfully(go build -o into black hole)
 - Language: English!

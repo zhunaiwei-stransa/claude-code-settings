@@ -57,4 +57,5 @@ Now you have the information of git diff which tells you what code has been udpd
 - Focus on the real goal according to the content, git branch and git commit etc. messages are only for hint.
 - Human reading friendly output in markdown format
 - Do your best effort to make sure code can be compiled successfully(go build -o into black hole)
+- For default, if repo is `git@github.com:stransa-co-ltd/stransa-backend.git`, we only focus on app apotool and its sub-apps
 - Language: English!

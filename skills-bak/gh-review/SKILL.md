@@ -86,5 +86,4 @@ references is a soft link
 - No need to think about testing
 - Be precise and accurate on reporting, avoding cliche and long teaching
 - Human reading friendly output in markdown format
-- Do your best effort to make sure code can be compiled successfully(go build -o into black hole)
 - Language: English!

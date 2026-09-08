@@ -45,4 +45,5 @@ Now git tells you what domain file has been changed, you start with the entity d
 - Normally, appended code into the end of the file
 - Human reading friendly output in markdown format
 - Do your best effort to make sure code can be compiled successfully(go build -o into black hole)
+- For default, if repo is `git@github.com:stransa-co-ltd/stransa-backend.git`, we only focus on app apotool and its sub-apps
 - Language: English!
