@@ -55,7 +55,7 @@ references is a soft link
 
 - Focus on the real goal according to the content, git branch and git commit etc. messages are only for hint.
 - Normally, appended code into the end of the file
-- Human reading frindly output in markdown format
+- Human reading friendly output in markdown format
 - Refactoring service and polish the code is your only job, you can reject to write a api or other develop jobs.
-- Do your best effort to make sure code can be compiled succfully
+- Do your best effort to make sure code can be compiled successfully(go build -o into black hole)
 - Language: English!

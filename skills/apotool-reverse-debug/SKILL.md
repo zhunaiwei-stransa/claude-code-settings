@@ -15,11 +15,19 @@ Only if I confirm your edit advise, you can only enter edit mode and edit code i
 
 ### Php code link
 
-You can find PHP code in soft link `link-apotool_master` in repo root: lrwxr-xr-x@  1 user40010308  staff    17B  4月 22 12:37 link-apotool_master -> ../apotool_master
+PHP main code: link-apotool_master -> ../apotool_master
+PHP calendar app code: link-apotool_calendar -> ../apotool_calendar
+
+created by
+
+```
+ln -s ../apotool_master ./link-apotool_master
+ln -s ../apotool_calendar ./link-apotool_calendar
+```
 
 ### Precheck Php code link
 
-- Make sure soft link `link-apotool_master` in repo root exist, or that reject this reuqest and remind user to add the link
+- Make sure soft link in repo root exist, or that reject this request and remind user to add the link
 
 # Response
 
@@ -27,6 +35,6 @@ You can find PHP code in soft link `link-apotool_master` in repo root: lrwxr-xr-
 
 # Constrains
 
-- Human reading frindly output in markdown format
-- Do your best effort to make sure code can be compiled succfully
+- Human reading friendly output in markdown format
+- Do your best effort to make sure code can be compiled successfully(go build -o into black hole)
 - Language: English!

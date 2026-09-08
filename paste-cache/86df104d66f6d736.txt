@@ -1,0 +1,39 @@
+                "reservation": {
+                    "id": 1000029270,
+                    "startsAt": "2026-08-24T16:15:00+09:00",
+                    "endsAt": "2026-08-24T16:35:00+09:00",
+                    "requiredMinutes": 20,
+                    "checkOutStatus": "canceled",
+                    "privateExpense": false,
+                    "noticesOn": null,
+                    "fixedAt": null,
+                    "flag": "NONE",
+                    "operatorType": null,
+                    "isTelemed": false,
+                    "lateness": 0,
+                    "memo": "",
+                    "staff": {
+                        "staff1": {
+                            "id": 3704,
+                            "name": "パートさんA"
+                        },
+                        "staff2": {
+                            "id": 3701,
+                            "name": "衛生士"
+                        }
+                    },
+                    "menu": {
+                        "menu1": {
+                            "id": 67850,
+                            "name": "定期検診A"
+                        }
+                    },
+                    "unit": {
+                        "id": 5891,
+                        "name": "チェア1"
+                    },
+                    "hasSameDayReservations": false,
+                    "materials": [],
+                    "payment": null
+                }
+            },

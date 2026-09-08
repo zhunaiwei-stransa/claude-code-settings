@@ -77,5 +77,5 @@ use `gh pr diff`if possible
 
 # Constrains
 
-- Human reading frindly output in markdown format
+- Human reading friendly output in markdown format
 - Language: English!

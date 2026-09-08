@@ -1,0 +1,17 @@
+~/Desktop/data/receipt-backend/apps/apotool (chore/demo-static-files-endpoint*) » make lint-fix                                                     2 ↵ user40010308@W6T7WKX2MG
+../apps/apotool/doc/mdxpage/handler.go:338:10: Error return value of `ast.Walk` is not checked (errcheck)
+    ast.Walk(doc, func(n ast.Node, entering bool) (ast.WalkStatus, error) {
+            ^
+../apps/apotool/doc/mdxpage/handler.go:154:4: use-slices-sort: replace sort.Slice by slices.SortFunc (revive)
+            sort.Slice(de.Files, func(i, j int) bool { return de.Files[i].Name < de.Files[j].Name })
+            ^
+../apps/apotool/doc/mdxpage/handler.go:174:2: use-slices-sort: replace sort.Slice by slices.SortFunc (revive)
+    sort.Slice(dirs, func(i, j int) bool { return dirs[i].Name < dirs[j].Name })
+    ^
+../apps/apotool/doc/mdxpage/handler.go:175:2: use-slices-sort: replace sort.Slice by slices.SortFunc (revive)
+    sort.Slice(roots, func(i, j int) bool { return roots[i].Name < roots[j].Name })
+    ^
+4 issues:
+* errcheck: 1
+* revive: 3
+make: *** [lint-fix] Error 1

@@ -62,6 +62,6 @@ There are some special rules for some layers:
 # Constrains
 
 - Normally, appended code into the end of the file
-- Human reading frindly output in markdown format
-- Do your best effort to make sure code can be compiled succfully
+- Human reading friendly output in markdown format
+- Do your best effort to make sure code can be compiled successfully(go build -o into black hole)
 - Language: English!

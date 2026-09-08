@@ -1,0 +1,200 @@
+~/Desktop/data/receipt-backend/infrastructure/decoding (feature/base64-tag-whitelist*) » go test . -v                                                                                                      user40010308@W6T7WKX2MG
+=== RUN   TestDecodingSuite
+=== RUN   TestDecodingSuite/TestDecodeAndSanitizeBase64HTML
+=== RUN   TestDecodingSuite/TestDecodeAndSanitizeBase64HTML/decodes_and_sanitizes
+=== RUN   TestDecodingSuite/TestDecodeAndSanitizeBase64HTML/preserves_safe_HTML
+    base64_test.go:257:
+            Error Trace:    /Users/user40010308/Desktop/data/receipt-backend/infrastructure/decoding/base64_test.go:257
+                                        /Users/user40010308/go/pkg/mod/github.com/stretchr/testify@v1.11.1/suite/suite.go:115
+            Error:          Not equal:
+                            expected: "<b style=\"color:red\">bold</b>"
+                            actual  : "<b style=\"color: red\">bold</b>"
+
+                            Diff:
+                            --- Expected
+                            +++ Actual
+                            @@ -1 +1 @@
+                            -<b style="color:red">bold</b>
+                            +<b style="color: red">bold</b>
+            Test:           TestDecodingSuite/TestDecodeAndSanitizeBase64HTML/preserves_safe_HTML
+=== RUN   TestDecodingSuite/TestDecodeAndSanitizeBase64HTML/invalid_base64_returns_error
+=== RUN   TestDecodingSuite/TestDecodeAndSanitizeBase64HTML/empty_content
+=== RUN   TestDecodingSuite/TestSanitizeHTML_AllowedTagsPreserved
+=== RUN   TestDecodingSuite/TestSanitizeHTML_AllowedTagsPreserved/p_with_style_and_dir
+    base64_test.go:70:
+            Error Trace:    /Users/user40010308/Desktop/data/receipt-backend/infrastructure/decoding/base64_test.go:70
+                                        /Users/user40010308/go/pkg/mod/github.com/stretchr/testify@v1.11.1/suite/suite.go:115
+            Error:          Not equal:
+                            expected: "<p style=\"color:red\" dir=\"ltr\">hello</p>"
+                            actual  : "<p style=\"color: red\" dir=\"ltr\">hello</p>"
+
+                            Diff:
+                            --- Expected
+                            +++ Actual
+                            @@ -1 +1 @@
+                            -<p style="color:red" dir="ltr">hello</p>
+                            +<p style="color: red" dir="ltr">hello</p>
+            Test:           TestDecodingSuite/TestSanitizeHTML_AllowedTagsPreserved/p_with_style_and_dir
+=== RUN   TestDecodingSuite/TestSanitizeHTML_AllowedTagsPreserved/div_with_style
+    base64_test.go:70:
+            Error Trace:    /Users/user40010308/Desktop/data/receipt-backend/infrastructure/decoding/base64_test.go:70
+                                        /Users/user40010308/go/pkg/mod/github.com/stretchr/testify@v1.11.1/suite/suite.go:115
+            Error:          Not equal:
+                            expected: "<div style=\"margin:0\">content</div>"
+                            actual  : "<div style=\"margin: 0\">content</div>"
+
+                            Diff:
+                            --- Expected
+                            +++ Actual
+                            @@ -1 +1 @@
+                            -<div style="margin:0">content</div>
+                            +<div style="margin: 0">content</div>
+            Test:           TestDecodingSuite/TestSanitizeHTML_AllowedTagsPreserved/div_with_style
+=== RUN   TestDecodingSuite/TestSanitizeHTML_AllowedTagsPreserved/br
+=== RUN   TestDecodingSuite/TestSanitizeHTML_AllowedTagsPreserved/span_with_style_and_data-formula
+    base64_test.go:70:
+            Error Trace:    /Users/user40010308/Desktop/data/receipt-backend/infrastructure/decoding/base64_test.go:70
+                                        /Users/user40010308/go/pkg/mod/github.com/stretchr/testify@v1.11.1/suite/suite.go:115
+            Error:          Not equal:
+                            expected: "<span style=\"font-size:14px\" data-formula=\"x^2\">formula</span>"
+                            actual  : "<span style=\"font-size: 14px\" data-formula=\"x^2\">formula</span>"
+
+                            Diff:
+                            --- Expected
+                            +++ Actual
+                            @@ -1 +1 @@
+                            -<span style="font-size:14px" data-formula="x^2">formula</span>
+                            +<span style="font-size: 14px" data-formula="x^2">formula</span>
+            Test:           TestDecodingSuite/TestSanitizeHTML_AllowedTagsPreserved/span_with_style_and_data-formula
+=== RUN   TestDecodingSuite/TestSanitizeHTML_AllowedTagsPreserved/inline_formatting_b_strong_i_em_with_style
+    base64_test.go:70:
+            Error Trace:    /Users/user40010308/Desktop/data/receipt-backend/infrastructure/decoding/base64_test.go:70
+                                        /Users/user40010308/go/pkg/mod/github.com/stretchr/testify@v1.11.1/suite/suite.go:115
+            Error:          Not equal:
+                            expected: "<b style=\"color:red\">bold</b><strong style=\"color:blue\">strong</strong><i style=\"color:green\">italic</i><em style=\"color:gray\">em</em>"
+                            actual  : "<b style=\"color: red\">bold</b><strong style=\"color: blue\">strong</strong><i style=\"color: green\">italic</i><em style=\"color: gray\">em</em>"
+
+                            Diff:
+                            --- Expected
+                            +++ Actual
+                            @@ -1 +1 @@
+                            -<b style="color:red">bold</b><strong style="color:blue">strong</strong><i style="color:green">italic</i><em style="color:gray">em</em>
+                            +<b style="color: red">bold</b><strong style="color: blue">strong</strong><i style="color: green">italic</i><em style="color: gray">em</em>
+            Test:           TestDecodingSuite/TestSanitizeHTML_AllowedTagsPreserved/inline_formatting_b_strong_i_em_with_style
+=== RUN   TestDecodingSuite/TestSanitizeHTML_AllowedTagsPreserved/u_s_strike_without_attributes
+=== RUN   TestDecodingSuite/TestSanitizeHTML_AllowedTagsPreserved/a_with_href_target_rel_title
+=== RUN   TestDecodingSuite/TestSanitizeHTML_AllowedTagsPreserved/img_with_src_alt_width_height_data-formula
+=== RUN   TestDecodingSuite/TestSanitizeHTML_DisallowedStripped
+=== RUN   TestDecodingSuite/TestSanitizeHTML_DisallowedStripped/script_tag_stripped
+=== RUN   TestDecodingSuite/TestSanitizeHTML_DisallowedStripped/iframe_stripped
+=== RUN   TestDecodingSuite/TestSanitizeHTML_DisallowedStripped/onerror_event_handler_stripped
+=== RUN   TestDecodingSuite/TestSanitizeHTML_DisallowedStripped/javascript_URL_in_href_stripped
+=== RUN   TestDecodingSuite/TestSanitizeHTML_DisallowedStripped/onclick_on_allowed_tag_stripped
+    base64_test.go:120:
+            Error Trace:    /Users/user40010308/Desktop/data/receipt-backend/infrastructure/decoding/base64_test.go:120
+                                        /Users/user40010308/go/pkg/mod/github.com/stretchr/testify@v1.11.1/suite/suite.go:115
+            Error:          Not equal:
+                            expected: "<p style=\"color:blue\">text</p>"
+                            actual  : "<p style=\"color: blue\">text</p>"
+
+                            Diff:
+                            --- Expected
+                            +++ Actual
+                            @@ -1 +1 @@
+                            -<p style="color:blue">text</p>
+                            +<p style="color: blue">text</p>
+            Test:           TestDecodingSuite/TestSanitizeHTML_DisallowedStripped/onclick_on_allowed_tag_stripped
+=== RUN   TestDecodingSuite/TestSanitizeHTML_DisallowedStripped/disallowed_tag_h1_stripped
+=== RUN   TestDecodingSuite/TestSanitizeHTML_DisallowedStripped/style_tag_stripped
+=== RUN   TestDecodingSuite/TestSanitizeHTML_EdgeCases
+=== RUN   TestDecodingSuite/TestSanitizeHTML_EdgeCases/empty_string
+=== RUN   TestDecodingSuite/TestSanitizeHTML_EdgeCases/plain_text
+=== RUN   TestDecodingSuite/TestSanitizeHTML_EdgeCases/nested_allowed_tags
+=== RUN   TestDecodingSuite/TestSanitizeHTML_StyleAttributeCSSSanitization
+=== RUN   TestDecodingSuite/TestSanitizeHTML_StyleAttributeCSSSanitization/color_is_safe
+    base64_test.go:179:
+            Error Trace:    /Users/user40010308/Desktop/data/receipt-backend/infrastructure/decoding/base64_test.go:179
+                                        /Users/user40010308/go/pkg/mod/github.com/stretchr/testify@v1.11.1/suite/suite.go:115
+            Error:          Not equal:
+                            expected: "<p style=\"color:red\">text</p>"
+                            actual  : "<p style=\"color: red\">text</p>"
+
+                            Diff:
+                            --- Expected
+                            +++ Actual
+                            @@ -1 +1 @@
+                            -<p style="color:red">text</p>
+                            +<p style="color: red">text</p>
+            Test:           TestDecodingSuite/TestSanitizeHTML_StyleAttributeCSSSanitization/color_is_safe
+=== RUN   TestDecodingSuite/TestSanitizeHTML_StyleAttributeCSSSanitization/background-color_is_safe
+    base64_test.go:179:
+            Error Trace:    /Users/user40010308/Desktop/data/receipt-backend/infrastructure/decoding/base64_test.go:179
+                                        /Users/user40010308/go/pkg/mod/github.com/stretchr/testify@v1.11.1/suite/suite.go:115
+            Error:          Not equal:
+                            expected: "<span style=\"background-color:#ff0\">hi</span>"
+                            actual  : "<span style=\"background-color: #ff0\">hi</span>"
+
+                            Diff:
+                            --- Expected
+                            +++ Actual
+                            @@ -1 +1 @@
+                            -<span style="background-color:#ff0">hi</span>
+                            +<span style="background-color: #ff0">hi</span>
+            Test:           TestDecodingSuite/TestSanitizeHTML_StyleAttributeCSSSanitization/background-color_is_safe
+=== RUN   TestDecodingSuite/TestSanitizeHTML_StyleAttributeCSSSanitization/font-size_is_safe
+    base64_test.go:179:
+            Error Trace:    /Users/user40010308/Desktop/data/receipt-backend/infrastructure/decoding/base64_test.go:179
+                                        /Users/user40010308/go/pkg/mod/github.com/stretchr/testify@v1.11.1/suite/suite.go:115
+            Error:          Not equal:
+                            expected: "<span style=\"font-size:14px\">hi</span>"
+                            actual  : "<span style=\"font-size: 14px\">hi</span>"
+
+                            Diff:
+                            --- Expected
+                            +++ Actual
+                            @@ -1 +1 @@
+                            -<span style="font-size:14px">hi</span>
+                            +<span style="font-size: 14px">hi</span>
+            Test:           TestDecodingSuite/TestSanitizeHTML_StyleAttributeCSSSanitization/font-size_is_safe
+=== RUN   TestDecodingSuite/TestSanitizeHTML_StyleAttributeCSSSanitization/position:fixed_is_dangerous_(UI_overlay_hijack)
+=== RUN   TestDecodingSuite/TestSanitizeHTML_StyleAttributeCSSSanitization/background_with_url()_is_dangerous_(data_exfiltration)
+=== RUN   TestDecodingSuite/TestSanitizeHTML_StyleAttributeCSSSanitization/position:absolute_is_dangerous
+=== RUN   TestDecodingSuite/TestSanitizeHTML_StyleAttributeCSSSanitization/expression()_is_dangerous_(IE_legacy_XSS)
+--- FAIL: TestDecodingSuite (0.00s)
+    --- FAIL: TestDecodingSuite/TestDecodeAndSanitizeBase64HTML (0.00s)
+        --- PASS: TestDecodingSuite/TestDecodeAndSanitizeBase64HTML/decodes_and_sanitizes (0.00s)
+        --- FAIL: TestDecodingSuite/TestDecodeAndSanitizeBase64HTML/preserves_safe_HTML (0.00s)
+        --- PASS: TestDecodingSuite/TestDecodeAndSanitizeBase64HTML/invalid_base64_returns_error (0.00s)
+        --- PASS: TestDecodingSuite/TestDecodeAndSanitizeBase64HTML/empty_content (0.00s)
+    --- FAIL: TestDecodingSuite/TestSanitizeHTML_AllowedTagsPreserved (0.00s)
+        --- FAIL: TestDecodingSuite/TestSanitizeHTML_AllowedTagsPreserved/p_with_style_and_dir (0.00s)
+        --- FAIL: TestDecodingSuite/TestSanitizeHTML_AllowedTagsPreserved/div_with_style (0.00s)
+        --- PASS: TestDecodingSuite/TestSanitizeHTML_AllowedTagsPreserved/br (0.00s)
+        --- FAIL: TestDecodingSuite/TestSanitizeHTML_AllowedTagsPreserved/span_with_style_and_data-formula (0.00s)
+        --- FAIL: TestDecodingSuite/TestSanitizeHTML_AllowedTagsPreserved/inline_formatting_b_strong_i_em_with_style (0.00s)
+        --- PASS: TestDecodingSuite/TestSanitizeHTML_AllowedTagsPreserved/u_s_strike_without_attributes (0.00s)
+        --- PASS: TestDecodingSuite/TestSanitizeHTML_AllowedTagsPreserved/a_with_href_target_rel_title (0.00s)
+        --- PASS: TestDecodingSuite/TestSanitizeHTML_AllowedTagsPreserved/img_with_src_alt_width_height_data-formula (0.00s)
+    --- FAIL: TestDecodingSuite/TestSanitizeHTML_DisallowedStripped (0.00s)
+        --- PASS: TestDecodingSuite/TestSanitizeHTML_DisallowedStripped/script_tag_stripped (0.00s)
+        --- PASS: TestDecodingSuite/TestSanitizeHTML_DisallowedStripped/iframe_stripped (0.00s)
+        --- PASS: TestDecodingSuite/TestSanitizeHTML_DisallowedStripped/onerror_event_handler_stripped (0.00s)
+        --- PASS: TestDecodingSuite/TestSanitizeHTML_DisallowedStripped/javascript_URL_in_href_stripped (0.00s)
+        --- FAIL: TestDecodingSuite/TestSanitizeHTML_DisallowedStripped/onclick_on_allowed_tag_stripped (0.00s)
+        --- PASS: TestDecodingSuite/TestSanitizeHTML_DisallowedStripped/disallowed_tag_h1_stripped (0.00s)
+        --- PASS: TestDecodingSuite/TestSanitizeHTML_DisallowedStripped/style_tag_stripped (0.00s)
+    --- PASS: TestDecodingSuite/TestSanitizeHTML_EdgeCases (0.00s)
+        --- PASS: TestDecodingSuite/TestSanitizeHTML_EdgeCases/empty_string (0.00s)
+        --- PASS: TestDecodingSuite/TestSanitizeHTML_EdgeCases/plain_text (0.00s)
+        --- PASS: TestDecodingSuite/TestSanitizeHTML_EdgeCases/nested_allowed_tags (0.00s)
+    --- FAIL: TestDecodingSuite/TestSanitizeHTML_StyleAttributeCSSSanitization (0.00s)
+        --- FAIL: TestDecodingSuite/TestSanitizeHTML_StyleAttributeCSSSanitization/color_is_safe (0.00s)
+        --- FAIL: TestDecodingSuite/TestSanitizeHTML_StyleAttributeCSSSanitization/background-color_is_safe (0.00s)
+        --- FAIL: TestDecodingSuite/TestSanitizeHTML_StyleAttributeCSSSanitization/font-size_is_safe (0.00s)
+        --- PASS: TestDecodingSuite/TestSanitizeHTML_StyleAttributeCSSSanitization/position:fixed_is_dangerous_(UI_overlay_hijack) (0.00s)
+        --- PASS: TestDecodingSuite/TestSanitizeHTML_StyleAttributeCSSSanitization/background_with_url()_is_dangerous_(data_exfiltration) (0.00s)
+        --- PASS: TestDecodingSuite/TestSanitizeHTML_StyleAttributeCSSSanitization/position:absolute_is_dangerous (0.00s)
+        --- PASS: TestDecodingSuite/TestSanitizeHTML_StyleAttributeCSSSanitization/expression()_is_dangerous_(IE_legacy_XSS) (0.00s)
+FAIL
+FAIL    github.com/stransa-co-ltd/stransa-backend/infrastructure/decoding    0.266s
+FAIL

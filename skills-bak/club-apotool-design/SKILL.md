@@ -114,6 +114,6 @@ officeTel,string,true,03-1234-5678,,医院電話番号
 
 # Constrains
 
-- Human reading frindly output in markdown format
+- Human reading friendly output in markdown format
 - Never try to use tool to visit URL
 - Language: English!

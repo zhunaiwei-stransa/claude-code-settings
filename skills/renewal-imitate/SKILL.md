@@ -55,6 +55,6 @@ Now you have the information of git diff which tells you what code has been udpd
 # Constrains
 
 - Focus on the real goal according to the content, git branch and git commit etc. messages are only for hint.
-- Human reading frindly output in markdown format
-- Do your best effort to make sure code can be compiled succfully
+- Human reading friendly output in markdown format
+- Do your best effort to make sure code can be compiled successfully(go build -o into black hole)
 - Language: English!

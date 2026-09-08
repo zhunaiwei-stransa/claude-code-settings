@@ -1,9 +1,0 @@
-~/Desktop/data/receipt-backend/apps/apotool (feature/recall-alter-status) » make lint-fix                                                                 user40010308@W6T7WKX2MG
-../apps/apotool/internal/pkg/infrastructure/rdb/persistence/datasourcev2/ai_monthly_report_config_data_source.go:1: : # github.com/stransa-co-ltd/stransa-backend/apps/apotool/internal/pkg/infrastructure/rdb/persistence/datasourcev2
-internal/pkg/infrastructure/rdb/persistence/datasourcev2/oncall_reservation_data_source.go:99:3: not enough arguments in call to oncalldm.ReconstructOncallReservation
-    have (uint64, uint64, uint64, uint64, int, *uint64, string, "time".Time, string, string, string, *"time".Time, *"time".Time, "time".Time, uint64, "time".Time, uint64, *"time".Time, *uint64)
-    want (uint64, uint64, uint64, uint64, int, *uint64, string, "time".Time, string, string, string, *"time".Time, *"time".Time, *"time".Time, *string, *"time".Time, *string, *"time".Time, *string, "time".Time, uint64, "time".Time, uint64, *"time".Time, *uint64) (typecheck)
-package datasourcev2
-1 issues:
-* typecheck: 1
-make: *** [lint-fix] Error 1

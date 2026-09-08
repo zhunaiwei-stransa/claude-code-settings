@@ -30,5 +30,5 @@ If the kiro has done it before, skip this step
 
 # Constrains
 
-- Human reading frindly output in markdown format
+- Human reading friendly output in markdown format
 - Language: English!

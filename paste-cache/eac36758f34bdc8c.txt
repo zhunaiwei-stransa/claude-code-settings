@@ -1,0 +1,32 @@
+stransa-writer-staging > desc recalls;
++-------------------------+------------+------+-----+---------+----------------+
+| Field                   | Type       | Null | Key | Default | Extra          |
++-------------------------+------------+------+-----+---------+----------------+
+| id                      | int        | NO   | PRI | NULL    | auto_increment |
+| patient_id              | int        | YES  | MUL | NULL    |                |
+| recalls_at              | date       | YES  |     | NULL    |                |
+| recalled_at             | datetime   | YES  |     | NULL    |                |
+| office_id               | int        | YES  | MUL | NULL    |                |
+| created_at              | datetime   | NO   |     | NULL    |                |
+| updated_at              | datetime   | NO   |     | NULL    |                |
+| came_at                 | datetime   | YES  |     | NULL    |                |
+| reservation_id          | int        | YES  | MUL | NULL    |                |
+| marginal_reservation_id | int        | YES  |     | NULL    |                |
+| datetime_disp           | datetime   | YES  |     | NULL    |                |
+| recall_type_id          | int        | YES  |     | NULL    |                |
+| memo                    | text       | YES  |     | NULL    |                |
+| recall_menu             | int        | YES  |     | NULL    |                |
+| created_reservation_id  | int        | YES  | MUL | NULL    |                |
+| reservation_start_date  | date       | YES  |     | NULL    |                |
+| required_time           | int        | YES  |     | NULL    |                |
+| deleted_at              | datetime   | YES  |     | NULL    |                |
+| noticed_with            | int        | YES  |     | NULL    |                |
+| menu_id                 | int        | YES  |     | NULL    |                |
+| menu2_id                | int        | YES  |     | NULL    |                |
+| menu3_id                | int        | YES  |     | NULL    |                |
+| staff_id                | int        | YES  |     | NULL    |                |
+| staff2_id               | int        | YES  |     | NULL    |                |
+| staff3_id               | int        | YES  |     | NULL    |                |
+| private_expense         | tinyint(1) | YES  |     | NULL    |                |
++-------------------------+------------+------+-----+---------+----------------+
+26 rows in set (0.00 sec)
